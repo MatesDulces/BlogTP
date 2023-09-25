@@ -1,2 +1,1 @@
-# BlogTP
-Created with CodeSandbox
+# Mateo Majlin, Thiago Valdez, Victoria Burgos 
