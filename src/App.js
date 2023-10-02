@@ -1,10 +1,14 @@
-import "./styles.css";
+import './App.css';
 
-export default function App() {
+function App() {
   return (
-    <div className="App">
-      <h1>Hello </h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+<div>
+   <h1>VIKI</h1>
+
+    <p>hola</p>
+ </div>
+
   );
 }
+
+export default App;
