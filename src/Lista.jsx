@@ -39,6 +39,8 @@ function Lista() {
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
               />
+              <Markdown remarkPlugins={[remarkGfm]}>{texto}</Markdown>
+    </>
               <button onClick={agregarNombre}>AGREGAR</button>
             </form>
           </div>
