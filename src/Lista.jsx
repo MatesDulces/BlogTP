@@ -30,7 +30,7 @@ function Lista() {
       <div>
         <h1>Agregar post</h1>
         <button onClick={() => setMostrarFormPost(!mostrarFormPost)}>
-          Agregar Post
+          
         </button>
         {mostrarFormPost && (
           <div>
