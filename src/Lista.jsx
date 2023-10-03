@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'; 
 
 function Lista() {
   const [nombre, setNombre] = useState("");
