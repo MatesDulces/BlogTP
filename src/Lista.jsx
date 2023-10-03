@@ -39,20 +39,19 @@ function Lista() {
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
               />
-              <Markdown remarkPlugins={[remarkGfm]}>{texto}</Markdown>
+              <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
     </>
               <button onClick={agregarNombre}>AGREGAR</button>
             </form>
       
           </div>
         )}
-        <h2>Estado de ánimo</h2>
+        <h2>BLOG</h2>
         <ListaCompleta lista={lista} />
       </div>
 
       <div>
         <button onClick={() => setMostrarFormComentario(!mostrarFormComentario)}>
-          Agregar Comentario
         </button>
         {mostrarFormComentario && (
           <div>
