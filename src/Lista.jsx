@@ -34,7 +34,7 @@ function Lista() {
           <div>
             <form onSubmit={(e) => e.preventDefault()}>
               <textarea
-                placeholder="¿Cómo fue tu día hoy? 😊"
+                placeholder="ESCRIBE EN MARKDOWN 😊"
                 rows="5"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
@@ -43,6 +43,7 @@ function Lista() {
     </>
               <button onClick={agregarNombre}>AGREGAR</button>
             </form>
+      
           </div>
         )}
         <h2>Estado de ánimo</h2>
