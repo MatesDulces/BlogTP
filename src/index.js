@@ -5,14 +5,13 @@ import App from './App';
 import Lista from './Lista';
 //import CommenBox from './CommenBox';
 //import AddPostForm from './AddPostForm'
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App></App>
     <BrowserRouter>
       <Routes>
-        <Route exact path='/New-Post' element={<Lista />} />
+        <Route exact path='/' element={<App />} />
+        <Route exact path='/Markdown' element={<Lista />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
-);
+  </React.StrictMode>,
+)
