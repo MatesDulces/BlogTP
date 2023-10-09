@@ -79,6 +79,7 @@ const ListaCompleta = ({ lista }) => {
       {lista.map((item, i) => (
         <li key={i}>{item.text}</li>
       ))}
+      <Link to="/markdown">Hacer blog</Link>
     </ul>
   );
 };
