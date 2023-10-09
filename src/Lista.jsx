@@ -39,8 +39,7 @@ function Lista() {
                 placeholder="ESCRIBE EN MARKDOWN 😊"
                 rows="5"
                 value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-              />
+                onChange={(e) => setNombre(e.target.value)}/>
               <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
     </>
               <button onClick={agregarNombre}>AGREGAR</button>
