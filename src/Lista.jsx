@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'; 
+import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
+
 
 function Lista() {
   const [nombre, setNombre] = useState("");
