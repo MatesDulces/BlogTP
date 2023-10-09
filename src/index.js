@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<App />} />
-        <Route exact path='/Markdown' element={<Lista />} />
+        <Route exact path='/markdown' element={<Lista />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
