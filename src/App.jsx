@@ -13,8 +13,6 @@ function Lista() {
 
 
   return (
-   
-
         <h2>BLOG</h2>
         <ListaCompleta lista={lista} />
       </div>
