@@ -10,5 +10,10 @@ root.render(
   <React.StrictMode>
     <App></App>
     <Lista></Lista>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/New-Post' element={<Lista />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
