@@ -9,7 +9,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App></App>
-    <Lista></Lista>
     <BrowserRouter>
       <Routes>
         <Route exact path='/New-Post' element={<Lista />} />
