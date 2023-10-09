@@ -54,3 +54,13 @@ function Lista() {
       </div>
 
       <div>
+        const ListaCompleta = ({ lista }) => {
+  return (
+    <ul>
+      {lista.map((item, i) => (
+        <li key={i}>{item.text}</li>
+      ))}
+      <Link to="/markdown">Hacer blog</Link>
+    </ul>
+  );
+};
