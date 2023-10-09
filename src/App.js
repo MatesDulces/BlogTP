@@ -1,14 +1,7 @@
 import './App.css';
 
 function App() {
-  return (
-<div>
-   <h1>VIKI</h1>
-
-    <p>hola</p>
- </div>
-
-  );
+  return ( 0 );
 }
 
 export default App;
