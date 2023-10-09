@@ -73,7 +73,7 @@ function Lista() {
     </div>
   );
 }
-
+)
 const ListaCompleta = ({ lista }) => {
   return (
     <ul>
