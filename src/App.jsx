@@ -40,3 +40,4 @@ const ListaCompleta2 = ({ lista2 }) => {
     </ul>
   );
 };
+export default App;
