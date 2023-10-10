@@ -13,9 +13,9 @@ function Lista() {
 
 
   return (
+          </div>
  <Link to="/markdown">Hacer blog</Link>  
     <ListaCompleta lista={lista} />
-      </div>
         <h2>Comentarios</h2>
         <ListaCompleta2 lista2={lista2} />
       </div>
