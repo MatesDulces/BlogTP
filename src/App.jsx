@@ -13,7 +13,7 @@ function Lista() {
 
 
   return (
-</div>
+<div>
  <Link to="/markdown">Hacer blog</Link>  
     <ListaCompleta lista={lista} />
         <h2>Comentarios</h2>
