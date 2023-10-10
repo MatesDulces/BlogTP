@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 function Lista() {
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
-  const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState([]);
   const [mostrarFormPost, setMostrarFormPost] = useState(false); 
   const [mostrarFormComentario, setMostrarFormComentario] = useState(false); 
 
