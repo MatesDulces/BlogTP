@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import App from './App';
 
 
-function App() {
+function Lista() {
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
   const [mostrarFormPost, setMostrarFormPost] = useState(false); 
