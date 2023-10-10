@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //import AddPostForm from './AddPostForm'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+  <App></App>
+  <Lista></Lista>
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<App />} />
