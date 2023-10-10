@@ -13,8 +13,8 @@ function Lista() {
 
 
   return (
-        <h2>BLOG</h2>
-        <ListaCompleta lista={lista} />
+ <Link to="/markdown">Hacer blog</Link>  
+    <ListaCompleta lista={lista} />
       </div>
         <h2>Comentarios</h2>
         <ListaCompleta2 lista2={lista2} />
@@ -28,7 +28,6 @@ const ListaCompleta = ({ lista }) => {
       {lista.map((item, i) => (
         <li key={i}>{item.text}</li>
       ))}
-      <Link to="/markdown">Hacer blog</Link>
     </ul>
   );
 };
