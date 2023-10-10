@@ -3,6 +3,7 @@ import "./App.css";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
+import Lista from './Lista'
 
 
 function Lista() {
