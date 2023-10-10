@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Lista from './Lista'
 
 
-function Lista() {
+function App() {
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState([]);
   const [mostrarFormPost, setMostrarFormPost] = useState(false); 
