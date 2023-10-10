@@ -75,25 +75,5 @@ function Lista() {
     </div>
   );
 };
-const ListaCompleta = ({ lista }) => {
-  return (
-    <ul>
-      {lista.map((item, i) => (
-        <li key={i}>{item.text}</li>
-      ))}
-      <Link to="/markdown">Hacer blog</Link>
-    </ul>
-  );
-};
-
-const ListaCompleta2 = ({ lista2 }) => {
-  return (
-    <ul>
-      {lista2.map((item, o) => (
-        <li key={o}>{item.text}</li>
-      ))}
-    </ul>
-  );
-};
 
 export default Lista;
