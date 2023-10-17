@@ -2,7 +2,6 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import './Home.css';
 
 function Home(props) {
   const { admin } = props;
