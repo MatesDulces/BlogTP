@@ -12,7 +12,7 @@ function Home(props) {
     if (cosasGuardadas) setAlmacen(cosasGuardadas);
   }, []);
 
-  function HandleClick(cosa) {
+  function Home(cosa) {
     console.log(cosa.id);
     let delet = almacen.filter((i) => i.id !== cosa.id);
     setAlmacen(delet);
