@@ -14,9 +14,9 @@ function Home(props) {
 
   function HandleClick(cosa) {
     console.log(cosa.id);
-    let elim = arr.filter((i) => i.id !== cosa.id);
-    setAlmacen(elim);
-    localStorage.setItem("post", JSON.stringify(elim));
+    let delet = almacen.filter((i) => i.id !== cosa.id);
+    setAlmacen(delet);
+    localStorage.setItem("post", JSON.stringify(delet));
     localStorage.setItem(`comentarios${cosa.id}`, JSON.stringify([]));
   }
 
