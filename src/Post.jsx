@@ -3,7 +3,7 @@ import remarkGfm from "remark-gfm";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Principal";
+import Home from "./Home";
 import Comentarios from "./Comentarios";
 import Admin from "./Admin";
 
