@@ -15,7 +15,7 @@ function Home(props) {
   function HandleClick(cosa) {
     console.log(cosa.id);
     let elim = arr.filter((i) => i.id !== cosa.id);
-    setArr(elim);
+    setAlmacen(elim);
     localStorage.setItem("post", JSON.stringify(elim));
     localStorage.setItem(`comentarios${cosa.id}`, JSON.stringify([]));
   }
@@ -35,7 +35,7 @@ function Home(props) {
           </li>
         </ul>
       </nav>
-      {arr.map((cosa) => (
+      {almacen.map((cosa) => (
         <>
           <Link to={`/post/${cosa.id}`}>
             <div>
