@@ -3,10 +3,10 @@ import remarkGfm from "remark-gfm";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Post from "./components/Post";
-import Home from "./components/Principal";
-import Comentarios from "./components/Comentarios";
-import Admin from "./components/Admin";
+import Post from "./Post";
+import Home from "./Principal";
+import Comentarios from "./Comentarios";
+import Admin from "./Admin";
 
 function Rutas() {
   const [almacen, setAlmacen] = useState([]);
