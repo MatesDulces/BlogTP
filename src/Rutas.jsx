@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Post from "./Post";
-import Home from "./Principal";
+import Home from "./Home";
 import Comentarios from "./Comentarios";
 import Admin from "./Admin";
 
