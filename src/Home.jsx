@@ -8,7 +8,7 @@ function Home(props) {
   const [almacen, setAlmacen] = useState([]);
 
   useEffect(() => {
-    let cosasGuardadas = JSON.parse(localStorage.getItem("post"));
+    let cosasGuardadas = JSON.parce(localStorage.getItem("post"));
     if (cosasGuardadas) setAlmacen(cosasGuardadas);
   }, []);
 
