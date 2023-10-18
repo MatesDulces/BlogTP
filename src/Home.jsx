@@ -43,8 +43,8 @@ function Home (props) {
         <div className="conteiner">
           <Link to={`/post/${cosa.id}`} className= "post-link">
             <div className= "post-item">
-              <h1>TITULO: {cosa.title}</h1>
-              <h3>AUTOR: {cosa.name}</h3>
+              <h1>TITULO: {cosa.nombre}</h1>
+              <h3>AUTOR: {cosa.comentario}</h3>
               <Markdown remarkPlugins={[remarkGfm]}>
                 {cosa.text.substring(0, 30) + "..."}
               </Markdown>
