@@ -29,18 +29,18 @@ function Post() {
   }, [lista2]);
 
   const agregarNombre = () => {
-    if (nombre.trim() !== "") {
-      setLista([...lista, { text: nombre, type: "item" }]);
-      setNombre("");
-    }
-  };
+  if (comentario.trim() !== "") {
+    setLista2([...lista, { text: nombre, type: "item" }]);
+    setComentario("");
+  }
+};
 
-  const agregarComentario = () => {
-    if (comentario.trim() !== "") {
-      setLista2([...lista2, { text: comentario, type: "corazón" });
-      setComentario("");
-    }
-  };
+ const agregarComentario = () => {
+  if (comentario.trim() !== "") {
+    setLista2([...lista2, { text: comentario, type: "corazón" }]);
+    setComentario("");
+  }
+};
 
   return (
     <div className="container">
