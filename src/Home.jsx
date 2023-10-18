@@ -5,23 +5,23 @@ import { useState, useEffect } from "react";
 
 function Home (props) {
   const { admin } = props;
-  const [arr, setArr] = useState([]);
+  const [nombre, setNombre] = useState([]);
 
   useEffect(() => {
-    let cosasGuardadas = JSON.parse(localStorage.getItem("post"));
-    if (cosasGuardadas) setArr(cosasGuardadas);
+    let nombre = JSON.parse(localStorage.getItem("post"));
+    if (cosasGuardadas) setNombre(cosasGuardadas);
   }, []);
 
   function HandleClick(cosa) {
     console.log(cosa.id);
-    let elim = arr.filter((i) => i.id !== cosa.id);
-    setArr(elim);
+    let delete = arr.filter((i) => i.id !== cosa.id);
+    setNombre(elim);
     localStorage.setItem("post", JSON.stringify(elim));
     localStorage.setItem(`comentarios${cosa.id}`, JSON.stringify([]));
   }
 
   return (
-    <div className= "principal-container">
+    <div className= "home">
       <header>
         <img src="https://cdn4.iconfinder.com/data/icons/communication-v2/64/number_numero_count_thirty_five-2-512.png" alt="logo" />
       <nav className= "nav-menu">
@@ -38,9 +38,9 @@ function Home (props) {
         </ul>
       </nav>
       </header>
-      {admin && <h1 className= "admin-notificacion">Modo Admin Activado👨🏻‍💻</h1>}
-      {arr.map((cosa) => (
-        <div className="contenedor">
+      {admin && <h1 className= "admin">Modo Admin Activado👨🏻‍💻</h1>}
+      {nombre.map((cosa) => (
+        <div className="conteiner">
           <Link to={`/post/${cosa.id}`} className= "post-link">
             <div className= "post-item">
               <h1>TITULO: {cosa.title}</h1>
