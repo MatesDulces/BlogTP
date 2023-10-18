@@ -1,33 +1,30 @@
+import React, { useState, useEffect } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Comentarios from "./Comentarios";
-import Admin from "./Admin";
 
 function Post() {
-  const [postTitle, setPostTitle] = useState('');
-  const [postContent, setPostContent] = useState('');
+  const [postTitle, setPostTitle] = useState("");
+  const [postContent, setPostContent] = useState("");
   const [posts, setPosts] = useState([]);
+  const [markdownContent, setMarkdownContent] = useState("");
 
   useEffect(() => {
-    const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+    const storedPosts = JSON.parse(localStorage.getItem("posts")) || [];
     setPosts(storedPosts);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('posts', JSON.stringify(posts));
+    localStorage.setItem("posts", JSON.stringify(posts));
   }, [posts]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (postTitle.trim() !== '' && postContent.trim() !== '') {
+    if (postTitle.trim() !== "" && postContent.trim() !== "") {
       const newPost = { title: postTitle, content: postContent };
       setPosts([...posts, newPost]);
-      setPostTitle('');
-      setPostContent('');
+      setPostTitle("");
+      setPostContent("");
     }
   };
 
@@ -56,11 +53,23 @@ function Post() {
           </li>
         ))}
       </ul>
+      <h2>Contenido en Markdown</h2>
+      <Markdown
+        children={markdownContent}
+        plugins={[remarkGfm]}
+        allowDangerousHtml
+      />
       <nav>
         <ul>
-        <li><Link to="/">Volver a la pagina principal</Link></li>
-        <li><Link to="/blog">Ir a pagina de Markdown</Link></li>
-        <li><Link to="/Admin">Ir a modo Admin</Link></li>
+          <li>
+            <Link to="/">Volver a la página principal</Link>
+          </li>
+          <li>
+            <Link to="/blog">Ir a la página de Markdown</Link>
+          </li>
+          <li>
+            <Link to="/Admin">Ir a modo Admin</Link>
+          </li>
         </ul>
       </nav>
     </div>
