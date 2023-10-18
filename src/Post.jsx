@@ -54,7 +54,7 @@ function Post() {
             onChange={(e) => setNombre(e.target.value)}
           />
           <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
-          <button onClick={agregarNombre}>AGREGAR</button>
+         <button onClick={() => agregarNombre()}>AGREGAR</button>
         </form>
       </div>
 
