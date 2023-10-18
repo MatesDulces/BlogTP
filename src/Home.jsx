@@ -1,24 +1,15 @@
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
 
-function Home(props) {
-  const { admin } = props;
-  const [posts, setPosts] = useState([]); 
+function Home() {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("post"));
-    if (postsGuardados) setPosts(postsGuardados); 
+    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
+    setPosts(postsGuardados);
   }, []);
-
-  function HandleClick(post) {
-    console.log(post.id);
-    let updatedPosts = posts.filter((p) => p.id !== post.id); 
-    setPosts(updatedPosts); 
-    localStorage.setItem("post", JSON.stringify(updatedPosts)); 
-    localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
-  }
 
   return (
     <div className="home">
@@ -27,30 +18,21 @@ function Home(props) {
         <nav className="nav-menu">
           <ul>
             <li>
-              <Link to="/">Volver a la pagina principal</Link>
+              <Link to="/">Volver a la página principal</Link>
             </li>
             <li>
-              <Link to="/Post">Publicar tu post</Link>
-            </li>
-            <li>
-              <Link to="/Admin">Ir a modo Admin</Link>
+              <Link to="/post">Publicar tu post</Link>
             </li>
           </ul>
         </nav>
       </header>
-      {admin && <h1 className="admin">Modo Admin Activado👨🏻‍💻</h1>}
-      {posts.map((post) => (
-        <div className="container">
-          <Link to={`/post/${post.id}`} className="post-link">
-            <div className="post-item">
-              <h1>TITULO: {post.title}</h1>
-              <h3>AUTOR: {post.name}</h3>
-              <Markdown remarkPlugins={[remarkGfm]}>
-                {post.text.substring(0, 30) + "..."}
-              </Markdown>
-            </div>
-          </Link>
-          {admin && <button className="delete-button" onClick={() => HandleClick(post)}>borrar</button>}
+      {posts.map((post, index) => (
+        <div className="container" key={index}>
+          <div className="post-item">
+            <Markdown remarkPlugins={[remarkGfm]}>
+              {post.text}
+            </Markdown>
+          </div>
         </div>
       ))}
     </div>
