@@ -56,7 +56,7 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
               <button onClick={() => borrarItem(index)}>
                 BORRAR
               </button>
-            ))}
+            )}
           </li>
         ))}
       </ul>
