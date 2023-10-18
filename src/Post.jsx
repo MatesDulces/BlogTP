@@ -30,19 +30,6 @@ function Post() {
     localStorage.setItem("lista2", JSON.stringify(lista2));
   }, [lista2]);
 
-  const agregarNombre = () => {
-    if (nombre.trim() !== "") {
-      setLista([...lista, { text: nombre, type: "item" }]);
-      setNombre("");
-    }
-  };
-
-  const agregarComentario = () => {
-    if (comentario.trim() !== "") {
-      setLista2([...lista2, { text: comentario, type: "corazón" });
-      setComentario("");
-    }
-  };
 
   return (
     <div className="container">
@@ -64,8 +51,6 @@ function Post() {
             </form>
           </div>
         )}
-        <h2>BLOG</h2>
-        <ListaCompleta lista={lista} />
       </div>
 
       <div>
@@ -83,8 +68,6 @@ function Post() {
             </form>
           </div>
         )}
-        <h2>Comentarios</h2>
-        <ListaCompleta2 lista2={lista2} />
       </div>
     </div>
   );
