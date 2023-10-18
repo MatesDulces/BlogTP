@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Link, useNavigate } from "react-router-dom";
 import Post from "./Post";
+import Rutas from "./Rutas";
 
 function Home({ admin, lista, lista2, setLista, setLista2 }) {
   const navigate = useNavigate();
