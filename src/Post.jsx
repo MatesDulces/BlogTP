@@ -13,7 +13,7 @@ function Post() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const storedPosts = JSON.local(localStorage.getItem('posts')) || [];
+    const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
     setPosts(storedPosts);
   }, []);
 
