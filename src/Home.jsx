@@ -1,90 +1,60 @@
-import React, { useState, useEffect } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Link, useNavigate } from "react-router-dom";
-import Post from "./Post";
-import Rutas from "./Rutas";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-function Home({ admin, lista, lista2, setLista, setLista2 }) {
-  const navigate = useNavigate();
-  const [nombre, setNombre] = useState("");
+function Home (props) {
+  const { admin } = props;
+  const [arr, setArr] = useState([]);
 
-  const borrarItem = (index) => {
-    const newList = [...lista];
-    newList.splice(index, 1);
-    setLista(newList);
-    localStorage.setItem("lista", JSON.stringify(newList));
-  };
+  useEffect(() => {
+    let cosasGuardadas = JSON.parse(localStorage.getItem("post"));
+    if (cosasGuardadas) setArr(cosasGuardadas);
+  }, []);
 
-  const agregarTexto = () => {
-    if (nombre.trim() !== "") {
-      setLista([...lista, { text: nombre, type: "item" }]);
-      localStorage.setItem("lista", JSON.stringify([...lista, { text: nombre, type: "item" }]));
-      setNombre(""); // Limpiar el input después de agregar
-    }
-  };
+  function HandleClick(cosa) {
+    console.log(cosa.id);
+    let elim = arr.filter((i) => i.id !== cosa.id);
+    setArr(elim);
+    localStorage.setItem("post", JSON.stringify(elim));
+    localStorage.setItem(`comentarios${cosa.id}`, JSON.stringify([]));
+  }
 
   return (
-    <>
-      <nav>
-        <ul className="lista">
+    <div className= "principal-container">
+      <header>
+        <img src="https://cdn4.iconfinder.com/data/icons/communication-v2/64/number_numero_count_thirty_five-2-512.png" alt="logo" />
+      <nav className= "nav-menu">
+        <ul >
           <li>
-            <Link className="Home" to="/">Volver a la página principal</Link>
+            <Link  to="/">Volver a la pagina principal</Link>
           </li>
           <li>
-            <Link className="Post" to="/post">Ir a página de Markdown</Link>
+            <Link  to="/blog">Publicar tu post</Link>
           </li>
-          {admin && (
-            <li>
-              <Link className="Admin" to="/admin">Ir a modo Admin</Link>
-            </li>
-          )}
+          <li>
+            <Link  to="/Admin">Ir a modo Admin</Link>
+          </li>
         </ul>
       </nav>
-      <h1>Página Principal</h1>
-      <h2>BLOG</h2>
-      <ul>
-  {lista && lista.map((item, index) => (
-    <li key={index}>{item.text}</li>
-  ))}
-</ul>
-      <ul>
-        {lista.map((item, index) => (
-          <li key={index}>
-            {item.text}
-            {admin && (
-              <button onClick={() => borrarItem(index)}>
-                BORRAR
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
-
-      <h2>Comentarios</h2>
-      <ul>
-  {lista2 && lista2.map((item, index) => (
-    <li key={index}>{item.text}</li>
-  ))}
-</ul>
-      <ul>
-        {lista2.map((item, index) => (
-          <li key={index}>{item.text}</li>
-        ))}
-      </ul>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          placeholder="Agrega un nuevo elemento..."
-          type="text"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-        />
-        <button onClick={agregarTexto}>
-          AGREGAR
-        </button>
-      </form>
-    </>
+      </header>
+      {admin && <h1 className= "admin-notificacion">Modo Admin Activado👨🏻‍💻</h1>}
+      {arr.map((cosa) => (
+        <div className="contenedor">
+          <Link to={`/post/${cosa.id}`} className= "post-link">
+            <div className= "post-item">
+              <h1>TITULO: {cosa.title}</h1>
+              <h3>AUTOR: {cosa.name}</h3>
+              <Markdown remarkPlugins={[remarkGfm]}>
+                {cosa.text.substring(0, 30) + "..."}
+              </Markdown>
+            </div>
+          </Link>
+          {admin && <button className="delete-button" onClick={() => HandleClick(cosa)}>borrar</button>}
+          </div>
+      ))}
+    </div>
   );
 }
 
-export default Home;
+export default Principal;
