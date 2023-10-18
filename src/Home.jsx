@@ -50,7 +50,7 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
               </button>
             )}
           </li>
-        ))}
+        )}
       </ul>
 
       <h2>Comentarios</h2>
