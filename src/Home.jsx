@@ -57,4 +57,4 @@ function Home (props) {
   );
 }
 
-export default Principal;
+export default Home;
