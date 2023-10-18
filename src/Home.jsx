@@ -53,11 +53,11 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
       </ul>
 
       <h2>Comentarios</h2>
-      <ul>
-        {lista2.map((item, index) => (
-          <li key={index}>{item.text}</li>
-        )
-      </ul>
+         <ul>
+      {lista2.map((item, index) => (
+        <li key={index}>{item.text}</li>
+      ))}
+    </ul>
       <form onSubmit={(e) => e.preventDefault()}>
         <input
           placeholder="Agrega un nuevo elemento..."
