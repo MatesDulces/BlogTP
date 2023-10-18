@@ -7,17 +7,18 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
   const navigate = useNavigate();
   const [nombre, setNombre] = useState("");
 
-  const borrarItem = (index, lista, setLista) => {
+  const borrarItem = (index) => {
     const newList = [...lista];
     newList.splice(index, 1);
     setLista(newList);
     localStorage.setItem("lista", JSON.stringify(newList));
   };
 
-  const agregarTexto = (texto, lista, setLista) => {
-    if (texto.trim() !== "") {
-      setLista([...lista, { text: texto, type: "item" }]);
-      localStorage.setItem("lista", JSON.stringify(lista));
+  const agregarTexto = () => {
+    if (nombre.trim() !== "") {
+      setLista([...lista, { text: nombre, type: "item" }]);
+      localStorage.setItem("lista", JSON.stringify([...lista, { text: nombre, type: "item" }]));
+      setNombre(""); // Limpiar el input después de agregar
     }
   };
 
@@ -45,7 +46,7 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
           <li key={index}>
             {item.text}
             {admin && (
-              <button onClick={() => borrarItem(index, lista, setLista)}>
+              <button onClick={() => borrarItem(index)}>
                 BORRAR
               </button>
             )}
@@ -66,7 +67,7 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
         />
-        <button onClick={() => agregarTexto(nombre, lista, setLista)}>
+        <button onClick={agregarTexto}>
           AGREGAR
         </button>
       </form>
