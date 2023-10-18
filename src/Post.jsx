@@ -37,9 +37,19 @@ function Post() {
 
   const agregarComentario = () => {
     if (comentario.trim() !== "") {
-      setLista2([...lista2, { text: comentario, type: "corazón" }]);
+      setLista2([...lista2, { text: comentario, type: "corazón" });
       setComentario("");
     }
+  };
+
+  const copiarMarkdown = () => {
+    // Seleccionar el contenido del textarea
+    const textArea = document.createElement("textarea");
+    textArea.value = nombre;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
   };
 
   return (
@@ -55,12 +65,13 @@ function Post() {
           />
           <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
           <button onClick={agregarNombre}>AGREGAR</button>
+          <button onClick={copiarMarkdown}>Copiar Markdown</button>
         </form>
         <h2>BLOG</h2>
         <ul>
           {lista.map((item, index) => (
             <li key={index}>{item.text}</li>
-          )}
+          ))}
         </ul>
       </div>
 
