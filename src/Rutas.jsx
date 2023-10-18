@@ -12,7 +12,7 @@ function Rutas() {
   const [almacen, setAlmacen] = useState([]);
 
   useEffect(() => {
-    let localstorage = JSON.local(localStorage.getItem("array"));
+    let localstorage = JSON.parse(localStorage.getItem("array"));
     if (localstorage) setAlmacen(lolcalstorage);
   }, []);
   const [admin,setAdmin] = useState()
