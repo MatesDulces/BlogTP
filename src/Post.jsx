@@ -28,37 +28,58 @@ function Post() {
     localStorage.setItem("lista2", JSON.stringify(lista2));
   }, [lista2]);
 
+  const agregarNombre = () => {
+    if (nombre.trim() !== "") {
+      setLista([...lista, { text: nombre, type: "item" }]);
+      setNombre("");
+    }
+  };
+
+  const agregarComentario = () => {
+    if (comentario.trim() !== "") {
+      setLista2([...lista2, { text: comentario, type: "corazón" }]);
+      setComentario("");
+    }
+  };
 
   return (
     <div className="container">
       <div>
         <h1>Agregar post</h1>
-          <div>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <textarea
-                placeholder="ESCRIBE EN MARKDOWN 😊"
-                rows="5"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-              />
-              <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <textarea
+            placeholder="ESCRIBE EN MARKDOWN 😊"
+            rows="5"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+          />
+          <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
+          <button onClick={agregarNombre}>AGREGAR</button>
+        </form>
+        <h2>BLOG</h2>
+        <ul>
+          {lista.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          )}
+        </ul>
+      </div>
 
-              <button onClick={agregarNombre}>AGREGAR</button>
-            </form>
-          </div>
-        )}
-          <div>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input
-                placeholder="Comentarios... ❤️"
-                type="text"
-                value={comentario}
-                onChange={(e) => setComentario(e.target.value)}
-              />
-              <button onClick={agregarComentario}>COMENTAR</button>
-            </form>
-          </div>
-        )}
+      <div>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <input
+            placeholder="Comentarios... ❤️"
+            type="text"
+            value={comentario}
+            onChange={(e) => setComentario(e.target.value)}
+          />
+          <button onClick={agregarComentario}>COMENTAR</button>
+        </form>
+        <h2>Comentarios</h2>
+        <ul>
+          {lista2.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          )}
+        </ul>
       </div>
     </div>
   );
