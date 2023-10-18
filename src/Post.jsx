@@ -2,36 +2,20 @@ import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-import Home from './Home';
 
-function Post(props) {
+function Post() {
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState([]);
-  const { admin } = props; 
-
-  useEffect(() => {
-    const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
-    setLista(storedLista);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("lista", JSON.stringify(lista));
-  }, [lista]);
-
-  useEffect(() => {
-    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
-    setLista2(storedLista2);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("lista2", JSON.stringify(lista2));
-  }, [lista2]);
 
   const agregarTexto = (texto, lista, setLista) => {
     if (texto.trim() !== "") {
-      setLista([...lista, { text: texto, type: "item" }]);
+      const nuevoItem = { text: texto, type: "item" };
+      setLista([...lista, nuevoItem]);
+      // Actualiza localStorage
+      const updatedLista = [...lista, nuevoItem];
+      localStorage.setItem("lista", JSON.stringify(updatedLista));
     }
   };
 
@@ -81,11 +65,6 @@ function Post(props) {
             <li>
               <Link className="Post" to="/post">Ir a página de Markdown</Link>
             </li>
-            {admin && (
-              <li>
-                <Link className="Admin" to="/admin">Ir a modo Admin</Link>
-              </li>
-            )}
           </ul>
         </nav>
       </div>
