@@ -72,6 +72,21 @@ function Post() {
             <li key={index}>{item.text}</li>
           ))}
         </ul>
+         <nav>
+        <ul className="lista">
+          <li>
+            <Link className="Home" to="/">Volver a la página principal</Link>
+          </li>
+          <li>
+            <Link className="Post" to="/post">Ir a página de Markdown</Link>
+          </li>
+          {admin && (
+            <li>
+              <Link className="Admin" to="/admin">Ir a modo Admin</Link>
+            </li>
+          )}
+        </ul>
+      </nav>
       </div>
     </div>
   );
