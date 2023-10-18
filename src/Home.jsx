@@ -3,55 +3,55 @@ import remarkGfm from "remark-gfm";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-function Home (props) {
+function Home(props) {
   const { admin } = props;
-  const [nombre, setNombre] = useState([]);
+  const [posts, setPosts] = useState([]); // Cambio el nombre de la variable
 
   useEffect(() => {
-    let nombre = JSON.parse(localStorage.getItem("post"));
-    if (cosasGuardadas) setNombre(cosasGuardadas);
+    let postsGuardados = JSON.parse(localStorage.getItem("post"));
+    if (postsGuardados) setPosts(postsGuardados); // Cambio el nombre de la variable
   }, []);
 
-  function HandleClick(cosa) {
-    console.log(cosa.id);
-    let delete = arr.filter((i) => i.id !== cosa.id);
-    setNombre(elim);
-    localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${cosa.id}`, JSON.stringify([]));
+  function HandleClick(post) {
+    console.log(post.id);
+    let updatedPosts = posts.filter((p) => p.id !== post.id); // Cambio el nombre de la variable
+    setPosts(updatedPosts); // Cambio el nombre de la variable
+    localStorage.setItem("post", JSON.stringify(updatedPosts)); // Cambio el nombre de la variable
+    localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
   }
 
   return (
-    <div className= "home">
+    <div className="home">
       <header>
         <img src="https://cdn4.iconfinder.com/data/icons/communication-v2/64/number_numero_count_thirty_five-2-512.png" alt="logo" />
-      <nav className= "nav-menu">
-        <ul >
-          <li>
-            <Link  to="/">Volver a la pagina principal</Link>
-          </li>
-          <li>
-            <Link  to="/blog">Publicar tu post</Link>
-          </li>
-          <li>
-            <Link  to="/Admin">Ir a modo Admin</Link>
-          </li>
-        </ul>
-      </nav>
+        <nav className="nav-menu">
+          <ul>
+            <li>
+              <Link to="/">Volver a la pagina principal</Link>
+            </li>
+            <li>
+              <Link to="/blog">Publicar tu post</Link>
+            </li>
+            <li>
+              <Link to="/Admin">Ir a modo Admin</Link>
+            </li>
+          </ul>
+        </nav>
       </header>
-      {admin && <h1 className= "admin">Modo Admin Activado👨🏻‍💻</h1>}
-      {nombre.map((cosa) => (
-        <div className="conteiner">
-          <Link to={`/post/${cosa.id}`} className= "post-link">
-            <div className= "post-item">
-              <h1>TITULO: {cosa.nombre}</h1>
-              <h3>AUTOR: {cosa.comentario}</h3>
+      {admin && <h1 className="admin">Modo Admin Activado👨🏻‍💻</h1>}
+      {posts.map((post) => (
+        <div className="container">
+          <Link to={`/post/${post.id}`} className="post-link">
+            <div className="post-item">
+              <h1>TITULO: {post.title}</h1>
+              <h3>AUTOR: {post.name}</h3>
               <Markdown remarkPlugins={[remarkGfm]}>
-                {cosa.text.substring(0, 30) + "..."}
+                {post.text.substring(0, 30) + "..."}
               </Markdown>
             </div>
           </Link>
-          {admin && <button className="delete-button" onClick={() => HandleClick(cosa)}>borrar</button>}
-          </div>
+          {admin && <button className="delete-button" onClick={() => HandleClick(post)}>borrar</button>}
+        </div>
       ))}
     </div>
   );
