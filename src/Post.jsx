@@ -49,11 +49,12 @@ function Post() {
           <button onClick={() => agregarTexto(nombre, lista, setLista)}>AGREGAR</button>
         </form>
         <h2>BLOG</h2>
-        <ul>
-          {lista.map((item, index) => (
-            <li key={index}>{item.text}</li>
-          )}
-        </ul>
+       <ul>
+        {lista.map((item, index) => (
+          <li key={index}>{item.text}</li>
+        ))}
+      </ul>
+
       </div>
 
       <div>
