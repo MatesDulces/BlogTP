@@ -5,18 +5,18 @@ import { useState, useEffect } from "react";
 
 function Home(props) {
   const { admin } = props;
-  const [posts, setPosts] = useState([]); // Cambio el nombre de la variable
+  const [posts, setPosts] = useState([]); 
 
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("post"));
-    if (postsGuardados) setPosts(postsGuardados); // Cambio el nombre de la variable
+    if (postsGuardados) setPosts(postsGuardados); 
   }, []);
 
   function HandleClick(post) {
     console.log(post.id);
-    let updatedPosts = posts.filter((p) => p.id !== post.id); // Cambio el nombre de la variable
-    setPosts(updatedPosts); // Cambio el nombre de la variable
-    localStorage.setItem("post", JSON.stringify(updatedPosts)); // Cambio el nombre de la variable
+    let updatedPosts = posts.filter((p) => p.id !== post.id); 
+    setPosts(updatedPosts); 
+    localStorage.setItem("post", JSON.stringify(updatedPosts)); 
     localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
   }
 
