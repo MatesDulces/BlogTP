@@ -4,11 +4,12 @@ import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import Home from './Home';
 
-function Post() {
+function Post(props) {
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState([]);
+  const { admin } = props; 
 
   useEffect(() => {
     const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
@@ -72,25 +73,24 @@ function Post() {
             <li key={index}>{item.text}</li>
           ))}
         </ul>
-         <nav>
-        <ul className="lista">
-          <li>
-            <Link className="Home" to="/">Volver a la página principal</Link>
-          </li>
-          <li>
-            <Link className="Post" to="/post">Ir a página de Markdown</Link>
-          </li>
-          {admin && (
+        <nav>
+          <ul className="lista">
             <li>
-              <Link className="Admin" to="/admin">Ir a modo Admin</Link>
+              <Link className="Home" to="/">Volver a la página principal</Link>
             </li>
-          )}
-        </ul>
-      </nav>
+            <li>
+              <Link className="Post" to="/post">Ir a página de Markdown</Link>
+            </li>
+            {admin && (
+              <li>
+                <Link className="Admin" to="/admin">Ir a modo Admin</Link>
+              </li>
+            )}
+          </ul>
+        </nav>
       </div>
     </div>
   );
 }
 
 export default Post;
-
