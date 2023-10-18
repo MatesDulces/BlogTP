@@ -28,19 +28,11 @@ function Post() {
     localStorage.setItem("lista2", JSON.stringify(lista2));
   }, [lista2]);
 
-  const agregarNombre = () => {
-  if (comentario.trim() !== "") {
-    setLista2([...lista, { text: nombre, type: "item" }]);
-    setComentario("");
-  }
-};
-
- const agregarComentario = () => {
-  if (comentario.trim() !== "") {
-    setLista2([...lista2, { text: comentario, type: "corazón" }]);
-    setComentario("");
-  }
-};
+  const agregarTexto = (texto, lista, setLista) => {
+    if (texto.trim() !== "") {
+      setLista([...lista, { text: texto, type: "item" }]);
+    }
+  };
 
   return (
     <div className="container">
@@ -54,8 +46,14 @@ function Post() {
             onChange={(e) => setNombre(e.target.value)}
           />
           <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
-         <button onClick={() => agregarNombre()}>AGREGAR</button>
+          <button onClick={() => agregarTexto(nombre, lista, setLista)}>AGREGAR</button>
         </form>
+        <h2>BLOG</h2>
+        <ul>
+          {lista.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          )}
+        </ul>
       </div>
 
       <div>
@@ -66,8 +64,14 @@ function Post() {
             value={comentario}
             onChange={(e) => setComentario(e.target.value)}
           />
-          <button onClick={agregarComentario}>COMENTAR</button>
+          <button onClick={() => agregarTexto(comentario, lista2, setLista2)}>COMENTAR</button>
         </form>
+        <h2>Comentarios</h2>
+        <ul>
+          {lista2.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          )}
+        </ul>
       </div>
     </div>
   );
