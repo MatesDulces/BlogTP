@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Home({ admin, lista, lista2, setLista, setLista2 }) {
   const navigate = useNavigate();
-  const [nombre, setNombre] = useState(""); // Agrega esta línea
+  const [nombre, setNombre] = useState("");
 
   const borrarItem = (index, lista, setLista) => {
     const newList = [...lista];
@@ -54,11 +54,11 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
       </ul>
 
       <h2>Comentarios</h2>
-        <ul>
-          {lista2.map((item, index) => (
-            <li key={index}>{item.text}</li>
-          ))}
-        </ul>
+      <ul>
+        {lista2.map((item, index) => (
+          <li key={index}>{item.text}</li>
+        )}
+      </ul>
       <form onSubmit={(e) => e.preventDefault()}>
         <input
           placeholder="Agrega un nuevo elemento..."
@@ -75,3 +75,4 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
 }
 
 export default Home;
+
