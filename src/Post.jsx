@@ -30,14 +30,14 @@ function Post() {
 
   const agregarNombre = () => {
     if (nombre.trim() !== "") {
-      setLista([...lista, { text: nombre, type: "item" }]);
+      setLista([...lista { text: nombre, type: "item" }])
       setNombre("");
     }
   };
 
   const agregarComentario = () => {
     if (comentario.trim() !== "") {
-      setLista2([...lista2, { text: comentario, type: "corazón" });
+      setLista2([...lista2 { text: comentario, type: "corazón" })
       setComentario("");
     }
   };
