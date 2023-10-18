@@ -44,6 +44,11 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
       <h1>Página Principal</h1>
       <h2>BLOG</h2>
       <ul>
+  {lista && lista.map((item, index) => (
+    <li key={index}>{item.text}</li>
+  ))}
+</ul>
+      <ul>
         {lista.map((item, index) => (
           <li key={index}>
             {item.text}
@@ -57,6 +62,11 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
       </ul>
 
       <h2>Comentarios</h2>
+      <ul>
+  {lista2 && lista2.map((item, index) => (
+    <li key={index}>{item.text}</li>
+  ))}
+</ul>
       <ul>
         {lista2.map((item, index) => (
           <li key={index}>{item.text}</li>
