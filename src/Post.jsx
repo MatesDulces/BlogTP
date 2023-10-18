@@ -1,79 +1,77 @@
-import React, { useState, useEffect } from "react";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
+import Home from './Home';
+
 
 function Post() {
-  const [postTitle, setPostTitle] = useState("");
-  const [postContent, setPostContent] = useState("");
-  const [posts, setPosts] = useState([]);
-  const [markdownContent, setMarkdownContent] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [comentario, setComentario] = useState("");
+  const [mostrarFormPost, setMostrarFormPost] = useState(false); 
+  const [mostrarFormComentario, setMostrarFormComentario] = useState(false); 
 
-  useEffect(() => {
-    const storedPosts = JSON.parse(localStorage.getItem("posts")) || [];
-    setPosts(storedPosts);
-  }, []);
+  const agregarNombre = () => {
+    if (nombre.trim() !== "") {
+      setLista([...lista, { text: nombre, type: "item" }]);
+      setNombre("");
+    }
+  };
 
-  useEffect(() => {
-    localStorage.setItem("posts", JSON.stringify(posts));
-  }, [posts]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (postTitle.trim() !== "" && postContent.trim() !== "") {
-      const newPost = { title: postTitle, content: postContent };
-      setPosts([...posts, newPost]);
-      setPostTitle("");
-      setPostContent("");
+  const agregarComentario = () => {
+    if (comentario.trim() !== "") {
+      setLista2([...lista2, { text: comentario, type: "corazón" }]);
+      setComentario("");
     }
   };
 
   return (
-    <div>
-      <h2>Agregar una nueva publicación</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Título"
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
-        />
-        <textarea
-          placeholder="Contenido"
-          value={postContent}
-          onChange={(e) => setPostContent(e.target.value)}
-        />
-        <button type="submit">Agregar</button>
-      </form>
-      <h2>Publicaciones</h2>
-      <ul>
-        {posts.map((post, index) => (
-          <li key={index}>
-            <strong>{post.title}:</strong> {post.content}
-          </li>
-        ))}
-      </ul>
-      <h2>Contenido en Markdown</h2>
-      <Markdown
-        children={markdownContent}
-        plugins={[remarkGfm]}
-        allowDangerousHtml
-      />
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Volver a la página principal</Link>
-          </li>
-          <li>
-            <Link to="/blog">Ir a la página de Markdown</Link>
-          </li>
-          <li>
-            <Link to="/Admin">Ir a modo Admin</Link>
-          </li>
-        </ul>
-      </nav>
+    <div className="container">
+      <div>
+        <h1>Agregar post</h1>
+        <button onClick={() => setMostrarFormPost(!mostrarFormPost)}>
+          
+        </button>
+        {mostrarFormPost && (
+          <div>
+            <form onSubmit={(e) => e.preventDefault()}>
+              <textarea
+                placeholder="ESCRIBE EN MARKDOWN 😊"
+                rows="5"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}/>
+              <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
+
+              <button onClick={agregarNombre}>AGREGAR</button>
+            </form>
+      
+          </div>
+        )}
+        <h2>BLOG</h2>
+        <ListaCompleta lista={lista} />
+      </div>
+
+      <div>
+        <button onClick={() => setMostrarFormComentario(!mostrarFormComentario)}>
+        </button>
+        {mostrarFormComentario && (
+          <div>
+            <form onSubmit={(e) => e.preventDefault()}>
+              <input
+                placeholder="Comentarios... ❤️"
+                type="text"
+                value={comentario}
+                onChange={(e) => setComentario(e.target.value)}
+              />
+              <button onClick={agregarComentario}>COMENTAR</button>
+            </form>
+          </div>
+        )}
+        <h2>Comentarios</h2>
+        <ListaCompleta2 lista2={lista2} />
+      </div>
     </div>
   );
-}
+};
 
 export default Post;
