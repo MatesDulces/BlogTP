@@ -7,8 +7,6 @@ import Home from './Home';
 function Post() {
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
-  const [mostrarFormPost, setMostrarFormPost] = useState(false);
-  const [mostrarFormComentario, setMostrarFormComentario] = useState(false);
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState([]);
 
@@ -35,8 +33,6 @@ function Post() {
     <div className="container">
       <div>
         <h1>Agregar post</h1>
-        <button onClick={() => setMostrarFormPost(!mostrarFormPost)}>Mostrar Formulario</button>
-        {mostrarFormPost && (
           <div>
             <form onSubmit={(e) => e.preventDefault()}>
               <textarea
@@ -51,11 +47,6 @@ function Post() {
             </form>
           </div>
         )}
-      </div>
-
-      <div>
-        <button onClick={() => setMostrarFormComentario(!mostrarFormComentario)}>Mostrar Formulario</button>
-        {mostrarFormComentario && (
           <div>
             <form onSubmit={(e) => e.preventDefault()}>
               <input
