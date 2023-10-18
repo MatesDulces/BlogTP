@@ -56,7 +56,7 @@ function Home({ admin, lista, lista2, setLista, setLista2 }) {
       <ul>
         {lista2.map((item, index) => (
           <li key={index}>{item.text}</li>
-        )};
+        )
       </ul>
       <form onSubmit={(e) => e.preventDefault()}>
         <input
