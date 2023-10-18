@@ -30,7 +30,7 @@ function Home(props) {
               <Link to="/">Volver a la pagina principal</Link>
             </li>
             <li>
-              <Link to="/blog">Publicar tu post</Link>
+              <Link to="/post">Publicar tu post</Link>
             </li>
             <li>
               <Link to="/Admin">Ir a modo Admin</Link>
