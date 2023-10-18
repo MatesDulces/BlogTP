@@ -42,16 +42,6 @@ function Post() {
     }
   };
 
-  const copiarMarkdown = () => {
-    // Seleccionar el contenido del textarea
-    const textArea = document.createElement("textarea");
-    textArea.value = nombre;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textArea);
-  };
-
   return (
     <div className="container">
       <div>
@@ -65,14 +55,7 @@ function Post() {
           />
           <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
           <button onClick={agregarNombre}>AGREGAR</button>
-          <button onClick={copiarMarkdown}>Copiar Markdown</button>
         </form>
-        <h2>BLOG</h2>
-        <ul>
-          {lista.map((item, index) => (
-            <li key={index}>{item.text}</li>
-          ))}
-        </ul>
       </div>
 
       <div>
@@ -85,12 +68,6 @@ function Post() {
           />
           <button onClick={agregarComentario}>COMENTAR</button>
         </form>
-        <h2>Comentarios</h2>
-        <ul>
-          {lista2.map((item, index) => (
-            <li key={index}>{item.text}</li>
-          )}
-        </ul>
       </div>
     </div>
   );
