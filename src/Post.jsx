@@ -7,7 +7,7 @@ function Post() {
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
   const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState([]);
+
 
   const agregarTexto = (texto, lista, setLista) => {
     if (texto.trim() !== "") {
