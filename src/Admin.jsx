@@ -7,11 +7,11 @@ function Admin(props) {
     const { setAdmin } = props;
     const [pass, setPass] = useState("");
     const [error, setError] = useState(false);
-    const [ver, setVer] = useState("password");
+    const [ver, setVer] = useState("contra");
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (pass === "react") {
+        if (pass === "VTM") {
             setAdmin(true);
             navigate('/');
         } else {
@@ -22,10 +22,10 @@ function Admin(props) {
 
     function viewPass(e) {
         e.preventDefault();
-        if (ver === "password") {
+        if (ver === "contra") {
             setVer("text");
         } else {
-            setVer("password");
+            setVer("contra");
         }
     }
 
