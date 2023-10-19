@@ -43,11 +43,11 @@ function Admin(props) {
                 </nav>
             </header>
             <div className="div">
-                {error && (<h1 className="admin-error">Contraseña incorrecta</h1>)}
-                <form className="admin-form">
-                    <input className="admin-input" value={pass} type={ver} placeholder="Ingresa la contraseña" onChange={e => setPass(e.target.value)} />
-                    <button className="admin-button" onClick={handleSubmit}>Enviar</button>
-                    <button className="admin-button" onClick={viewPass}>Ver</button>
+                {error && (<h1 className="error">CONTRASEÑA INCORRECTA</h1>)}
+                <form className="form">
+                    <input className="input" value={pass} type={ver} placeholder="Ingresa la contraseña" onChange={e => setPass(e.target.value)} />
+                    <button className="button" onClick={handleSubmit}>Enviar</button>
+                    <button className="button" onClick={viewPass}>Ver</button>
                 </form>
             </div>
         </>
