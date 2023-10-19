@@ -7,6 +7,14 @@ import './Home.css';
 function Home() {
   const [posts, setPosts] = useState([]);
 
+  function Home() {
+  const [posts2, setPosts2] = useState([]);
+    
+ useEffect(() => {
+  let postsGuardados = JSON.parse(localStorage.getItem("lista2")) || [];
+   setPosts(postsGuardados);
+  }, []);
+
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
     setPosts(postsGuardados);
@@ -28,7 +36,7 @@ function Home() {
         </nav>
       </header>
       {posts.map((post, index) => (
-        {lista2.map((item, index) => (
+        {posts2.map((item, index) => (
         <div className="container" key={index}>
           <div className="post-item">
             <Markdown remarkPlugins={[remarkGfm]}>
