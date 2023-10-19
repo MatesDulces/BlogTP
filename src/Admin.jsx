@@ -42,8 +42,7 @@ function Admin(props) {
                     <input
                         className="input"
                         value={pass}
-                        type={ver ? "text" : "password"} // Cambio aquí para mostrar puntos o texto
-                        placeholder="Ingresa la contraseña"
+                        type={ver ? "text" : "password"} 
                         onChange={e => setPass(e.target.value)}
                     />
                     <button className="button" onClick={handleSubmit}>Enviar</button>
