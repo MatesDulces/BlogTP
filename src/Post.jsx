@@ -22,7 +22,7 @@ function Post() {
   return (
     <div className="container">
       <div>
-        <h1>Agregar post</h1>
+        <h1>Escribe en MARKDOWN, el titulo y el post :)</h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <textarea
             placeholder="ESCRIBE EN MARKDOWN 😊"
