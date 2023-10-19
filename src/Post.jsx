@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 function Post() {
   const [nombre, setNombre] = useState("");
   const [lista, setLista] = useState([]);
-
-  // Al cargar la página de "Post," verifica si hay datos en el localStorage y úsalos para inicializar el estado.
+  
   useEffect(() => {
     const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
     setLista(storedLista);
@@ -19,10 +18,8 @@ function Post() {
       const updatedLista = [...lista, nuevoItem];
       setLista(updatedLista);
 
-      // Guarda en el localStorage
       localStorage.setItem("lista", JSON.stringify(updatedLista));
 
-      // Limpia el campo de texto después de agregar
       setNombre("");
     }
   };
