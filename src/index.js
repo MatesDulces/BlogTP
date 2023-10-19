@@ -9,7 +9,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
      <Rutas/>
-     <Home lista={lista} lista2={lista2} />
     </BrowserRouter>
   </React.StrictMode>
 );
