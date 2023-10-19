@@ -1,0 +1,88 @@
+/* Estilo para la página Post */
+.container {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f8f8f8; /* Fondo gris claro */
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333; /* Texto gris oscuro */
+}
+
+/* Estilo para el formulario */
+form {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Estilo para el botón AGREGAR */
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3; /* Cambio de color al pasar el cursor */
+}
+
+/* Estilo para el título "BLOG" */
+h2 {
+  font-size: 20px;
+  color: #333; /* Texto gris oscuro */
+  margin-top: 20px;
+}
+
+/* Estilo para la lista de posts */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  font-size: 18px;
+  color: #333; /* Texto gris oscuro */
+  margin-bottom: 10px;
+}
+
+/* Estilo para la navegación */
+nav ul.lista {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+nav ul.lista li {
+  margin-right: 20px;
+}
+
+nav ul.lista a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul.lista a:hover {
+  color: #0056b3; /* Cambio de color al pasar el cursor */
+}
