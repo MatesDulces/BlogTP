@@ -52,7 +52,7 @@ function Post({ lista, lista2, setLista, setLista2 }) {
         <ul>
           {lista2.map((item, index) => (
             <li key={index}>{item.text}</li>
-          )}
+          ))}
         </ul>
         <nav>
           <ul className="lista">
