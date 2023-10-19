@@ -7,7 +7,14 @@ import Admin from "./Admin";
 
 function Home() {
   const [posts, setPosts] = useState([]);
-  const [admin, setAdmin] = useState(false); // Agregado: Variable admin
+  const [admin, setAdmin] = useState(false); 
+  
+ function  HandleClick(index) {
+    const updatedList = [...this.state.listaElementos];
+    updatedList.splice(index, 1);
+    this.setState({ listaElementos: updatedList });
+  }
+
 
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
@@ -30,12 +37,12 @@ function Home() {
         </nav>
       </header>
       {posts.map((post, index) => (
-        {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>}
         <div className="container" key={index}>
           <div className="post-item">
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
+             {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>}
           </div>
         </div>
       ))}
