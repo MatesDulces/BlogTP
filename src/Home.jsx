@@ -23,6 +23,7 @@ function Home() {
 
   return (
     <div className="home">
+      {admin && <h1 classname = 'administrador'>Modo Administrador</h1>
       <h1 className = "Twitter">Twitter 2</h1>
       <header>
         <nav className="nav-menu">
