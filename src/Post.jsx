@@ -41,7 +41,7 @@ function Post() {
             <li key={index}>
               <Markdown remarkPlugins={[remarkGfm]}>{item.text}</Markdown>
             </li>
-          )}
+          ))}
         </ul>
       </div>
       <nav>
