@@ -3,6 +3,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import Admin from "./Admin";
 
 function Home() {
   const [posts, setPosts] = useState([]);
