@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-import './Home.css';
 
-function Home() {
-  const [posts, setPosts] = useState([]);
-
-  function Home() {
-  const [posts2, setPosts2] = useState([]);
-    
- useEffect(() => {
-  let postsGuardados = JSON.parse(localStorage.getItem("lista2")) || [];
-   setPosts(postsGuardados);
-  }, []);
-
-  useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
-    setPosts(postsGuardados);
-  }, []);
+function Home({ lista, lista2 }) {
+  const combinedList = [...lista2, ...lista];
 
   return (
     <div className="home">
@@ -35,16 +21,14 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {posts.map((post, index) => (
-        {posts2.map((item, index) => (
-        <div className="container" key={index}>
-          <div className="post-item">
-            <Markdown remarkPlugins={[remarkGfm]}>
-              {post.text}
-            </Markdown>
-          </div>
-        </div>
-      ))}
+      <div className="container">
+        <h2>Comentarios</h2>
+        <ul>
+          {combinedList.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
