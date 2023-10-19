@@ -13,7 +13,7 @@ function Post() {
     if (texto.trim() !== "") {
       const nuevoItem = { text: texto, type: "item" };
       setLista([...lista, nuevoItem]);
-      // Actualiza localStorage
+
       const updatedLista = [...lista, nuevoItem];
       localStorage.setItem("lista", JSON.stringify(updatedLista));
     }
