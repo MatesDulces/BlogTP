@@ -45,10 +45,10 @@ function Lista() {
               <button onClick={agregarNombre}>AGREGAR</button>
             </form>
           </div>
-        <h2>BLOG</h2>
+         BLOG
         <ListaCompleta lista={lista} />
       </div>
-   )}
+   ))}
       <div>
         <button onClick={() => setMostrarFormComentario(!mostrarFormComentario)}>
         </button>
@@ -64,7 +64,7 @@ function Lista() {
               <button onClick={agregarComentario}>COMENTAR</button>
             </form>
           </div>
-        )}
+        ))}
         <h2>Comentarios</h2>
         <ListaCompleta2 Com2={lista2} />
       </div>
