@@ -13,11 +13,13 @@ function Post() {
     if (texto.trim() !== "") {
       const nuevoItem = { text: texto, type: "item" };
 
-      setLista([...lista, nuevoItem]);
+      // Agregar el nuevo elemento al principio del array
+      lista.unshift(nuevoItem);
 
-      const updatedLista = [...lista, nuevoItem];
+      const updatedLista = [...lista]; // Crear una copia del array
       localStorage.setItem("lista", JSON.stringify(updatedLista));
-      setNombre("");
+      setLista(updatedLista); // Actualizar el estado con la nueva lista
+      setNombre(""); // Limpiar el textarea
     }
   };
 
@@ -41,7 +43,7 @@ function Post() {
             <li key={index}>
               <Markdown remarkPlugins={[remarkGfm]}>{item.text}</Markdown>
             </li>
-          ))}
+          )}
         </ul>
       </div>
       <nav>
