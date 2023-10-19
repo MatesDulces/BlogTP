@@ -16,6 +16,7 @@ function Home() {
 
   return (
     <div className="home">
+      <h1>Twitter 2</h1>
       <header>
         <nav className="nav-menu">
           <ul>
