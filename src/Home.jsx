@@ -33,7 +33,7 @@ function Home({ lista, lista2 }) {
         <ul>
           {lista.map((item, index) => (
             <li key={index}>{item.text}</li>
-          )}
+          ))}
         </ul>
       </div>
     </div>
