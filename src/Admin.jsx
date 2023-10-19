@@ -41,9 +41,6 @@ function Admin(props) {
                         <li>
                             <Link to="/blog">Publicar tu post</Link>
                         </li>
-                        <li>
-                            <a href="https://www.mercadopago.com.ar/">Apóyanos</a>
-                        </li>
                     </ul>
                 </nav>
             </header>
