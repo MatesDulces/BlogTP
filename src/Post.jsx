@@ -17,7 +17,7 @@ function Post() {
 
       const updatedLista = [...lista, nuevoItem];
       localStorage.setItem("lista", JSON.stringify(updatedLista));
-      setNombre(""); // Limpiar el textarea
+      setNombre("");
     }
   };
 
