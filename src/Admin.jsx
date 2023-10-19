@@ -48,8 +48,8 @@ function Admin(props) {
                 {error && (<h1 className="admin-error">Contraseña incorrecta</h1>)}
                 <form className="admin-form">
                     <input className="admin-input" value={pass} type={ver} placeholder="Ingresa la contraseña" onChange={e => setPass(e.target.value)} />
-                    <button className="admin-button" onClick={viewPass}>Ver contraseña 🔐</button>
                     <button className="admin-button" onClick={handleSubmit}>Enviar</button>
+                    <button className="admin-button" onClick={viewPass}>Ver</button>
                 </form>
             </div>
         </>
