@@ -2,7 +2,7 @@ import React from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-import "Home.css";
+import './Home.css';
 function Home({ lista, lista2 }) {
   return (
     <div className="home">
