@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link } from 'react-router-dom';
 
-function Post() {
+function Post({ lista, lista2, setLista, setLista2 }) {
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
-  const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState([]);
 
   const agregarTexto = (texto, lista, setLista) => {
     if (texto.trim() !== "") {
@@ -55,7 +52,7 @@ function Post() {
         <ul>
           {lista2.map((item, index) => (
             <li key={index}>{item.text}</li>
-          ))}
+          )}
         </ul>
         <nav>
           <ul className="lista">
@@ -63,7 +60,7 @@ function Post() {
               <Link className="Home" to="/">Volver a la página principal</Link>
             </li>
             <li>
-              <Link className="Post" to="/post">Ir a página de Markdown</Link>
+              <Link className="Post" to="/post">Ir a la página de Markdown</Link>
             </li>
           </ul>
         </nav>
