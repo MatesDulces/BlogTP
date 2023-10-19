@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-function Home() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
-    setPosts(postsGuardados);
-  }, []);
-
+function Home({ lista, lista2 }) {
   return (
     <div className="home">
       <header>
@@ -27,16 +20,22 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {posts.map((post, index) => (
-      
-        <div className="container" key={index}>
-          <div className="post-item">
-            <Markdown remarkPlugins={[remarkGfm]}>
-              {post.text}
-            </Markdown>
-          </div>
-        </div>
-      ))}
+      <div className="container">
+        <h2>Comentarios</h2>
+        <ul>
+          {lista2.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="container">
+        <h2>BLOG</h2>
+        <ul>
+          {lista.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }
