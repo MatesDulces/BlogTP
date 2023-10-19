@@ -47,12 +47,6 @@ function Post() {
           <Markdown remarkPlugins={[remarkGfm]}>{markdownPreview}</Markdown>
           <button type="submit">AGREGAR</button>
         </form>
-        <h2>BLOG</h2>
-        <ul>
-          {lista.map((item, index) => (
-            <li key={index}>{item.text}</li>
-          ))}
-        </ul>
       </div>
       <nav>
         <ul className="lista">
