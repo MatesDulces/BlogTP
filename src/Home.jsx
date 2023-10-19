@@ -3,10 +3,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import "Home.css";
-
 function Home({ lista, lista2 }) {
-  const combinedList = [...lista2, ...lista];
-
   return (
     <div className="home">
       <header>
@@ -25,7 +22,10 @@ function Home({ lista, lista2 }) {
       <div className="container">
         <h2>Comentarios</h2>
         <ul>
-          {combinedList.map((item, index) => (
+          {lista2.map((item, index) => (
+            <li key={index}>{item.text}</li>
+          ))}
+          {lista.map((item, index) => (
             <li key={index}>{item.text}</li>
           ))}
         </ul>
