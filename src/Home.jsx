@@ -6,6 +6,7 @@ import './Home.css';
 
 function Home() {
   const [posts, setPosts] = useState([]);
+  const [admin, setAdmin] = useState(false); // Agregado: Variable admin
 
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
@@ -15,7 +16,6 @@ function Home() {
   return (
     <div className="home">
       <header>
-
         <nav className="nav-menu">
           <ul>
             <li>
@@ -30,6 +30,7 @@ function Home() {
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
+             {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>} {/* Modificado: Agregado HandleClick y onClick */}
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
