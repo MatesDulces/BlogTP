@@ -1,26 +1,23 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import Post from './Post';
+import React, { useState } from "react";
+import Home from "./Home";
 
 function Homepost() {
-  const [postContent, setPostContent] = useState('');
+  const [lista, setLista] = useState([
+    { text: "Comentario 1" },
+    { text: "Comentario 2" },
+   
+  ]);
 
-  const updatePostContent = (content) => {
-    setPostContent(content);
-  };
+  const [lista2, setLista2] = useState([
+    { text: "Comentario A" },
+    { text: "Comentario B" },
+
+  ]);
 
   return (
-    <Router>
-      <Switch>
-        <Route path="/post">
-          <Post updateContent={updatePostContent} />
-        </Route>
-        <Route path="/">
-          <Home content={postContent} />
-        </Route>
-      </Switch>
-    </Router>
+    <div className="App">
+      <Home lista={lista} lista2={lista2} />
+    </div>
   );
 }
 
