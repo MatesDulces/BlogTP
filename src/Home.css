@@ -1,3 +1,9 @@
+.administrador{
+  color: black;
+  text-align: center; 
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
 .Twitter {
   background-color: black;
   color: White;
@@ -40,7 +46,7 @@
 
 .nav-menu a {
   text-decoration: none;
-  color: #fff;
+  color: black;
   font-weight: 600;
   transition: color 0.3s;
 }
