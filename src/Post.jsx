@@ -7,7 +7,8 @@ import './Post.css';
 function Post() {
   const [nombre, setNombre] = useState("");
   const [lista, setLista] = useState([]);
-  
+  const [markdownPreview, setMarkdownPreview] = useState("");
+
   useEffect(() => {
     const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
     setLista(storedLista);
@@ -18,10 +19,9 @@ function Post() {
       const nuevoItem = { text: texto, type: "item" };
       const updatedLista = [...lista, nuevoItem];
       setLista(updatedLista);
-
       localStorage.setItem("lista", JSON.stringify(updatedLista));
-
-      setNombre("");
+      setNombre(""); // Limpia el campo de texto
+      setMarkdownPreview(""); // Limpia la vista previa del Markdown
     }
   };
 
@@ -39,9 +39,12 @@ function Post() {
             placeholder="ESCRIBE EN MARKDOWN 😊"
             rows="5"
             value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            onChange={(e) => {
+              setNombre(e.target.value);
+              setMarkdownPreview(e.target.value);
+            }}
           />
-          <Markdown remarkPlugins={[remarkGfm]}>{nombre}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{markdownPreview}</Markdown>
           <button type="submit">AGREGAR</button>
         </form>
         <h2>BLOG</h2>
@@ -70,4 +73,3 @@ function Post() {
 }
 
 export default Post;
-
