@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
+import Home.css from './Home.css';
 
 function Home() {
   const [posts, setPosts] = useState([]);
