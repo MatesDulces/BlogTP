@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Admin(props) {
+function Admin() {
     const navigate = useNavigate();
     const { setAdmin } = props;
     const [pass, setPass] = useState("");
-    const [error, setError] = useState(false); // Cambio aquí: inicializar como false en lugar de ""
+    const [error, setError] = useState(false);
     const [ver, setVer] = useState("password");
 
     function handleSubmit(e) {
@@ -16,7 +16,7 @@ function Admin(props) {
             navigate('/');
         } else {
             setAdmin(false);
-            setError(true); // Cambio aquí: establecer error como true
+            setError(true);
         }
     }
 
@@ -38,13 +38,11 @@ function Admin(props) {
                         <li>
                             <Link to="/">Volver a la página principal</Link>
                         </li>
-                        <li>
-                            <Link to="/blog">Publicar tu post</Link>
-                        </li>
+
                     </ul>
                 </nav>
             </header>
-            <div className="ContenedorGeneral">
+            <div className="div">
                 {error && (<h1 className="admin-error">Contraseña incorrecta</h1>)}
                 <form className="admin-form">
                     <input className="admin-input" value={pass} type={ver} placeholder="Ingresa la contraseña" onChange={e => setPass(e.target.value)} />
