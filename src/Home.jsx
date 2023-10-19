@@ -30,9 +30,9 @@ function Home() {
         </nav>
       </header>
       {posts.map((post, index) => (
+        {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>}
         <div className="container" key={index}>
           <div className="post-item">
-             {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>} {/* Modificado: Agregado HandleClick y onClick */}
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
