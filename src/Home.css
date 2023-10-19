@@ -1,0 +1,55 @@
+/* Estilo para la página Home /
+.home {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+/ Estilo para el encabezado /
+.header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header img {
+  max-width: 50px;
+}
+
+/ Estilo para la barra de navegación /
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-right: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+}
+
+/ Estilo para los elementos de la lista de posts /
+.container {
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/ Estilo para los elementos de los posts /
+.post-item {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/ Estilo para los enlaces */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
