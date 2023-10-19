@@ -7,7 +7,7 @@ function Admin(props) {
     const { setAdmin } = props;
     const [pass, setPass] = useState("");
     const [error, setError] = useState(false);
-    const [ver, setVer] = useState("contra");
+    const [ver, setVer] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -22,32 +22,34 @@ function Admin(props) {
 
     function viewPass(e) {
         e.preventDefault();
-        if (ver === "contra") {
-            setVer("text");
-        } else {
-            setVer("contra");
-        }
+        setVer(!ver);
     }
 
     return (
         <>
             <header>
-    
                 <nav className="nav-menu">
                     <ul>
                         <li>
                             <Link to="/">Volver a la página principal</Link>
                         </li>
-
                     </ul>
                 </nav>
             </header>
             <div className="div">
                 {error && (<h1 className="error">CONTRASEÑA INCORRECTA</h1>)}
                 <form className="form">
-                    <input className="input" value={pass} type={ver} placeholder="Ingresa la contraseña" onChange={e => setPass(e.target.value)} />
+                    <input
+                        className="input"
+                        value={pass}
+                        type={ver ? "text" : "password"} // Cambio aquí para mostrar puntos o texto
+                        placeholder="Ingresa la contraseña"
+                        onChange={e => setPass(e.target.value)}
+                    />
                     <button className="button" onClick={handleSubmit}>Enviar</button>
-                    <button className="button" onClick={viewPass}>Ver</button>
+                    <button className="button" onClick={viewPass}>
+                        {ver ? "Ocultar" : "Ver"}
+                    </button>
                 </form>
             </div>
         </>
