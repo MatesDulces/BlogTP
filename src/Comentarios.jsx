@@ -1,7 +1,13 @@
-        
+import React, { useState, useEffect } from "react";
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
+function Comentarios (){
+        return (
 <form onSubmit={(e) => e.preventDefault()}>
+        <>
           <input
-            placeholder="Comentarios... ❤️"
+            placeholder="Comentarios..."
             type="text"
             value={comentario}
             onChange={(e) => setComentario(e.target.value)}
@@ -14,3 +20,6 @@
             <li key={index}>{item.text}</li>
           ))}
         </ul>
+        </>
+                );
+                }
