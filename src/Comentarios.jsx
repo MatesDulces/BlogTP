@@ -44,9 +44,9 @@ function Lista() {
 
               <button onClick={agregarNombre}>AGREGAR</button>
             </form>
-      )}
           </div>
         <h2>BLOG</h2>
+       )}
         <ListaCompleta lista={lista} />
       </div>
 
