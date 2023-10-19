@@ -15,7 +15,7 @@ function Home() {
   return (
     <div className="home">
       <header>
-        <img src="https://cdn4.iconfinder.com/data/icons/communication-v2/64/number_numero_count_thirty_five-2-512.png" alt="logo" />
+
         <nav className="nav-menu">
           <ul>
             <li>
