@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
-    setPosts(postsGuardados);
+    setPosts(postsGuardados.reverse());
   }, []);
 
   return (
