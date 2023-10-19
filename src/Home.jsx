@@ -28,7 +28,6 @@ function Home() {
         </nav>
       </header>
       {posts.map((post, index) => (
-        {lista2.map((item, index) => (
         <div className="container" key={index}>
           <div className="post-item">
             <Markdown remarkPlugins={[remarkGfm]}>
