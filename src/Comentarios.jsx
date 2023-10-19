@@ -13,14 +13,14 @@ function Lista() {
 
   const agregarNombre = () => {
     if (nombre.trim() !== "") {
-      setLista([...lista, { text: nombre, type: "item" }]);
+      setCom([...Com, { text: nombre, type: "item" }]);
       setNombre("");
     }
   };
 
   const agregarComentario = () => {
     if (comentario.trim() !== "") {
-      setLista2([...lista2, { text: comentario, type: "corazón" }]);
+      setCom2([...Com2, { text: comentario, type: "corazón" }]);
       setComentario("");
     }
   };
@@ -44,9 +44,8 @@ function Lista() {
 
               <button onClick={agregarNombre}>AGREGAR</button>
             </form>
-      
+      )}
           </div>
-        )}
         <h2>BLOG</h2>
         <ListaCompleta lista={lista} />
       </div>
@@ -68,7 +67,7 @@ function Lista() {
           </div>
         )}
         <h2>Comentarios</h2>
-        <ListaCompleta2 lista2={lista2} />
+        <ListaCompleta2 Com2={lista2} />
       </div>
     </div>
   );
