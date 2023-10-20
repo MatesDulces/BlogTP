@@ -78,11 +78,6 @@ function Post() {
               Volver a la página principal
             </Link>
           </li>
-          <li>
-            <Link className="Post" to="/post">
-              Ir a página de Markdown
-            </Link>
-          </li>
         </ul>
       </nav>
     </div>
