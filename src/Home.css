@@ -1,19 +1,19 @@
 /* Estilo general del contenedor de la página Home */
 .home {
-  background-color: violet;
-  color: black;
+  background-color: black; /* Cambia el fondo a negro */
+  color: violet;
   padding: 20px;
 }
 
 /* Estilo para el título "Twitter 2" */
 .Twitter {
-  color: white; /* Cambia el color del título a blanco */
-  text-shadow: 2px 2px 4px black; /* Agrega sombra con blanco */
+  color: violet;
+  text-shadow: 2px 2px 4px white; /* Agrega sombra con blanco */
 }
 
 /* Estilo para el título de modo administrador */
 .administrador {
-  color: violet; /* Cambia el color del título a violeta */
+  color: violet;
   text-shadow: 2px 2px 4px white; /* Agrega sombra con blanco */
 }
 
