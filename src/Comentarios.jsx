@@ -40,9 +40,6 @@ const handleComment = (index) => (event) => {
               />
               <button type="submit">Comentar</button>
             </form>
-          </div>
-        </div>
-      )}
     </div>
 );
   export default Comentarios;
