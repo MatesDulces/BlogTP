@@ -60,8 +60,7 @@ import './Home.css';
 import Admin from "./Admin";
 
 function Home() {
-  const [posts, setPosts] = useState([]);
-  const [admin, setAdmin] = useState(false); 
+  const [posts, setPosts] = useState([]); 
   
   function HandleClick(post) {
     console.log(post.id);
