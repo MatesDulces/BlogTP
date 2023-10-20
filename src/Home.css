@@ -58,13 +58,13 @@
   cursor: pointer;
 }
 
-/* Estilo para los enlaces en la lista de publicaciones */
-.container a {
-  color: violet; /* Color de enlace en violeta */
+/* Estilo para el enlace "Comentar" en la lista de publicaciones */
+.container a.comentar-link {
+  color: black; /* Cambia el color del enlace a negro */
 }
 
-/* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
-.container a:hover {
+/* Estilo para el enlace "Comentar" en la lista de publicaciones cuando se pasa el ratón */
+.container a.comentar-link:hover {
   text-decoration: underline;
 }
 
