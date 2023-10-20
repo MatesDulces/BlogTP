@@ -135,7 +135,7 @@ function Home() {
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
-            <h2>{post.title}</h2> {/* Título del post */}
+            <h2>{post.title}</h2>
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
