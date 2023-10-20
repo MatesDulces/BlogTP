@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import './HomeAdmin.css';
 import Admin from "./Admin";
 
-function Home() {
+function HomeAdmin() {
   const [posts, setPosts] = useState([]); 
   const [admin, setAdmin] = useState();
   
