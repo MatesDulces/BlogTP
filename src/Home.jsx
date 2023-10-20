@@ -32,9 +32,6 @@ function Home() {
             <li>
               <Link to="/post">Publicar tu post</Link>
             </li>
-            <li>
-              <Link to="/Admin">A modo Administrador</Link>
-            </li>
           </ul>
         </nav>
       </header>
