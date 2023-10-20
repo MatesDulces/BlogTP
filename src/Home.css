@@ -9,13 +9,15 @@ body {
   overflow-x: hidden;
 }
 
-.Twitter {
+header{
+  background-color: #bf53fd;
+  color: #fff;
+  height: 13vh;
+  width: 100vw;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: rgb(216, 160, 229);
+  justify-content: space-between;
   z-index: 100;
-  width: 10vw;
 }
 
 .nav-menu ul {
@@ -52,7 +54,7 @@ body {
   word-break: break-all;
 }
 
-.list2-item:hover {
+.lista2-item:hover {
   transform: scale(1.1);
 }
 
