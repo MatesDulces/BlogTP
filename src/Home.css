@@ -26,6 +26,28 @@ body {
   text-transform: none;
 }
 
+.lista2-item {
+  margin-top: 15px;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 20px;
+  background-color: rgb(147, 21, 206);
+  width: 50vw;
+  transition: transform 0.5s; 
+  height: 15vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.list2-item:hover {
+  transform: scale(1.1);
+}
+
 .container{
   width: 100vw;
   display: flex;
