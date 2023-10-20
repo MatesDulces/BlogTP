@@ -6,46 +6,46 @@ import './Post.css';
 
 function Post() {
   const [titulo, setTitulo] = useState("");  
-  const [nombre, setNombre] = useState("");
-  const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState([]);  
-  const [markdownPreview, setMarkdownPreview] = useState("");
-  const [lastId, setLastId] = useState(0); 
+  const [texto, setTexto] = useState("");
+  const [publicaciones, setPublicaciones] = useState([]);
+  const [titulos, setTitulos] = useState([]);  
+  const [vistaPreviaMarkdown, setVistaPreviaMarkdown] = useState("");
+  const [ultimoId, setUltimoId] = useState(0); 
 
   useEffect(() => {
-    const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
-    setLista(storedLista);
+    const publicacionesGuardadas = JSON.parse(localStorage.getItem("publicaciones")) || [];
+    setPublicaciones(publicacionesGuardadas);
 
-    const maxId = storedLista.reduce((max, post) => (post.id > max ? post.id : max), 0);
-    setLastId(maxId);
+    const maxId = publicacionesGuardadas.reduce((max, publicacion) => (publicacion.id > max ? publicacion.id : max), 0);
+    setUltimoId(maxId);
   }, []);
 
   useEffect(() => {
-    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
-    setLista2(storedLista2);
+    const titulosGuardados = JSON.parse(localStorage.getItem("titulos")) || [];
+    setTitulos(titulosGuardados);
   }, []);
 
-  const agregarTexto = (titulo, texto) => { 
+  const agregarPublicacion = (titulo, texto) => { 
     if (titulo.trim() !== "" && texto.trim() !== "") {
-      const nuevoItem = { 
-        id: lastId + 1, 
+      const nuevaPublicacion = { 
+        id: ultimoId + 1, 
         title: titulo, 
         text: texto, 
         type: "item" 
       };
 
-      const updatedLista = [...lista, nuevoItem];
-      setLista(updatedLista);
-      setLastId(lastId + 1); 
-      localStorage.setItem("lista", JSON.stringify(updatedLista));
+      const publicacionesActualizadas = [...publicaciones, nuevaPublicacion];
+      setPublicaciones(publicacionesActualizadas);
+      setUltimoId(ultimoId + 1); 
+      localStorage.setItem("publicaciones", JSON.stringify(publicacionesActualizadas);
       
-      const updatedLista2 = [...lista2, titulo];
-      setLista2(updatedLista2);
-      localStorage.setItem("lista2", JSON.stringify(updatedLista2));
+      const titulosActualizados = [...titulos, titulo];
+      setTitulos(titulosActualizados);
+      localStorage.setItem("titulos", JSON.stringify(titulosActualizados));
 
       setTitulo("");  
-      setNombre("");
-      setMarkdownPreview("");
+      setTexto("");
+      setVistaPreviaMarkdown("");
     }
   };
 
@@ -55,7 +55,7 @@ function Post() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            agregarTexto(titulo, nombre);  
+            agregarPublicacion(titulo, texto);  
           }}
         >
           <input
@@ -67,13 +67,13 @@ function Post() {
           <textarea
             placeholder="ESCRIBE EN MARKDOWN 😊"
             rows="5"
-            value={nombre}
+            value={texto}
             onChange={(e) => {
-              setNombre(e.target.value);
-              setMarkdownPreview(e.target.value);
+              setTexto(e.target.value);
+              setVistaPreviaMarkdown(e.target.value);
             }}
           />
-          <Markdown remarkPlugins={[remarkGfm]}>{markdownPreview}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{vistaPreviaMarkdown}</Markdown>
           <button type="submit">AGREGAR</button>
         </form>
       </div>
