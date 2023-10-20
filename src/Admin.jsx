@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAdminContext } from "./AdminContext";
 
 function Admin(props) {
+  const { admin, setAdmin } = useAdminContext();
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -48,3 +50,42 @@ function Admin(props) {
 }
 
 export default Admin;
+/*import { useAdminContext } from "./AdminContext";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+function Admin() {
+  const { admin, setAdmin } = useAdminContext();
+  const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+
+  function HandleSubmit(e) {
+    e.preventDefault();
+    if (password === "VTM") {
+      setAdmin(true);
+      navigate("/");
+    } else {
+      setAdmin(false);
+      setError(true);
+    }
+  }
+
+  return (
+    <div>
+      <h1>Admin Login</h1>
+      {error && <p>Contraseña incorrecta</p>}
+      <form onSubmit={HandleSubmit}>
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
+  );
+}
+
+export default Admin;*/
