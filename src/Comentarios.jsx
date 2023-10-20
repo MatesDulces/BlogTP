@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-function Comentarios () {
+function Comentarios (index,handleComment) {
 const handleComment = (index) => (event) => {
     event.preventDefault();
     const newComment = event.target.comment.value;
@@ -21,27 +21,28 @@ const handleComment = (index) => (event) => {
       event.target.comment.value = "";
     }
   };
-    return (
-<div>
-            {index.comments && (
-              <ul>
-                {index.comments.map((comment, commentIndex) => (
-                  <li key={commentIndex} className="comment">
-                    {comment}
-                  </li>
-                ))}
-              </ul>
-            )}
-            <form onSubmit={handleComment(index)}>
-              <input
-                type="text"
-                name="comment"
-                placeholder="Añadir un comentario..."
-              />
-              <button type="submit">Comentar</button>
-            </form>
+return (
+    <div>
+      {index.comments && (
+        <ul>
+          {index.comments.map((comment, commentIndex) => (
+            <li key={commentIndex} className="comment">
+              {comment}
+            </li>
+          ))}
+        </ul>
+      )}
+      <form onSubmit={handleComment(index)}>
+        <input
+          type="text"
+          name="comment"
+          placeholder="Añadir un comentario..."
+        />
+        <button type="submit">Comentar</button>
+      </form>
     </div>
-);
+  );
+}
 export default Comentarios;
 
 
