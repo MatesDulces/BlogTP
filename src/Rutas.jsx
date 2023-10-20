@@ -22,7 +22,7 @@ function Rutas() {
     <Routes>
     <Route
         path="/"
-        element={<Home Home={Home}/>}
+        element={<Home Home={Admin}/>}
       />
       <Route
         exact
