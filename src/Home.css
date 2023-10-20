@@ -1,7 +1,10 @@
 /* Estilo general del contenedor de la página Home */
 .home {
-  background-color: #15202B; /* Fondo similar al de Twitter */
+  background-color: #2E1A38; /* Violeta oscuro para el fondo */
   color: #ffffff; /* Texto en blanco */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Para centrar los elementos en la pantalla */
   padding: 20px;
 }
 
@@ -17,7 +20,7 @@
 
 /* Estilo para la barra de navegación */
 .nav-menu {
-  background-color: #15202B; /* Fondo similar al de Twitter */
+  background-color: #2E1A38; /* Violeta oscuro para el fondo */
   padding: 10px;
 }
 
@@ -43,30 +46,20 @@
   color: #ffffff; /* Texto en blanco cuando se pasa el ratón sobre los enlaces */
 }
 
-/* Estilo para los contenedores de los elementos de lista */
+/* Estilo para los contenedores de los elementos de lista (los post) */
 .container {
-  background-color: #192734; /* Fondo similar al de Twitter para los contenedores */
+  background-color: #404040; /* Gris oscuro para los contenedores */
   color: #ffffff; /* Texto en blanco */
-  border: 1px solid #38444d; /* Borde similar al de Twitter */
+  border: 1px solid #666; /* Borde gris */
   padding: 15px;
   margin: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Centra el contenido del post */
 }
 
-/* Estilo para los botones de borrar (modo administrador) */
-.delete-button {
-  background-color: #1DA1F2; /* Azul de Twitter para los botones */
-  color: #ffffff; /* Texto en blanco */
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* Estilo para el enlace "Comentar" en la lista de publicaciones */
+/* Estilo para el botón "Comentar" en la lista de publicaciones */
 .container a {
-  color: #1DA1F2; /* Azul de Twitter para los enlaces */
-  text-decoration: none;
+  color: #000; /* Texto en negro para el enlace "Comentar" */
 }
 
 /* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
