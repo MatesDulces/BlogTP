@@ -1,6 +1,9 @@
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 function Admin(props) {
   const navigate = useNavigate();
-  const { setAdmin, deletePost } = props;
+  const { setAdmin } = props;
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
   const [ver, setVer] = useState(false);
