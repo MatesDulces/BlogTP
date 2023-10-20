@@ -63,12 +63,11 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
-  
 
   function HandleClick(post) {
     let elim = lista.filter((i) => i.id !== post.id);
     setLista(elim);
-    localStorage.setItem("post", JSON.stringify(elim));
+    localStorage.setItem("lista", JSON.stringify(elim));
     localStorage.removeItem(`comentarios${post.id}`);
   }
 
@@ -96,11 +95,15 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {lista.map((item, index) => (
-        <div className="containe" key={index}>
+      {lista.map((item, index1) => (
+        <div className="containe" key={index1}>
           <div className="lista-item">
             <Markdown remarkPlugins={[remarkGfm]}>
               {item.text}
+            </Markdown>
+            <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
+          </div>
+        </div>
       ))}
       {posts.map((post, index) => (
         <div className="container" key={index}>
@@ -118,4 +121,5 @@ function Home() {
     </div>
   );
 }
+
 export default Home;
