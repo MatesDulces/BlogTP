@@ -40,7 +40,7 @@ function Home(props) {
         <nav className="nav-menu">
           <ul>
             <li>
-              <Link to="/publicar">Publicar tu publicación</Link>
+              <Link to="/post">Publicar tu publicación</Link>
             </li>
           </ul>
         </nav>
