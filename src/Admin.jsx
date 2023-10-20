@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Admin(props) {
   const navigate = useNavigate();
@@ -11,10 +12,10 @@ function Admin(props) {
   function handleSubmit(e) {
     e.preventDefault();
     if (pass === "VTM") {
-      setAdmin(true); // Actualiza el estado admin en Rutas
+      setAdmin(true);
       navigate('/');
     } else {
-      setAdmin(false); // Actualiza el estado admin en Rutas
+      setAdmin(false);
       setError(true);
     }
   }
@@ -36,7 +37,7 @@ function Admin(props) {
         </nav>
       </header>
       <div className="div">
-        {error && (<h1 className="error">CONTRASEÑA INCORRECTA</h1>)}
+        {error && <h1 className="error">CONTRASEÑA INCORRECTA</h1>}
         <form className="form">
           <input
             className="input"
