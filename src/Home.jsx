@@ -11,13 +11,6 @@ function Home(props) {
   const [lista2, setLista2] = useState ([]);
   const [titulo, setTitulo] = useState ([]);
 
-  function HandleClick(post) {
-    let elim = lista.filter((i) => i.id !== post.id);
-    setLista(elim);
-    localStorage.setItem("lista", JSON.stringify(elim));
-    localStorage.removeItem(`comentarios${post.id}`);
-  }
-
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
     setPosts(postsGuardados.reverse());
@@ -27,7 +20,13 @@ function Home(props) {
     let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
     setLista2(tituloGuardado.reverse());
   }, []);
-
+  const eliminarPost = (postId) => {
+    if (admin) {
+      const updatedPosts = posts.filter((post) => post.id !== postId);
+      setPosts(updatedPosts);
+      localStorage.setItem("lista", JSON.stringify(updatedPosts));
+    }
+  };
   return (
     <div className="home">
       <header>
@@ -49,7 +48,6 @@ function Home(props) {
               {item.text}
             </Markdown>
           </div>
-           {admin && <button className="delete-button" onClick={() => HandleClick(item)}>Borrar</button>}
         </div>
       ))}
       {posts.map((post, index) => (
@@ -61,6 +59,11 @@ function Home(props) {
             </Markdown>
             <div className= "boton-comentar">
               <Link to={`/comentar/${post.id}`}>Comentar</Link>
+              {admin && (
+                <button
+                  className="delete-button"
+                  onClick={() => eliminarPost(post.id)}>Borrar</button>
+              )}
             </div>
           </div>
         </div>
