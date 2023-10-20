@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Admin() {
+function Admin(props) {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [admin, setAdmin] = useState();
 
- function HandleSubmit(e) {
-        e.preventDefault();
-        if(password === "VTM"){
-            setAdmin(true);
-            navigate('/');
-        }else {
-            setAdmin(false)
-        setError(true)
-        }
- }
+  const { setAdmin } = props; // Obtén la función setAdmin de las props
+
+  function HandleSubmit(e) {
+    e.preventDefault();
+    if (password === "VTM") {
+      setAdmin(true); // Establece el estado admin en true
+      navigate("/");
+    } else {
+      setAdmin(false);
+      setError(true);
+    }
+  }
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
