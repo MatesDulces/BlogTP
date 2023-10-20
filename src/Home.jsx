@@ -77,9 +77,9 @@ function Home() {
     setPosts(postsGuardados.reverse());
   }, []);
 
-  useEffect(() => {
-    let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
-     setLista2(tituloGuardado.reverse());
+ useEffect(() => {
+    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
+    setLista2(storedLista2);
   }, []);
 
 
