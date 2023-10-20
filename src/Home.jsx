@@ -32,6 +32,7 @@ function Home(props) {
       <header>
         <h1 className="Twitter">Twitter 2</h1>
         <nav className="nav-menu">
+          {admin && <h1 className='administrador'>Modo Administrador</h1>}
           <ul>
             <li>
               <Link to="/post">Publicar tu post</Link>
@@ -39,7 +40,6 @@ function Home(props) {
           </ul>
         </nav>
       </header>
-      {admin && <h1 className='administrador'>Modo Administrador</h1>}
       {lista.map((item, index1) => (
         <div className="container" key={index1}>
           <div className="lista2-item">
