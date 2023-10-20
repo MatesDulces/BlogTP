@@ -16,8 +16,8 @@ function Comentarios() {
 
   const handleAddComment = () => {
     if (comment.trim() !== '') {
-      // Agregar el nuevo comentario al estado.
-      const newComment = comment;
+      // Agregar el nuevo comentario con el título "Usuario" al estado.
+      const newComment = `Usuario: ${comment}`;
       setComments([...comments, newComment]);
 
       // Guardar los comentarios actualizados en el almacenamiento local.
@@ -30,12 +30,19 @@ function Comentarios() {
   return (
     <div>
       <h1>Comentarios del Post {postId}</h1>
-      <textarea
-        placeholder="Añadir un comentario..."
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      />
-      <button onClick={handleAddComment}>Agregar Comentario</button>
+      <div className="comment">
+        <textarea
+          placeholder="Añadir un comentario..."
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
+        <button onClick={handleAddComment}>Agregar Comentario</button>
+      </div>
+      {comments.length > 0 && (
+        <div className="comments-header">
+          <h2>Comentarios anteriores:</h2>
+        </div>
+      )}
       {comments.map((comment, index) => (
         <div key={index} className="comment">
           <Markdown remarkPlugins={[remarkGfm]}>{comment}</Markdown>
@@ -46,7 +53,6 @@ function Comentarios() {
 }
 
 export default Comentarios;
-
 
 
 
