@@ -1,4 +1,4 @@
-/* import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
@@ -51,8 +51,8 @@ function Home() {
   );
 }
 
-export default Home;*/
-import React, { useState, useEffect } from "react";
+export default Home;
+/*import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link, useParams } from 'react-router-dom';
@@ -122,4 +122,4 @@ function Home() {
     </div>
   );
 }
-export default Home;
+export default Home;*/
