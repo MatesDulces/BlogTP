@@ -77,13 +77,10 @@ function Home() {
     setPosts(postsGuardados.reverse());
   }, []);
 
-     useEffect(() => {
-    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
-    setLista2(storedLista);
-
-    const maxId2 = storedLista.reduce((max1, lista) => (lista.id > max1 ? lista.id : max1), 0);
-    setLastId2(maxId1);
-  }, []);
+  useEffect(() => {
+    let storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
+    setLista2(storedLista());
+     },[]);
 
   const deletePost = (postId) => {
     const updatedPosts = posts.filter(post => post.id !== postId);
