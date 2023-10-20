@@ -7,6 +7,7 @@ import './Comentarios.css';
 function Comentarios() {
   const { postId } = useParams();
   const [comentario, setComentario] = useState('');
+  const { admin } = props;
   const [autor, setAutor] = useState(''); // Nuevo estado para el nombre del autor
   const [comentarios, setComentarios] = useState([]);
 
