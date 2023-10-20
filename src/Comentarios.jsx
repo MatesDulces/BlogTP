@@ -31,6 +31,17 @@ function Comentarios() {
       setComentario('');
     }
   };
+  const handleBorrarComentario = (index) => {
+    // Crear una copia de los comentarios actuales y eliminar el comentario en el índice especificado
+    const comentariosActualizados = [...comentarios];
+    comentariosActualizados.splice(index, 1);
+
+    // Actualizar el estado de comentarios
+    setComentarios(comentariosActualizados);
+
+    // Guardar los comentarios actualizados en el almacenamiento local
+    localStorage.setItem(`comentarios${postId}`, JSON.stringify(comentariosActualizados));
+  };
 
   return (
     <div>
@@ -58,6 +69,9 @@ function Comentarios() {
         <div key={index} className="comentario">
           <h3>Usuario: {comentario.autor}</h3>
           <Markdown remarkPlugins={[remarkGfm]}>{comentario.texto}</Markdown>
+          {admin && (
+            <button onClick={() => handleBorrarComentario(index)}>Borrar Comentario</button>
+          )}
         </div>
       ))}
     </div>
