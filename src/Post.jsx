@@ -13,6 +13,8 @@ function Post() {
   const [markdownPreview, setMarkdownPreview] = useState("");
   const [lastId, setLastId] = useState(0); 
   const [lastId2, setLastId2] = useState(0); 
+  const [storedLista, setstoredLista] = useState(0);
+  const [storedLista2, setstoredLista2]= useState(0);
 
   useEffect(() => {
     const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
