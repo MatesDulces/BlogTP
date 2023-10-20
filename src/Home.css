@@ -1,24 +1,35 @@
 /* Estilo general del contenedor de la página Home */
 .home {
-  background-color: #15202B; /* Fondo similar al de Twitter */
+  background-color: #2E1A38; /* Violeta oscuro para el fondo */
   color: #ffffff; /* Texto en blanco */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Para centrar los elementos en la pantalla */
   padding: 20px;
 }
 
 /* Estilo para el título "Twitter 2" */
 .Twitter {
-  color: #1DA1F2; /* Azul de Twitter para el título */
+  color: #8956A1; /* Violeta más claro para el título */
+  font-size: 36px; /* Tamaño de fuente más grande */
+  font-weight: bold;
+  text-transform: uppercase; /* Mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  margin: 20px 0; /* Margen superior e inferior aumentado */
 }
 
 /* Estilo para el título de modo administrador */
 .administrador {
   color: #FF6347; /* Rojo coral para el título */
+  font-weight: bold;
+  margin: 10px 0; /* Margen superior e inferior */
 }
 
 /* Estilo para la barra de navegación */
 .nav-menu {
-  background-color: #15202B; /* Fondo similar al de Twitter */
-  padding: 10px;
+  background-color: #2E1A38; /* Violeta oscuro para el fondo */
+  padding: 20px; /* Aumentado el espacio de relleno */
+  border-bottom: 1px solid #8956A1; /* Línea de separación */
 }
 
 /* Estilo para los elementos de la barra de navegación */
@@ -37,41 +48,33 @@
   text-decoration: none;
   color: #1DA1F2; /* Azul de Twitter para los enlaces de navegación */
   font-weight: bold;
+  font-size: 18px; /* Tamaño de fuente más grande */
+  transition: color 0.3s; /* Transición de color suave */
 }
 
 .nav-menu a:hover {
-  color: #ffffff; /* Texto en blanco cuando se pasa el ratón sobre los enlaces */
+  color: #8956A1; /* Cambio de color al pasar el ratón */
 }
 
-/* Estilo para los contenedores de los elementos de lista */
+/* Estilo para los contenedores de los elementos de lista (los post) */
 .container {
-  background-color: #192734; /* Fondo similar al de Twitter para los contenedores */
+  background-color: #404040; /* Gris oscuro para los contenedores */
   color: #ffffff; /* Texto en blanco */
-  border: 1px solid #38444d; /* Borde similar al de Twitter */
-  padding: 15px;
-  margin: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border: 1px solid #666; /* Borde gris */
+  padding: 20px;
+  margin: 20px; /* Margen aumentado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  text-align: left; /* Alineación de texto a la izquierda */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
-/* Estilo para los botones de borrar (modo administrador) */
-.delete-button {
-  background-color: #1DA1F2; /* Azul de Twitter para los botones */
-  color: #ffffff; /* Texto en blanco */
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* Estilo para el enlace "Comentar" en la lista de publicaciones */
+/* Estilo para el botón "Comentar" en la lista de publicaciones */
 .container a {
-  color: #1DA1F2; /* Azul de Twitter para los enlaces */
-  text-decoration: none;
+  color: #000; /* Texto en negro para el enlace "Comentar" */
+  font-weight: bold;
 }
 
 /* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
 .container a:hover {
   text-decoration: underline;
 }
-
-
