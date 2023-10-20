@@ -11,14 +11,7 @@ function Home() {
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState ([]);
   const [titulo, setTitulo] = useState ([]);
-
-  function HandleClick(post) {
-    let elim = lista.filter((i) => i.id !== post.id);
-    setLista(elim);
-    localStorage.setItem("lista", JSON.stringify(elim));
-    localStorage.removeItem(`comentarios${post.id}`);
-  }
-
+  
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
     setPosts(postsGuardados.reverse());
