@@ -5,33 +5,32 @@ import { Link, useParams } from 'react-router-dom';
 import './Home.css';
 
 function Home(props) {
-  const [posts, setPosts] = useState([]);
-  const {admin} = props;
-  const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState ([]);
-  const [titulo, setTitulo] = useState ([]);;
+  const [publicaciones, setPublicaciones] = useState([]);
+  const { admin } = props;
+  const [comentarios, setComentarios] = useState([]);
+  const [titulos, setTitulos] = useState([]);
 
-  function HandleClick(post) {
-    let elim = lista.filter((i) => i.id !== post.id);
-    setLista(elim);
-    localStorage.setItem("lista", JSON.stringify(elim));
-    localStorage.removeItem(`comentarios${post.id}`);
+  function ManejarBorrado(publicacion) {
+    const filtradas = comentarios.filter((comentario) => comentario.id !== publicacion.id);
+    setComentarios(filtradas);
+    localStorage.setItem("comentarios", JSON.stringify(filtradas));
+    localStorage.removeItem(`comentarios${publicacion.id}`);
   }
 
   useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
-    setPosts(postsGuardados.reverse());
+    const publicacionesGuardadas = JSON.parse(localStorage.getItem("publicaciones")) || [];
+    setPublicaciones(publicacionesGuardadas.reverse());
   }, []);
 
   useEffect(() => {
-    let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
-    setLista2(tituloGuardado.reverse());
+    const titulosGuardados = JSON.parse(localStorage.getItem("titulos")) || [];
+    setTitulos(titulosGuardados.reverse());
   }, []);
 
-  const deletePost = (postId) => {
-    const updatedPosts = posts.filter(post => post.id !== postId);
-    setPosts(updatedPosts);
-    localStorage.setItem("lista", JSON.stringify(updatedPosts));
+  const eliminarPublicacion = (idPublicacion) => {
+    const publicacionesActualizadas = publicaciones.filter(publicacion => publicacion.id !== idPublicacion);
+    setPublicaciones(publicacionesActualizadas);
+    localStorage.setItem("publicaciones", JSON.stringify(publicacionesActualizadas));
   };
 
   return (
@@ -41,32 +40,32 @@ function Home(props) {
         <nav className="nav-menu">
           <ul>
             <li>
-              <Link to="/post">Publicar tu post</Link>
+              <Link to="/publicar">Publicar tu publicación</Link>
             </li>
           </ul>
         </nav>
       </header>
       {admin && <h1 className='administrador'>Modo Administrador</h1>}
-      {lista.map((item, index1) => (
+      {comentarios.map((comentario, index1) => (
         <div className="container" key={index1}>
-          <div className="lista2-item">
-            <h2>{item.title}</h2>
+          <div className="comentario-item">
+            <h2>{comentario.title}</h2>
             <Markdown remarkPlugins={[remarkGfm]}>
-              {item.text}
+              {comentario.text}
             </Markdown>
+            {admin && <button className="boton-borrar" onClick={() => ManejarBorrado(comentario)}>Borrar</button>}
           </div>
-           {admin && <button className="delete-button" onClick={() => HandleClick(item)}>Borrar</button>}
         </div>
       ))}
-      {posts.map((post, index) => (
+      {publicaciones.map((publicacion, index) => (
         <div className="container" key={index}>
-          <div className="post-item">
-            <h2>{post.title}</h2>
+          <div className="publicacion-item">
+            <h2>{publicacion.title}</h2>
             <Markdown remarkPlugins={[remarkGfm]}>
-              {post.text}
+              {publicacion.text}
             </Markdown>
             <div>
-              <Link to={`/comentar/${post.id}`}>Comentar</Link>
+              <Link to={`/comentar/${publicacion.id}`}>Comentar</Link>
             </div>
           </div>
         </div>
