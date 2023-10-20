@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useParams } from 'react-router-dom';
+import './Comentarios.css';
 
 function Comentarios() {
   const { postId } = useParams();
