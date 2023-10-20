@@ -1,13 +1,11 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Post from "./Post";
 import Home from "./Home";
 import Admin from "./Admin";
 import Comentarios from "./Comentarios";
-import HomeAdmin from "./HomeAdmin"
 
 function Rutas() {
  /* const [almacen, setAlmacen] = useState([]);
@@ -17,9 +15,7 @@ function Rutas() {
     if (localstorage) setAlmacen(lolcalstorage);
   }, []);*/
   
-  const [admin,setAdmin] = useState(false);
-  const updateAdminState = (isAdmin) => {
-    setAdmin(isAdmin);
+  const [admin,setAdmin] = useState();
   };
 
   return (
