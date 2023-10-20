@@ -9,12 +9,13 @@ import Admin from "./Admin";
 import Comentarios from "./Comentarios";
 
 function Rutas() {
-  const [almacen, setAlmacen] = useState([]);
+ /* const [almacen, setAlmacen] = useState([]);
 
   useEffect(() => {
     let localstorage = JSON.parse(localStorage.getItem("array"));
     if (localstorage) setAlmacen(lolcalstorage);
-  }, []);
+  }, []);*/
+  
   const [admin,setAdmin] = useState()
 
   return (
@@ -40,7 +41,7 @@ function Rutas() {
         path="/Admin"
         element={<Admin admin={admin} setAdmin={setAdmin} />}
       />
-      <Route path="/Rutas/:id" element={<Rutas />} />
+      <Route path="/Post/:id" element={<Post />} />
     </Routes>
     </>
   );
