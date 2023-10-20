@@ -78,7 +78,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    let storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
+    let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
     setLista2(storedLista());
      },[]);
 
