@@ -95,7 +95,7 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {lista.map((item, index1) => (
+      {lista.map((lista, index1) => (
         <div className="containe" key={index1}>
           <div className="lista-item">
             <Markdown remarkPlugins={[remarkGfm]}>
