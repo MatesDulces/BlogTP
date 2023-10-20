@@ -12,7 +12,7 @@ function Admin(props) {
     e.preventDefault();
     if (pass === "VTM") {
       setAdmin(true);
-      navigate('/');
+      navigate('/HomeAdmin');
     } else {
       setAdmin(false);
       setError(true);
