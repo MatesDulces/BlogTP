@@ -55,7 +55,7 @@ export default Home;*/
 import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link, useParams, Route } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Home.css';
 import Admin from "./Admin";
 
@@ -63,12 +63,12 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false); 
   
-  function HandleClick(index) {
-    console.log(index.id);
-    let elim = lista.filter((i) => i.id !== index.id);
+  function HandleClick(post) {
+    console.log(post.id);
+    let elim = lista.filter((i) => i.id !== post.id);
     setLista(elim);
     localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${index.id}`, JSON.stringify([]));
+    localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
   }
 
   useEffect(() => {
@@ -96,7 +96,7 @@ function Home() {
               {post.text}
             </Markdown>
             {admin && <button className="BORRAR" onClick={() => HandleClick(post)}>Borrar</button>}
-            <Link to={`/comentar/${post.id}`}>Comentar</Link> {/* Enlace a la sección de comentarios */}
+            <Link to={`/comentar/${post.id}`}>Comentar</Link> {/* Asegúrate de pasar el ID del post aquí */}
           </div>
         </div>
       ))}
