@@ -12,9 +12,6 @@ function Post() {
   const [lista2, setLista2] = useState([]);  
   const [markdownPreview, setMarkdownPreview] = useState("");
   const [lastId, setLastId] = useState(0); 
-  const [lastId2, setLastId2] = useState(0); 
-  const [storedLista, setstoredLista] = useState(0);
-  const [storedLista2, setstoredLista2]= useState(0);
 
   useEffect(() => {
     const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
@@ -23,13 +20,10 @@ function Post() {
     const maxId = storedLista.reduce((max, post) => (post.id > max ? post.id : max), 0);
     setLastId(maxId);
   }, []);
-  
-   useEffect(() => {
-    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
-    setLista2(storedLista);
 
-    const maxId2 = storedLista.reduce((max1, lista) => (lista.id > max1 ? lista.id : max1), 0);
-    setLastId2(maxId1);
+  useEffect(() => {
+    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
+    setLista2(storedLista2);
   }, []);
 
   const agregarTexto = (titulo, texto) => { 
@@ -48,6 +42,7 @@ function Post() {
       
       const updatedLista2 = [...lista2, titulo];
       setLista2(updatedLista2);
+      localStorage.setItem("lista2", JSON.stringify(updatedLista2));
       setTitulo("");  
       setNombre("");
       setMarkdownPreview("");
