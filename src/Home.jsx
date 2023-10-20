@@ -63,6 +63,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
+  const [lista2, setLista2] = useState ([]);
 
   function HandleClick(post) {
     let elim = lista.filter((i) => i.id !== post.id);
