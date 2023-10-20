@@ -41,7 +41,6 @@ function Admin() {
         <button onClick={togglePasswordVisibility}>
           {showPassword ? "Ocultar Contraseña" : "Mostrar Contraseña"}
         </button>
-        <Link to="/">Volver a la página principal</Link>
       </div>
     </div>
   );
