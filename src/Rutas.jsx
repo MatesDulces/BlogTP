@@ -17,15 +17,16 @@ function Rutas() {
     if (localstorage) setAlmacen(lolcalstorage);
   }, []);*/
   
-  const [admin,setAdmin] = useState()
+  const [admin,setAdmin] = useState(false);
 
   return (
     <>
     <Routes>
-    <Route
-        path="/"
-        element={<Home Admin={Admin}/>}
-      />
+ <Route path="/" element={<Home admin={admin} />} />
+        <Route
+          path="/admin"
+          element={<Admin setAdmin={updateAdminState} />}
+        />
       <Route
         exact
         path="/Post"
@@ -37,11 +38,6 @@ function Rutas() {
         element={<Comentarios />}
       />
         <Route path="/comentar/:postId" element={<Comentarios />} />
-      <Route 
-        exact
-        path="/Admin"
-        element={<Admin admin={admin} setAdmin={setAdmin} />}
-      />
        <route
         exact
         path="/HomeAdmin"
