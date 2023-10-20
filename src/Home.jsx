@@ -9,14 +9,14 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState([]);
-  const [titulo, setTitulo] = useState("");
+  const [lista2, setLista2] = useState ([]);
+  const [titulo, setTitulo] = useState ([]);
 
-  function HandleClick(tituloId) {
-    let elim = lista.filter((item) => item.id !== tituloId);
+  function HandleClick(post) {
+    let elim = lista.filter((i) => i.id !== post.id);
     setLista(elim);
     localStorage.setItem("lista", JSON.stringify(elim));
-    localStorage.removeItem(`comentarios${tituloId}`);
+    localStorage.removeItem(`comentarios${post.id}`);
   }
 
   useEffect(() => {
@@ -24,10 +24,11 @@ function Home() {
     setPosts(postsGuardados.reverse());
   }, []);
 
-  useEffect(() => {
+ useEffect(() => {
     let titulosGuardados = JSON.parse(localStorage.getItem("lista2")) || [];
     setTitulo(titulosGuardados.reverse());
   }, []);
+
 
   const deletePost = (postId) => {
     const updatedPosts = posts.filter(post => post.id !== postId);
@@ -48,13 +49,13 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {titulo.map((tituloItem, index1) => (
-        <div className="container" key={index1}>
+      {lista.map((titulo, index1) => (
+        <div className="containe" key={index1}>
           <div className="titulo-item">
             <Markdown remarkPlugins={[remarkGfm]}>
-              {tituloItem}
+              {titulo.text}
             </Markdown>
-            <button className="BORRAR" onClick={() => HandleClick(tituloItem.id)}>Borrar</button>
+            <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
           </div>
         </div>
       ))}
@@ -65,7 +66,7 @@ function Home() {
               {post.text}
             </Markdown>
             <div>
-              {admin && (<button className="BORRAR" onClick={() => deletePost(post.id)}>Borrar</button>)}
+              {admin && ( <button className="BORRAR" onClick={() => deletePost(post.id)}>Borrar</button> )}
               <Link to={`/comentar/${post.id}`}>Comentar</Link>
             </div>
           </div>
