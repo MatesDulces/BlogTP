@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import './Home.css';
 import Admin from "./Admin";
 
-function Home() {
+function Home(props) {
   const [posts, setPosts] = useState([]);
   const {admin} = props;
   const [lista, setLista] = useState([]);
