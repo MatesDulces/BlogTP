@@ -56,7 +56,7 @@ function Comentarios() {
       )}
       {comments.map((comment, index) => (
         <div key={index} className="comment">
-          <h3>{comment.author}</h3>
+          <h3>Usuario: {comment.author}</h3>
           <Markdown remarkPlugins={[remarkGfm]}>{comment.text}</Markdown>
         </div>
       ))}
