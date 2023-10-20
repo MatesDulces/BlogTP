@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+mport React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Admin(props) {
   const navigate = useNavigate();
-  const [admin, setAdmin] = useState(false); 
+  const { setAdmin } = props;
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
   const [ver, setVer] = useState(false);
@@ -11,10 +11,10 @@ function Admin(props) {
   function handleSubmit(e) {
     e.preventDefault();
     if (pass === "VTM") {
-      setAdmin(true);
-      navigate('/HomeAdmin');
+      setAdmin(true); // Actualiza el estado admin en Rutas
+      navigate('/');
     } else {
-      setAdmin(false);
+      setAdmin(false); // Actualiza el estado admin en Rutas
       setError(true);
     }
   }
