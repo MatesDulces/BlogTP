@@ -1,13 +1,23 @@
 /* Estilo general del contenedor de la página Home */
 .home {
-  background-color: black; /* Fondo negro */
-  color: white; /* Texto en blanco */
+  background-color: #262626; /* Gris oscuro como fondo */
+  color: #fff; /* Texto en blanco */
   padding: 20px;
+}
+
+/* Estilo para el título "Twitter 2" */
+.Twitter {
+  color: #1E90FF; /* Azul claro para el título */
+}
+
+/* Estilo para el título de modo administrador */
+.administrador {
+  color: #FF6347; /* Rojo coral para el título */
 }
 
 /* Estilo para la barra de navegación */
 .nav-menu {
-  background: linear-gradient(to bottom, #000000, #2c3e50); /* Fondo con tonos azules, negros y violetas */
+  background-color: #1E90FF; /* Azul claro para la barra de navegación */
   padding: 10px;
 }
 
@@ -25,46 +35,40 @@
 
 .nav-menu a {
   text-decoration: none;
-  color: violet;
+  color: #fff; /* Texto en blanco para los enlaces de navegación */
   font-weight: bold;
 }
 
 .nav-menu a:hover {
-  color: white;
+  color: #1E90FF; /* Azul claro cuando se pasa el ratón sobre los enlaces */
 }
 
 /* Estilo para los contenedores de los elementos de lista */
 .container {
-  background-color: violet; /* Fondo violeta */
-  color: white; /* Texto en blanco */
-  border: 2px solid violet; /* Borde violeta */
+  background-color: #1E90FF; /* Azul claro para los contenedores */
+  color: #000; /* Texto en negro */
+  border: 2px solid #1E90FF; /* Borde del mismo color que el fondo */
   padding: 10px;
   margin: 10px;
-  box-shadow: 4px 4px 8px gray; /* Agrega sombra con gris */
-}
-
-/* Estilo para los títulos de los posts */
-.container h2 {
-  font-size: 18px; /* Tamaño de fuente más pequeño para los títulos */
-  margin-bottom: 10px; /* Espaciado inferior reducido */
+  box-shadow: 4px 4px 8px #fff; /* Sombra blanca */
 }
 
 /* Estilo para los botones de borrar (modo administrador) */
 .delete-button {
-  background-color: black; /* Botón en negro */
-  color: violet; /* Texto del botón en violeta */
-  border: 1px solid violet; /* Borde violeta */
+  background-color: #FF6347; /* Rojo coral para los botones */
+  color: #fff; /* Texto en blanco */
+  border: 1px solid #FF6347; /* Borde rojo coral */
   padding: 5px 10px;
   cursor: pointer;
 }
 
 /* Estilo para el enlace "Comentar" en la lista de publicaciones */
-.container a.comentar-link {
-  color: black; /* Cambia el color del enlace a negro */
+.container a {
+  color: #1E90FF; /* Azul claro para los enlaces */
 }
 
-/* Estilo para el enlace "Comentar" en la lista de publicaciones cuando se pasa el ratón */
-.container a.comentar-link:hover {
+/* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
+.container a:hover {
   text-decoration: underline;
 }
 
