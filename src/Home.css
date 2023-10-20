@@ -29,13 +29,13 @@ font-family:Georgia, 'Times New Roman', Times, serif;
 
 }
 
-.contenido h3{
+.container h3{
     color: rgb(81, 187, 236);
     margin-bottom: 3vh;
 }
 
 
-.contenido form{
+.container form{
     background-color: #24303c;
     width: 20vw;
     height: 30vh;
@@ -46,7 +46,7 @@ font-family:Georgia, 'Times New Roman', Times, serif;
     align-items: center;
 
 }
-.contenido input{
+.container input{
 background-color: #24303c;
 margin-top: 1vh;
 font-family: 'calibri';
@@ -60,11 +60,11 @@ color: rgb(255, 255, 255);
 padding-left: 3px;
 }
 
-.contenido input::placeholder{
+.container input::placeholder{
 color: #ffffff;
 
 }
-.contenido input:focus {
+.container input:focus {
     background-color: #1f53c5;
     transform: scale(1.1);
     outline: none; 
@@ -72,7 +72,7 @@ color: #ffffff;
 
 }
 
-.contenido button{
+.container button{
     background-color: #1f53c5;
     margin-top: 2vh;
     font-family: 'calibri';
