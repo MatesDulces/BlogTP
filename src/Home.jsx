@@ -79,7 +79,7 @@ function Home() {
 
   useEffect(() => {
     let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
-     setLista2(tituloGuardado.reveserse());
+     setLista2(tituloGuardado.reverse());
   }, []);
 
 
