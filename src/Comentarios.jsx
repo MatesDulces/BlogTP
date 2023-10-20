@@ -42,7 +42,7 @@ const handleComment = (index) => (event) => {
             </form>
           </div>
         </div>
-      ))}
+      )}
     </div>
 );
   export default Comentarios;
