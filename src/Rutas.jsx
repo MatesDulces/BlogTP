@@ -41,7 +41,7 @@ function Rutas() {
         path="/Admin"
         element={<Admin admin={admin} setAdmin={setAdmin} />}
       />
-      <Route path="/Post/:id" element={<Post />} />
+      <Route path="/Rutas/:id" element={<Rutas />} />
     </Routes>
     </>
   );
