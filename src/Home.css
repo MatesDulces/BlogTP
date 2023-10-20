@@ -10,7 +10,7 @@ body {
 }
 
 header{
-  background-color: #bf53fd;
+  background-color: #815c97;
   color: #fff;
   height: 13vh;
   width: 100vw;
@@ -18,6 +18,13 @@ header{
   align-items: center;
   justify-content: space-between;
   z-index: 100;
+}
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
 }
 
 .nav-menu ul {
@@ -59,11 +66,28 @@ header{
 }
 
 .container{
+  background-color: rgb(147, 21, 206);
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.delete-button {
+  background-color: #640000;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  border-radius: 7px;
+  width: 10vw;
+}
+.delete-button:hover {
+  background-color: #4d0b0b;
 }
 
 .boton-comentar {
