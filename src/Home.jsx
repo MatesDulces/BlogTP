@@ -43,7 +43,7 @@ function Home() {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-             {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>}
+             {admin && <button className="BORRAR" onClick={() => HandleClick(index)}>Borrar</button>}
           </div>
         </div>
       ))}
