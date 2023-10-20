@@ -9,9 +9,11 @@ function Home() {
   const [admin, setAdmin] = useState(false);
 
   function HandleClick(index) {
-    const updatedList = [...posts];
-    updatedList.splice(index, 1);
-    setPosts(updatedList);
+    if (admin) {
+      const updatedList = [...posts];
+      updatedList.splice(index, 1);
+      setPosts(updatedList);
+    }
   }
 
   useEffect(() => {
@@ -41,10 +43,10 @@ function Home() {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-             {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>}
+            {admin && <button className="delete-button" onClick={() => HandleClick(index)}>Borrar</button>}
           </div>
         </div>
-      ))}
+      )}
     </div>
   );
 }
