@@ -10,13 +10,13 @@ function Home() {
   const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState([]);
-  const [titulo, setTitulo] = useState([]);
+  const [titulo, setTitulo] = useState("");
 
-  function HandleClick(titulo) {
-    let elim = lista.filter((i) => i.id !== titulo.id);
+  function HandleClick(tituloId) {
+    let elim = lista.filter((item) => item.id !== tituloId);
     setLista(elim);
     localStorage.setItem("lista", JSON.stringify(elim));
-    localStorage.removeItem(`comentarios${titulo.id}`);
+    localStorage.removeItem(`comentarios${tituloId}`);
   }
 
   useEffect(() => {
@@ -48,13 +48,13 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {titulo.map((titulo, index1) => (
+      {titulo.map((tituloItem, index1) => (
         <div className="container" key={index1}>
           <div className="titulo-item">
             <Markdown remarkPlugins={[remarkGfm]}>
-              {titulo}
+              {tituloItem}
             </Markdown>
-            <button className="BORRAR" onClick={() => HandleClick(titulo)}>Borrar</button>
+            <button className="BORRAR" onClick={() => HandleClick(tituloItem.id)}>Borrar</button>
           </div>
         </div>
       ))}
