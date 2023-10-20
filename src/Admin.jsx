@@ -16,6 +16,7 @@ function Admin() {
             setAdmin(false)
         setError(true)
         }
+ }
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
