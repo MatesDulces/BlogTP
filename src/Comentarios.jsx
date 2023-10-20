@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-function Comentarios (index,handleComment) {
+function Comentarios (index) {
 const handleComment = (index) => (event) => {
     event.preventDefault();
     const newComment = event.target.comment.value;
