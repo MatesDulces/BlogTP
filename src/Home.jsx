@@ -35,7 +35,7 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {posts.map((index) => (
+      {posts.map((post, index) => (
         <div className="container">
           <div className="post-item">
             <Markdown remarkPlugins={[remarkGfm]}>
