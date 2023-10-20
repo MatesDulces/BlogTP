@@ -16,8 +16,7 @@ function Rutas() {
   }, []);*/
   
   const [admin,setAdmin] = useState();
-  };
-
+ 
   return (
     <>
     <Routes>
