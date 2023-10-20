@@ -79,8 +79,9 @@ function Home() {
 
   useEffect(() => {
     let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
-    setLista2(storedLista());
-     },[]);
+     setLista2(tituloGuardado.reveserse());
+  }, []);
+
 
   const deletePost = (postId) => {
     const updatedPosts = posts.filter(post => post.id !== postId);
