@@ -61,6 +61,7 @@ import Admin from "./Admin";
 
 function Home() {
   const [posts, setPosts] = useState([]); 
+  const [admin, setAdmin] = useState();
   
   function HandleClick(post) {
     console.log(post.id);
