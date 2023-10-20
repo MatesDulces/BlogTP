@@ -6,7 +6,7 @@ import './Home.css';
 
 function Home(props) {
   const [posts, setPosts] = useState([]);
-  const {admin} = props;
+  const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState ([]);
   const [titulo, setTitulo] = useState ([]);;
@@ -36,6 +36,7 @@ function Home(props) {
 
   return (
     <div className="home">
+      <Admin setAdmin={setAdmin} />
       <h1 className="Twitter">Twitter 2</h1>
       <header>
         <nav className="nav-menu">
