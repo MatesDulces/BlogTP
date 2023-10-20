@@ -29,10 +29,7 @@ function Home() {
       <h1 className = "Twitter">Twitter 2</h1>
       <header>
         <nav className="nav-menu">
-          <ul>
-            <li>
-              <Link to="/Admin">Iniciar Sesión</Link>
-            </li>
+          <ul>  
             <li>
               <Link to="/post">Publicar tu post</Link>
             </li>
