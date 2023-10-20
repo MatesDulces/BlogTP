@@ -101,12 +101,10 @@ function Home() {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-            {admin && (
               <div>
-                <button className="BORRAR" onClick={() => deletePost(post.id)}>Borrar</button>
+                {admin && ( <button className="BORRAR" onClick={() => deletePost(post.id)}>Borrar</button> )}
                 <Link to={`/comentar/${post.id}`}>Comentar</Link>
               </div>
-            )}
           </div>
         </div>
       ))}
