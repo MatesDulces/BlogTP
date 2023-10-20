@@ -1,80 +1,94 @@
 import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link, useParams } from 'react-router-dom';
-import './Home.css';
-import Admin from "./Admin";
+import { Link } from 'react-router-dom';
+import './Post.css';
 
-function Home() {
-  const [posts, setPosts] = useState([]);
-  const [admin, setAdmin] = useState(false);
+function Post() {
+  const [titulo, setTitulo] = useState("");  
+  const [nombre, setNombre] = useState("");
   const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState ([]);
-  const [titulo, setTitulo] = useState ([]);
-
-  function HandleClick(post) {
-    let elim = lista.filter((i) => i.id !== post.id);
-    setLista(elim);
-    localStorage.setItem("lista", JSON.stringify(elim));
-    localStorage.removeItem(`comentarios${post.id}`);
-  }
+  const [lista2, setLista2] = useState([]);  
+  const [markdownPreview, setMarkdownPreview] = useState("");
+  const [lastId, setLastId] = useState(0); 
 
   useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
-    setPosts(postsGuardados.reverse());
+    const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
+    setLista(storedLista);
+
+    const maxId = storedLista.reduce((max, post) => (post.id > max ? post.id : max), 0);
+    setLastId(maxId);
   }, []);
 
- useEffect(() => {
-    let titulosGuardados = JSON.parse(localStorage.getItem("lista2")) || [];
-    setTitulo(titulosGuardados.reverse());
+  useEffect(() => {
+    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
+    setLista2(storedLista2);
   }, []);
 
+  const agregarTexto = (titulo, texto) => { 
+    if (titulo.trim() !== "" && texto.trim() !== "") {
+      const nuevoItem = { 
+        id: lastId + 1, 
+        title: titulo, 
+        text: texto, 
+        type: "item" 
+      };
 
-  const deletePost = (postId) => {
-    const updatedPosts = posts.filter(post => post.id !== postId);
-    setPosts(updatedPosts);
-    localStorage.setItem("lista", JSON.stringify(updatedPosts));
+      const updatedLista = [...lista, nuevoItem];
+      setLista(updatedLista);
+      setLastId(lastId + 1); 
+      localStorage.setItem("lista", JSON.stringify(updatedLista));
+      
+      const updatedLista2 = [...lista2, titulo];
+      setLista2(updatedLista2);
+      localStorage.setItem("lista2", JSON.stringify(updatedLista2));
+      setTitulo("");  
+      setNombre("");
+      setMarkdownPreview("");
+    }
   };
 
   return (
-    <div className="home">
-      {admin && <h1 className='administrador'>Modo Administrador</h1>}
-      <h1 className="Twitter">Twitter 2</h1>
-      <header>
-        <nav className="nav-menu">
-          <ul>
-            <li>
-              <Link to="/post">Publicar tu post</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      {lista.map((titulo, index1) => (
-        <div className="containe" key={index1}>
-          <div className="titulo-item">
-            <Markdown remarkPlugins={[remarkGfm]}>
-              {titulo.text}
-            </Markdown>
-            <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
-          </div>
-        </div>
-      ))}
-      {posts.map((post, index) => (
-        <div className="container" key={index}>
-          <div className="post-item">
-            <Markdown remarkPlugins={[remarkGfm]}>
-              {post.text}
-            </Markdown>
-            <div>
-              {admin && ( <button className="BORRAR" onClick={() => deletePost(post.id)}>Borrar</button> )}
-              <Link to={`/comentar/${post.id}`}>Comentar</Link>
-            </div>
-          </div>
-        </div>
-      ))}
+    <div className="container">
+      <div> 
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            agregarTexto(titulo, nombre);  
+          }}
+        >
+          <input
+            type="text"
+            placeholder="TÍTULO"
+            value={titulo}
+            onChange={(e) => setTitulo(e.target.value)}
+          />
+          <textarea
+            placeholder="ESCRIBE EN MARKDOWN 😊"
+            rows="5"
+            value={nombre}
+            onChange={(e) => {
+              setNombre(e.target.value);
+              setMarkdownPreview(e.target.value);
+            }}
+          />
+          <Markdown remarkPlugins={[remarkGfm]}>{markdownPreview}</Markdown>
+          <button type="submit">AGREGAR</button>
+        </form>
+      </div>
+      <nav>
+        <ul className="lista">
+          <li>
+            <Link className="Home" to="/">
+              Volver a la página principal
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
 
+export default Post;
 export default Home;
 
