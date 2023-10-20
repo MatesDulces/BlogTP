@@ -1,79 +1,25 @@
-/* Estilo general del contenedor de la página Home */
-.home {
-  background-color: #2E1A38; /* Violeta oscuro para el fondo */
-  color: #ffffff; /* Texto en blanco */
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-/* Estilo para el título "Twitter 2" */
-.Twitter {
-  color: #8956A1; /* Violeta más claro para el título */
-  font-size: 39px; /* Tamaño de fuente más grande */
-  font-weight: bold;
-  text-transform: uppercase; /* Mayúsculas */
-  letter-spacing: 3px; /* Espaciado entre letras */
-  margin: 10px 0; /* Margen superior e inferior aumentado */
-}
-
-/* Estilo para el título de modo administrador */
-.administrador {
-  color: #FF6347; /* Rojo coral para el título */
-  font-weight: bold;
-  margin: 10px 0; /* Margen superior e inferior */
-}
-
-/* Estilo para la barra de navegación */
-.nav-menu {
-  background-color: #2E1A38; /* Violeta oscuro para el fondo */
-  padding: 20px; /* Aumentado el espacio de relleno */
-  border-bottom: 1px solid #8956A1; /* Línea de separación */
-}
-
-/* Estilo para los elementos de la barra de navegación */
-.nav-menu ul {
-  list-style: none;
+* {
+  margin: 0;
   padding: 0;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+  background-color: rgb(109, 109, 109);
+  overflow-x: hidden;
+}
+
+.Twitter {
   display: flex;
   justify-content: center;
+  align-items: center;
+  color: rgb(216, 160, 229);
+  z-index: 100;
 }
 
-.nav-menu li {
-  margin: 0 20px;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #1DA1F2; /* Azul de Twitter para los enlaces de navegación */
-  font-weight: bold;
-  font-size: 18px; /* Tamaño de fuente más grande */
-  transition: color 0.3s; /* Transición de color suave */
-}
-
-.nav-menu a:hover {
-  color: #8956A1; /* Cambio de color al pasar el ratón */
-}
-
-/* Estilo para los contenedores de los elementos de lista (los post) */
-.container {
-  background-color: #404040; /* Gris oscuro para los contenedores */
-  color: #ffffff; /* Texto en blanco */
-  border: 1px solid #666; /* Borde gris */
-  padding: 20px;
-  margin: 20px; /* Margen aumentado */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-  text-align: left; /* Alineación de texto a la izquierda */
-  border-radius: 10px; /* Bordes redondeados */
-}
-
-/* Estilo para el botón "Comentar" en la lista de publicaciones */
-.container a {
-  color: #000; /* Texto en negro para el enlace "Comentar" */
-  font-weight: bold;
-}
-
-/* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
-.container a:hover {
-  text-decoration: underline;
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  height: 50vh;
 }
