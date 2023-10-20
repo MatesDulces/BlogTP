@@ -35,7 +35,7 @@
 
 .nav-menu a {
   text-decoration: none;
-  color: #fff; /* Texto en blanco para los enlaces de navegación */
+  color: #000; /* Texto en negro para los enlaces de navegación */
   font-weight: bold;
 }
 
@@ -49,26 +49,25 @@
   color: #000; /* Texto en negro */
   border: 2px solid #1E90FF; /* Borde del mismo color que el fondo */
   padding: 10px;
-  margin: 10px;
+  margin: 20px 0; /* Mayor separación entre cada post */
   box-shadow: 4px 4px 8px #fff; /* Sombra blanca */
 }
 
 /* Estilo para los botones de borrar (modo administrador) */
 .delete-button {
-  background-color: #FF6347; /* Rojo coral para los botones */
+  background-color: #000; /* Botones en negro */
   color: #fff; /* Texto en blanco */
-  border: 1px solid #FF6347; /* Borde rojo coral */
+  border: 1px solid #000; /* Borde en negro */
   padding: 5px 10px;
   cursor: pointer;
 }
 
 /* Estilo para el enlace "Comentar" en la lista de publicaciones */
 .container a {
-  color: #1E90FF; /* Azul claro para los enlaces */
+  color: #000; /* Enlaces en negro */
 }
 
 /* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
 .container a:hover {
   text-decoration: underline;
 }
-
