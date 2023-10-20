@@ -55,8 +55,8 @@ function Home(props) {
             <Markdown remarkPlugins={[remarkGfm]}>
               {item.text}
             </Markdown>
-           {admin && <button className="delete-button" onClick={() => HandleClick(item)}>Borrar</button>}
           </div>
+           {admin && <button className="delete-button" onClick={() => HandleClick(item)}>Borrar</button>}
         </div>
       ))}
       {posts.map((post, index) => (
