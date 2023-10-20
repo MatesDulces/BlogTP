@@ -7,6 +7,7 @@ import Post from "./Post";
 import Home from "./Home";
 import Admin from "./Admin";
 import Comentarios from "./Comentarios";
+import HomeAdmin from "./HomeAdmin"
 
 function Rutas() {
  /* const [almacen, setAlmacen] = useState([]);
@@ -41,6 +42,11 @@ function Rutas() {
         path="/Admin"
         element={<Admin admin={admin} setAdmin={setAdmin} />}
       />
+       <route
+        exact
+        path="/HomeAdmin"
+        element={<HomeAdmin />}
+       />
       <Route path="/Rutas/:id" element={<Rutas />} />
     </Routes>
     </>
