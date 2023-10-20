@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 function Admin(props) {
     const navigate = useNavigate();
     const { setAdmin } = props;
-    const [pass, setPass] = useState("");
+    const [contra, setContra] = useState("");
     const [error, setError] = useState(false);
     const [ver, setVer] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (pass === "VTM") {
+        if (contra === "VTM") {
             setAdmin(true);
             navigate('/');
         } else {
@@ -20,7 +20,7 @@ function Admin(props) {
         }
     }
 
-    function viewPass(e) {
+    function verContra(e) {
         e.preventDefault();
         setVer(!ver);
     }
@@ -41,12 +41,12 @@ function Admin(props) {
                 <form className="form">
                     <input
                         className="input"
-                        value={pass}
+                        value={contra}
                         type={ver ? "text" : "password"} 
                         onChange={e => setPass(e.target.value)}
                     />
                     <button className="button" onClick={handleSubmit}>Enviar</button>
-                    <button className="button" onClick={viewPass}>
+                    <button className="button" onClick={verContra}>
                         {ver ? "Ocultar" : "Ver"}
                     </button>
                 </form>
