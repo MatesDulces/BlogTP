@@ -9,14 +9,13 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false); 
   
-  function HandleClick(index1) {
-    console.log(index1.id);
-    let elim = lista.filter((i) => i.id !== index1.id);
-    setLista(elim);
+  function HandleClick(index) {
+    console.log(index.id);
+    let elim = lista.filter((i) => i.id !== index.id);
+    setPosts(elim);
     localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${index1.id}`, JSON.stringify([]));
+    localStorage.setItem(`comentarios${index.id}`, JSON.stringify([]));
   }
-
 
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
@@ -36,14 +35,14 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {posts.map((post, index) => (
+      {posts.map((index) => (
         <div className="container" key={index}>
           <div className="post-item">
             <Markdown remarkPlugins={[remarkGfm]}>
-              {post.text}
+              {index.text.substring(0, 30) + "..."}
             </Markdown>
-             {admin && <button className="BORRAR" onClick={() => HandleClick(index1)}>Borrar</button>}
           </div>
+         {admin && <button className="BORRAR" onClick={() => HandleClick(index)}>Borrar</button>}
         </div>
       ))}
     </div>
