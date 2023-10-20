@@ -28,7 +28,7 @@ function Rutas() {
  <Route path="/" element={<Home admin={admin} />} />
         <Route
           path="/admin"
-          element={<Admin setAdmin={updateAdminState} />}
+          element={<Admin admin={admin} setAdmin={setAdmin}/>}
         />
       <Route
         exact
