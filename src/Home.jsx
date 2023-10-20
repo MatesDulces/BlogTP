@@ -7,7 +7,7 @@ import Admin from "./Admin";
 
 function Home() {
   const [posts, setPosts] = useState([]);
-  const { admin } = props;
+  const { admin, setAdmin } = props;
   
   function HandleClick(index) {
     console.log(index.id);
