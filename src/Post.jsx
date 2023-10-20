@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
@@ -6,46 +6,46 @@ import './Post.css';
 
 function Post() {
   const [titulo, setTitulo] = useState("");  
-  const [texto, setTexto] = useState("");
-  const [publicaciones, setPublicaciones] = useState([]);
-  const [titulos, setTitulos] = useState([]);  
-  const [vistaPreviaMarkdown, setVistaPreviaMarkdown] = useState("");
-  const [ultimoId, setUltimoId] = useState(0); 
+  const [nombre, setNombre] = useState("");
+  const [lista, setLista] = useState([]);
+  const [lista2, setLista2] = useState([]);  
+  const [markdownPreview, setMarkdownPreview] = useState("");
+  const [lastId, setLastId] = useState(0); 
 
   useEffect(() => {
-    const publicacionesGuardadas = JSON.parse(localStorage.getItem("publicaciones")) || [];
-    setPublicaciones(publicacionesGuardadas);
+    const storedLista = JSON.parse(localStorage.getItem("lista")) || [];
+    setLista(storedLista);
 
-    const maxId = publicacionesGuardadas.reduce((max, publicacion) => (publicacion.id > max ? publicacion.id : max), 0);
-    setUltimoId(maxId);
+    const maxId = storedLista.reduce((max, post) => (post.id > max ? post.id : max), 0);
+    setLastId(maxId);
   }, []);
 
   useEffect(() => {
-    const titulosGuardados = JSON.parse(localStorage.getItem("titulos")) || [];
-    setTitulos(titulosGuardados);
+    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
+    setLista2(storedLista2);
   }, []);
 
-  const agregarPublicacion = (titulo, texto) => { 
+  const agregarTexto = (titulo, texto) => { 
     if (titulo.trim() !== "" && texto.trim() !== "") {
-      const nuevaPublicacion = { 
-        id: ultimoId + 1, 
+      const nuevoItem = { 
+        id: lastId + 1, 
         title: titulo, 
         text: texto, 
         type: "item" 
       };
 
-      const publicacionesActualizadas = [...publicaciones, nuevaPublicacion];
-      setPublicaciones(publicacionesActualizadas);
-      setUltimoId(ultimoId + 1); 
-      localStorage.setItem("publicaciones", JSON.stringify(publicacionesActualizadas);
+      const updatedLista = [...lista, nuevoItem];
+      setLista(updatedLista);
+      setLastId(lastId + 1); 
+      localStorage.setItem("lista", JSON.stringify(updatedLista));
       
-      const titulosActualizados = [...titulos, titulo];
-      setTitulos(titulosActualizados);
-      localStorage.setItem("titulos", JSON.stringify(titulosActualizados));
+      const updatedLista2 = [...lista2, titulo];
+      setLista2(updatedLista2);
+      localStorage.setItem("lista2", JSON.stringify(updatedLista2));
 
       setTitulo("");  
-      setTexto("");
-      setVistaPreviaMarkdown("");
+      setNombre("");
+      setMarkdownPreview("");
     }
   };
 
@@ -55,25 +55,25 @@ function Post() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            agregarPublicacion(titulo, texto);  
+            agregarTexto(titulo, nombre);  
           }}
         >
           <input
             type="text"
-            placeholder="TÍTULO"
+            placeholder="TITULO"
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
           />
           <textarea
             placeholder="ESCRIBE EN MARKDOWN 😊"
             rows="5"
-            value={texto}
+            value={nombre}
             onChange={(e) => {
-              setTexto(e.target.value);
-              setVistaPreviaMarkdown(e.target.value);
+              setNombre(e.target.value);
+              setMarkdownPreview(e.target.value);
             }}
           />
-          <Markdown remarkPlugins={[remarkGfm]}>{vistaPreviaMarkdown}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{markdownPreview}</Markdown>
           <button type="submit">AGREGAR</button>
         </form>
       </div>
