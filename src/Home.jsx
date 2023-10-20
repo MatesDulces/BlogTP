@@ -62,6 +62,7 @@ import Admin from "./Admin";
 function Home() {
   const [posts, setPosts] = useState([]); 
   const [admin, setAdmin] = useState();
+  const [lista, setLista] = useState([]);
   
   function HandleClick(post) {
     console.log(post.id);
@@ -95,6 +96,12 @@ function Home() {
           </ul>
         </nav>
       </header>
+      {lista.map((lista, index) => (
+      <div className="containe" key={index}>
+          <div className="lista-item">
+            <Markdown remarkPlugins={[remarkGfm]}>
+              {lista.text}
+              ))}
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
