@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
@@ -7,8 +7,6 @@ import './Post.css';
 function Post() {
   const [nombre, setNombre] = useState("");
   const [lista, setLista] = useState([]);
-  const [titulo, setTitulo] = useState("");
-  const [lista2, setLista2] = useState([]);
   const [markdownPreview, setMarkdownPreview] = useState("");
 
   useEffect(() => {
@@ -28,9 +26,7 @@ function Post() {
 
   return (
     <div className="container">
-      <div>
-        <h1>EL TITULO</h1>
-        <input placeholder= "TITULO" > </input>
+      <div> 
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -68,41 +64,4 @@ function Post() {
   );
 }
 
-export default Post;*/
-
-  import {useState} from "react";
-   function  Post(){
-    const [nombre, setNombre] = useState("");
-    const [comentario, setComentario]= useState ("");
-    const [lista, setLista] = useState([]);
-    const [lista2, setLista2]= useState ([]);
-
-    const agregar = (nombre) => {
-        setLista([...lista, nombre]);
-    }
-    const agrega = (comentario) => {
-      setLista2([...lista2, comentario]);
-  }
-    return(
-      <div>
-        <input type="text" onChange = {(e)=> setNombre(e.target.value)}/>
-        <button onClick= {() => agregar(nombre)}>AGREGAR</button>
-        <ListaCompleta lista = {lista} ></ListaCompleta>
-
-        <input type="text" onChange = {(e)=> setComentario(e.target.value)}></input>
-        <buttom onClick= {() => agrega(comentario)}>COMENTAR</buttom>
-        <ListaCompleta2 lista2 = {lista2} ></ListaCompleta2>
-      </div>
-    )
- }
- const ListaCompleta = ({lista}) => {
-    return(
-        <ol>{lista.map((item,i) => <li key = {i}>{item}</li>)}</ol>
-    )
-    }
- const ListaCompleta2 = ({lista2}) => {
-  return(
-          <ol>{lista2.map((item, o) => <li key = {o}>{item}</li>)}</ol>
-  )
-    }
-    export default Post;
+export default Post;
