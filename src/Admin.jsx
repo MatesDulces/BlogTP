@@ -6,6 +6,7 @@ function Admin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [admin, setAdmin] = useState();
 
  function HandleSubmit(e) {
         e.preventDefault();
