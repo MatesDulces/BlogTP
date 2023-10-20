@@ -75,19 +75,12 @@ function Home() {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
     setPosts(postsGuardados.reverse());
   }, []);
-const [posts, setPosts] = useState([]);
-  const [admin, setAdmin] = useState(false);
 
   // Función para eliminar un post
   const deletePost = (postId) => {
     const updatedPosts = posts.filter(post => post.id !== postId);
     setPosts(updatedPosts);
   };
-
-  useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
-    setPosts(postsGuardados.reverse());
-  }, []);
 
   return (
     <div className="home">
