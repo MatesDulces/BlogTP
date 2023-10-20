@@ -43,7 +43,7 @@ function Admin(props) {
                         className="input"
                         value={contra}
                         type={ver ? "text" : "password"} 
-                        onChange={e => setContra(e.target.value)} {/* Cambiado de "setPass" a "setContra" */}
+                        onChange={e => setContra(e.target.value)} 
                     />
                     <button className="button" onClick={handleSubmit}>Enviar</button>
                     <button className="button" onClick={verContra}>
