@@ -1,27 +1,27 @@
 /* Estilo general del contenedor de la página Home */
 .home {
-  background-color: black; /* Cambia el fondo a negro */
-  color: violet;
+  background-color: black; /* Fondo negro */
+  color: white; /* Texto en blanco */
   padding: 20px;
 }
 
 /* Estilo para el título "Twitter 2" */
 .Twitter {
-  color: violet;
+  color: violet; /* Cambia el color del título a violeta */
   text-shadow: 2px 2px 4px white; /* Agrega sombra con blanco */
 }
 
 /* Estilo para el título de modo administrador */
 .administrador {
-  color: violet;
+  color: violet; /* Cambia el color del título a violeta */
   text-shadow: 2px 2px 4px white; /* Agrega sombra con blanco */
 }
 
 /* Estilo para los contenedores de los elementos de lista */
 .container {
-  background-color: violet;
-  color: black;
-  border: 2px solid gray; /* Borde gris */
+  background-color: violet; /* Fondo violeta */
+  color: black; /* Texto en negro */
+  border: 2px solid violet; /* Borde violeta */
   padding: 10px;
   margin: 10px;
   box-shadow: 4px 4px 8px white; /* Agrega sombra con blanco */
@@ -29,9 +29,9 @@
 
 /* Estilo para los botones de borrar (modo administrador) */
 .delete-button {
-  background-color: black;
-  color: violet;
-  border: 1px solid gray; /* Borde gris */
+  background-color: black; /* Botón en negro */
+  color: violet; /* Texto del botón en violeta */
+  border: 1px solid violet; /* Borde violeta */
   padding: 5px 10px;
   margin-top: 10px;
   cursor: pointer;
@@ -39,7 +39,7 @@
 
 /* Estilo para los enlaces en la lista de publicaciones */
 .container a {
-  color: violet;
+  color: violet; /* Color de enlace en violeta */
 }
 
 /* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
