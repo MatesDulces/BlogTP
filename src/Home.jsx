@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import Admin from "./Admin";
+import Comentarios from "./Comentarios";
 
 function Home() {
   const [posts, setPosts] = useState([]);
