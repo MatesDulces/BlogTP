@@ -8,9 +8,21 @@ function Comentarios() {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
 
+  // Cargar los comentarios previos desde el almacenamiento local al montar el componente.
+  useEffect(() => {
+    const storedComments = JSON.parse(localStorage.getItem(`comentarios${postId}`)) || [];
+    setComments(storedComments);
+  }, [postId]);
+
   const handleAddComment = () => {
     if (comment.trim() !== '') {
-      setComments([...comments, comment]);
+      // Agregar el nuevo comentario al estado.
+      const newComment = comment;
+      setComments([...comments, newComment]);
+
+      // Guardar los comentarios actualizados en el almacenamiento local.
+      localStorage.setItem(`comentarios${postId}`, JSON.stringify([...comments, newComment]));
+
       setComment('');
     }
   };
