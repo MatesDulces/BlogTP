@@ -4,7 +4,8 @@
   color: #ffffff; /* Texto en blanco */
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  align-items: center; /* Para centrar los elementos en la pantalla */
+  padding: 20px;
 }
 
 /* Estilo para el título "Twitter 2" */
@@ -26,9 +27,9 @@
 
 /* Estilo para la barra de navegación */
 .nav-menu {
-  background-color: #2E1A38; /* Violeta oscuro para el fondo */
+  background-color: #15202B; /* Fondo similar al de Twitter */
   padding: 20px; /* Aumentado el espacio de relleno */
-  border-bottom: 1px solid #8956A1; /* Línea de separación */
+  border-bottom: 1px solid #38444d; /* Línea de separación */
 }
 
 /* Estilo para los elementos de la barra de navegación */
@@ -45,10 +46,12 @@
 
 .nav-menu a {
   text-decoration: none;
-  color: #1DA1F2; /* Azul de Twitter para los enlaces de navegación */
+  color: #ffffff; /* Texto en blanco para los enlaces de navegación */
   font-weight: bold;
   font-size: 18px; /* Tamaño de fuente más grande */
   transition: color 0.3s; /* Transición de color suave */
+  padding: 10px 20px; /* Aumenta el espacio alrededor del enlace */
+  border-radius: 20px; /* Bordes redondeados */
 }
 
 .nav-menu a:hover {
@@ -76,4 +79,10 @@
 /* Estilo para los enlaces en la lista de publicaciones cuando se pasa el ratón */
 .container a:hover {
   text-decoration: underline;
+}
+
+/* Estilo para el enlace "Publicar tu post" en la barra de navegación */
+.publish-link {
+  font-size: 24px; /* Tamaño de fuente más grande para el enlace "Publicar tu post" */
+  padding: 10px 20px; /* Aumenta el espacio alrededor del enlace */
 }
