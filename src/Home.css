@@ -5,26 +5,48 @@
   padding: 20px;
 }
 
-/* Estilo para el título "Twitter 2" */
-.Twitter {
-  color: violet; /* Cambia el color del título a violeta */
-  text-shadow: 2px 2px 4px white; /* Agrega sombra con blanco */
+/* Estilo para la barra de navegación */
+.nav-menu {
+  background: linear-gradient(to bottom, #000000, #2c3e50); /* Fondo con tonos azules, negros y violetas */
+  padding: 10px;
 }
 
-/* Estilo para el título de modo administrador */
-.administrador {
-  color: violet; /* Cambia el color del título a violeta */
-  text-shadow: 2px 2px 4px white; /* Agrega sombra con blanco */
+/* Estilo para los elementos de la barra de navegación */
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu li {
+  margin: 0 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: violet;
+  font-weight: bold;
+}
+
+.nav-menu a:hover {
+  color: white;
 }
 
 /* Estilo para los contenedores de los elementos de lista */
 .container {
   background-color: violet; /* Fondo violeta */
-  color: black; /* Texto en negro */
+  color: white; /* Texto en blanco */
   border: 2px solid violet; /* Borde violeta */
   padding: 10px;
   margin: 10px;
-  box-shadow: 4px 4px 8px white; /* Agrega sombra con blanco */
+  box-shadow: 4px 4px 8px gray; /* Agrega sombra con gris */
+}
+
+/* Estilo para los títulos de los posts */
+.container h2 {
+  font-size: 18px; /* Tamaño de fuente más pequeño para los títulos */
+  margin-bottom: 10px; /* Espaciado inferior reducido */
 }
 
 /* Estilo para los botones de borrar (modo administrador) */
@@ -33,7 +55,6 @@
   color: violet; /* Texto del botón en violeta */
   border: 1px solid violet; /* Borde violeta */
   padding: 5px 10px;
-  margin-top: 10px;
   cursor: pointer;
 }
 
@@ -46,3 +67,4 @@
 .container a:hover {
   text-decoration: underline;
 }
+
