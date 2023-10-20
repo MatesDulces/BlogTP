@@ -28,7 +28,7 @@ function Admin(props) {
     return (
         <>
             <header>
-                <nav className="nav-menu">
+                <nav className="admin">
                     <ul>
                         <li>
                             <Link to="/">Volver a la página principal</Link>
