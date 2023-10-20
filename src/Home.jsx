@@ -101,10 +101,6 @@ function Home() {
           <div className="lista-item">
             <Markdown remarkPlugins={[remarkGfm]}>
               {item.text}
-            </Markdown>
-            <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
-          </div>
-        </div>
       ))}
       {posts.map((post, index) => (
         <div className="container" key={index}>
