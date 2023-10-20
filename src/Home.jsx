@@ -99,7 +99,7 @@ function Home() {
         <div className="containe" key={index1}>
           <div className="lista-item">
             <Markdown remarkPlugins={[remarkGfm]}>
-              {item.text}
+              {lista.text}
             </Markdown>
             <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
           </div>
