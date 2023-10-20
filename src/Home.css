@@ -18,12 +18,20 @@ body {
   width: 10vw;
 }
 
-.nav-menu {
+.nav-menu ul {
+  list-style: none;
   display: flex;
-  justify-content: space-between;
-  height: 50vh;
-  text-decoration: none;
-  text-transform: none;
+  align-items: center;
+  margin-right: 4vw;
+}
+
+.nav-menu ul li {
+  transition: all 0.3s;
+  
+}
+
+.nav-menu ul li:hover {
+  transform: scale(1.1);
 }
 
 .lista2-item {
@@ -54,4 +62,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.boton-comentar {
+  text-decoration: none;
+  color: black;
 }
