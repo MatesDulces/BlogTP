@@ -1,1 +1,83 @@
+.administrador{
+  color: black;
+  text-align: center; 
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
 
+.Twitter {
+  background-color: black;
+  color: White;
+  text-align: center; 
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+.home {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f8f8f8; /* Fondo gris claro */
+  padding: 20px;
+}
+
+
+.header {
+  background-color: #333;
+  color: black;
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header img {
+  max-width: 20px;
+  max-length: 20px;
+}
+
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-right: 20px;
+  color: black;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #007bff; 
+}
+
+
+.container {
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.post-item {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333; 
+}
+
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+
+a:visited {
+  color: #555; 
+}
