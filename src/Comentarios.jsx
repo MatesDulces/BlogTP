@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm';
 import { useParams } from 'react-router-dom';
 import './Comentarios.css';
 
-function Comentarios() {
+function Comentarios(props) {
   const { postId } = useParams();
   const [comentario, setComentario] = useState('');
   const { admin } = props;
