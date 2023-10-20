@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link, useParams } from 'react-router-dom';
+import { useAdminContext } from "./AdminContext";
 import './Home.css';
 
 function Home(props) {
@@ -9,7 +10,8 @@ function Home(props) {
   const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState ([]);
-  const [titulo, setTitulo] = useState ([]);;
+  const [titulo, setTitulo] = useState ([]);
+  const { admin } = useAdminContext();
 
   function HandleClick(post) {
     let elim = lista.filter((i) => i.id !== post.id);
