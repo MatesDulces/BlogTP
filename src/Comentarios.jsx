@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 function Comentarios() {
   const { postId } = useParams();
   const [comment, setComment] = useState('');
+  const [author, setAuthor] = useState(''); // Nuevo estado para el nombre del autor
   const [comments, setComments] = useState([]);
 
   // Cargar los comentarios previos desde el almacenamiento local al montar el componente.
@@ -16,11 +17,14 @@ function Comentarios() {
 
   const handleAddComment = () => {
     if (comment.trim() !== '') {
-      // Agregar el nuevo comentario con el título "Usuario" al estado.
-      const newComment = `Usuario: ${comment}`;
+      // Crear un comentario con el nombre del autor
+      const newComment = {
+        author: author,
+        text: comment,
+      };
       setComments([...comments, newComment]);
 
-      // Guardar los comentarios actualizados en el almacenamiento local.
+      // Guardar los comentarios actualizados en el almacenamiento local
       localStorage.setItem(`comentarios${postId}`, JSON.stringify([...comments, newComment]));
 
       setComment('');
@@ -31,6 +35,12 @@ function Comentarios() {
     <div>
       <h1>Comentarios del Post {postId}</h1>
       <div className="comment">
+        <input
+          type="text"
+          placeholder="Nombre del autor"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
         <textarea
           placeholder="Añadir un comentario..."
           value={comment}
@@ -45,7 +55,8 @@ function Comentarios() {
       )}
       {comments.map((comment, index) => (
         <div key={index} className="comment">
-          <Markdown remarkPlugins={[remarkGfm]}>{comment}</Markdown>
+          <h3>{comment.author}</h3>
+          <Markdown remarkPlugins={[remarkGfm]}>{comment.text}</Markdown>
         </div>
       ))}
     </div>
