@@ -113,9 +113,8 @@ function Home() {
                 <Link to={`/comentar/${post.id}`}>Comentar</Link>
               </div>
           </div>
+             ))}
         </div>
-      ))}
-    </div>
   );
 }
 
