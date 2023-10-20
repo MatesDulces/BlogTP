@@ -21,7 +21,30 @@ const handleComment = (index) => (event) => {
       event.target.comment.value = "";
     }
   };
-
+    return (
+<div>
+            {index.comments && (
+              <ul>
+                {index.comments.map((comment, commentIndex) => (
+                  <li key={commentIndex} className="comment">
+                    {comment}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <form onSubmit={handleComment(index)}>
+              <input
+                type="text"
+                name="comment"
+                placeholder="Añadir un comentario..."
+              />
+              <button type="submit">Comentar</button>
+            </form>
+          </div>
+        </div>
+      ))}
+    </div>
+);
   export default Comentarios;
 
 
