@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAdminContext } from "./AdminContext";
 
 function Admin(props) {
-  const { admin, setAdmin } = useAdminContext();
+  const { setAdmin } = props;
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const { setAdmin } = props; // Obtén la función setAdmin de las props
+
 
   function HandleSubmit(e) {
     e.preventDefault();
