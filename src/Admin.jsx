@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Admin(props) {
   const navigate = useNavigate();
-  const { setAdmin } = props;
+  const [admin, setAdmin] = useState(false); 
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
   const [ver, setVer] = useState(false);
