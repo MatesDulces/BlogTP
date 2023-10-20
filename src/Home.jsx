@@ -76,6 +76,14 @@ function Home() {
     setPosts(postsGuardados.reverse());
   }, []);
 
+     useEffect(() => {
+    const storedLista2 = JSON.parse(localStorage.getItem("lista2")) || [];
+    setLista2(storedLista);
+
+    const maxId2 = storedLista.reduce((max1, lista) => (lista.id > max1 ? lista.id : max1), 0);
+    setLastId2(maxId1);
+  }, []);
+
   const deletePost = (postId) => {
     const updatedPosts = posts.filter(post => post.id !== postId);
     setPosts(updatedPosts);
@@ -95,11 +103,11 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {lista.map((lista, index1) => (
+      {lista.map((lista2, index1) => (
         <div className="containe" key={index1}>
-          <div className="lista-item">
+          <div className="lista2-item">
             <Markdown remarkPlugins={[remarkGfm]}>
-              {lista.text}
+              {lista2.text}
             </Markdown>
             <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
           </div>
