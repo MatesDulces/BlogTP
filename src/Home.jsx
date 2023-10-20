@@ -31,9 +31,6 @@ function Home() {
         <nav className="nav-menu">
           <ul>
             <li>
-              <Link to="/Admin">Iniciar Sesión</Link>
-            </li>
-            <li>
               <Link to="/post">Publicar tu post</Link>
             </li>
           </ul>
