@@ -9,7 +9,7 @@ function Admin() {
 
  function HandleSubmit(e) {
         e.preventDefault();
-        if(pass === "VTM"){
+        if(password === "VTM"){
             setAdmin(true);
             navigate('/');
         }else {
