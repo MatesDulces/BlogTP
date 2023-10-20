@@ -28,11 +28,11 @@ function Home(props) {
     setLista2(tituloGuardado.reverse());
   }, []);
 
-  const deletePost = (postId) => {
+  /*const deletePost = (postId) => {
     const updatedPosts = posts.filter(post => post.id !== postId);
     setPosts(updatedPosts);
     localStorage.setItem("lista", JSON.stringify(updatedPosts));
-  };
+  };*/
 
   return (
     <div className="home">
