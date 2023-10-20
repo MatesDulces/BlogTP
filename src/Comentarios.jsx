@@ -6,58 +6,58 @@ import './Comentarios.css';
 
 function Comentarios() {
   const { postId } = useParams();
-  const [comment, setComment] = useState('');
-  const [author, setAuthor] = useState(''); // Nuevo estado para el nombre del autor
-  const [comments, setComments] = useState([]);
+  const [comentario, setComentario] = useState('');
+  const [autor, setAutor] = useState(''); // Nuevo estado para el nombre del autor
+  const [comentarios, setComentarios] = useState([]);
 
   // Cargar los comentarios previos desde el almacenamiento local al montar el componente.
   useEffect(() => {
-    const storedComments = JSON.parse(localStorage.getItem(`comentarios${postId}`)) || [];
-    setComments(storedComments);
+    const comentariosGuardados = JSON.parse(localStorage.getItem(`comentarios${postId}`)) || [];
+    setComentarios(comentariosGuardados);
   }, [postId]);
 
-  const handleAddComment = () => {
-    if (comment.trim() !== '') {
+  const handleAgregarComentario = () => {
+    if (comentario.trim() !== '') {
       // Crear un comentario con el nombre del autor
-      const newComment = {
-        author: author,
-        text: comment,
+      const nuevoComentario = {
+        autor: autor,
+        texto: comentario,
       };
-      setComments([...comments, newComment]);
+      setComentarios([...comentarios, nuevoComentario]);
 
       // Guardar los comentarios actualizados en el almacenamiento local
-      localStorage.setItem(`comentarios${postId}`, JSON.stringify([...comments, newComment]));
+      localStorage.setItem(`comentarios${postId}`, JSON.stringify([...comentarios, nuevoComentario]));
 
-      setComment('');
+      setComentario('');
     }
   };
 
   return (
     <div>
       <h1>Comentarios del Post {postId}</h1>
-      <div className="comment">
+      <div className="comentario">
         <input
           type="text"
           placeholder="Nombre del autor"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
+          value={autor}
+          onChange={(e) => setAutor(e.target.value)}
         />
         <textarea
           placeholder="Añadir un comentario..."
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          value={comentario}
+          onChange={(e) => setComentario(e.target.value)}
         />
-        <button onClick={handleAddComment}>Agregar Comentario</button>
+        <button onClick={handleAgregarComentario}>Agregar Comentario</button>
       </div>
-      {comments.length > 0 && (
-        <div className="comments-header">
+      {comentarios.length > 0 && (
+        <div className="encabezado-comentarios">
           <h2>Comentarios anteriores:</h2>
         </div>
       )}
-      {comments.map((comment, index) => (
-        <div key={index} className="comment">
-          <h3>Usuario: {comment.author}</h3>
-          <Markdown remarkPlugins={[remarkGfm]}>{comment.text}</Markdown>
+      {comentarios.map((comentario, index) => (
+        <div key={index} className="comentario">
+          <h3>Usuario: {comentario.autor}</h3>
+          <Markdown remarkPlugins={[remarkGfm]}>{comentario.texto}</Markdown>
         </div>
       ))}
     </div>
@@ -65,8 +65,3 @@ function Comentarios() {
 }
 
 export default Comentarios;
-
-
-
-
-
