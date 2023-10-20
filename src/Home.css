@@ -4,18 +4,17 @@
   color: #ffffff; /* Texto en blanco */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Para centrar los elementos en la pantalla */
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Estilo para el título "Twitter 2" */
 .Twitter {
   color: #8956A1; /* Violeta más claro para el título */
-  font-size: 36px; /* Tamaño de fuente más grande */
+  font-size: 39px; /* Tamaño de fuente más grande */
   font-weight: bold;
   text-transform: uppercase; /* Mayúsculas */
-  letter-spacing: 2px; /* Espaciado entre letras */
-  margin: 20px 0; /* Margen superior e inferior aumentado */
+  letter-spacing: 3px; /* Espaciado entre letras */
+  margin: 10px 0; /* Margen superior e inferior aumentado */
 }
 
 /* Estilo para el título de modo administrador */
