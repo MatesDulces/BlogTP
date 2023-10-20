@@ -9,12 +9,12 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false); 
   
-  function HandleClick(index) {
-    console.log(index.id);
-    let elim = lista.filter((i) => i.id !== index.id);
+  function HandleClick(index1) {
+    console.log(index1.id);
+    let elim = lista.filter((i) => i.id !== index1.id);
     setLista(elim);
     localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${index.id}`, JSON.stringify([]));
+    localStorage.setItem(`comentarios${index1.id}`, JSON.stringify([]));
   }
 
 
@@ -42,7 +42,7 @@ function Home() {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-             {admin && <button className="BORRAR" onClick={() => HandleClick(index)}>Borrar</button>}
+             {admin && <button className="BORRAR" onClick={() => HandleClick(index1)}>Borrar</button>}
           </div>
         </div>
       ))}
