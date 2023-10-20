@@ -3,7 +3,6 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link, useParams } from 'react-router-dom';
 import './Home.css';
-import Admin from "./Admin";
 
 function Home(props) {
   const [posts, setPosts] = useState([]);
@@ -37,7 +36,6 @@ function Home(props) {
 
   return (
     <div className="home">
-      {admin && <h1 className='administrador'>Modo Administrador</h1>}
       <h1 className="Twitter">Twitter 2</h1>
       <header>
         <nav className="nav-menu">
@@ -48,6 +46,7 @@ function Home(props) {
           </ul>
         </nav>
       </header>
+      {admin && <h1 className='administrador'>Modo Administrador</h1>}
       {lista.map((item, index1) => (
         <div className="container" key={index1}>
           <div className="lista2-item">
