@@ -3,25 +3,29 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link, useParams } from 'react-router-dom';
 import './Home.css';
-import Admin from "./Admin";
 
 function Home() {
   const [posts, setPosts] = useState([]);
-  const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState ([]);
-  const [titulo, setTitulo] = useState ([]);
-  
+  const [lista2, setLista2] = useState([]);
+  const isAdmin = localStorage.getItem("admin") === "true"; // Verifica si estás en modo administrador
+
+  function HandleClick(post) {
+    let elim = lista.filter((i) => i.id !== post.id);
+    setLista(elim);
+    localStorage.setItem("lista", JSON.stringify(elim));
+    localStorage.removeItem(`comentarios${post.id}`);
+  }
+
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
     setPosts(postsGuardados.reverse());
   }, []);
 
- useEffect(() => {
-    let titulosGuardados = JSON.parse(localStorage.getItem("lista2")) || [];
-    setTitulo(titulosGuardados.reverse());
+  useEffect(() => {
+    let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
+    setLista2(tituloGuardado.reverse());
   }, []);
-
 
   const deletePost = (postId) => {
     const updatedPosts = posts.filter(post => post.id !== postId);
@@ -31,7 +35,7 @@ function Home() {
 
   return (
     <div className="home">
-      {admin && <h1 className='administrador'>Modo Administrador</h1>}
+      {isAdmin && <h1 className='admin-mode'>Modo Administrador</h1>} {/* Muestra el cartel si estás en modo administrador */}
       <h1 className="Twitter">Twitter 2</h1>
       <header>
         <nav className="nav-menu">
@@ -42,11 +46,11 @@ function Home() {
           </ul>
         </nav>
       </header>
-      {lista.map((titulo, index1) => (
+      {lista.map((lista2, index1) => (
         <div className="containe" key={index1}>
-          <div className="titulo-item">
+          <div className="lista2-item">
             <Markdown remarkPlugins={[remarkGfm]}>
-              {titulo.text}
+              {lista2.text}
             </Markdown>
             <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
           </div>
@@ -59,7 +63,6 @@ function Home() {
               {post.text}
             </Markdown>
             <div>
-              {admin && ( <button className="BORRAR" onClick={() => deletePost(post.id)}>Borrar</button> )}
               <Link to={`/comentar/${post.id}`}>Comentar</Link>
             </div>
           </div>
