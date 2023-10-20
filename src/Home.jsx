@@ -9,18 +9,20 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false); 
 
-  function HandleClick(index) {
-    if (admin) {
-      const updatedPosts = posts.filter((post, i) => i !== index);
-      setPosts(updatedPosts);
-      localStorage.setItem("post", JSON.stringify(updatedPosts));
-    }
-  }
-
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("post")) || [];
     setPosts(postsGuardados.reverse());
   }, []);
+
+  function HandleClick(index) {
+    if (admin) {
+      const updatedPosts = [...posts];
+      const deletedPost = updatedPosts.splice(index, 1)[0];
+      setPosts(updatedPosts);
+      localStorage.setItem("post", JSON.stringify(updatedPosts));
+      localStorage.removeItem(`comentarios${deletedPost.id}`);
+    }
+  }
 
   return (
     <div className="home">
@@ -47,7 +49,7 @@ function Home() {
             {admin && <button className="BORRAR" onClick={() => HandleClick(index)}>Borrar</button>}
           </div>
         </div>
-      ))}
+      )}
     </div>
   );
 }
