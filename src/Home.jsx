@@ -55,7 +55,7 @@ function Home(props) {
             <Markdown remarkPlugins={[remarkGfm]}>
               {item.text}
             </Markdown>
-            <button className="BORRAR" onClick={() => HandleClick(item)}>Borrar</button>
+           {admin && <button className="delete-button" onClick={() => HandleClick(item)}>Borrar</button>}
           </div>
         </div>
       ))}
