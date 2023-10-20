@@ -1,4 +1,4 @@
- import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
@@ -31,6 +31,9 @@ function Home() {
           <ul>  
             <li>
               <Link to="/post">Publicar tu post</Link>
+            </li>
+            <li>
+              <Link to="/Admin">A Modo Administrador</Link>
             </li>
           </ul>
         </nav>
