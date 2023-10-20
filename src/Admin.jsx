@@ -1,11 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Admin(props) {
     const navigate = useNavigate();
     const { setAdmin } = props;
-    const [contra, setContra] = useState("");
+    const [contra, setContra] = useState(""); 
     const [error, setError] = useState(false);
     const [ver, setVer] = useState(false);
 
@@ -43,7 +43,7 @@ function Admin(props) {
                         className="input"
                         value={contra}
                         type={ver ? "text" : "password"} 
-                        onChange={e => setPass(e.target.value)}
+                        onChange={e => setContra(e.target.value)} {/* Cambiado de "setPass" a "setContra" */}
                     />
                     <button className="button" onClick={handleSubmit}>Enviar</button>
                     <button className="button" onClick={verContra}>
