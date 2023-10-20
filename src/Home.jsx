@@ -36,7 +36,6 @@ function Home(props) {
 
   return (
     <div className="home">
-      <Admin setAdmin={setAdmin} />
       <h1 className="Twitter">Twitter 2</h1>
       <header>
         <nav className="nav-menu">
