@@ -7,15 +7,15 @@ function Admin() {
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = () => {
-    if (password === "VTM") {
-      // Establece el estado de administrador a true
-      localStorage.setItem("admin", "true");
-      navigate("/");
-    } else {
-      setError(true);
-    }
-  };
+ function HandleSubmit(e) {
+        e.preventDefault();
+        if(pass === "VTM"){
+            setAdmin(true);
+            navigate('/');
+        }else {
+            setAdmin(false)
+        setError(true)
+        }
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -35,7 +35,7 @@ function Admin() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button onClick={handleLogin}>Ingresar</button>
+        <button onClick={HandleSubmit}>Ingresar</button>
         <button onClick={togglePasswordVisibility}>
           {showPassword ? "Ocultar Contraseña" : "Mostrar Contraseña"}
         </button>
