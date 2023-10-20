@@ -115,33 +115,4 @@ function Home() {
 }
 
 export default Home;
-  /*return (
-    <div className="home">
-      {admin && <h1 className='administrador'>Modo Administrador</h1>}
-      <h1 className="Twitter">Twitter 2</h1>
-      <header>
-        <nav className="nav-menu">
-          <ul>
-            <li>
-              <Link to="/post">Publicar tu post</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      {posts.map((post, index) => (
-        <div className="container" key={index}>
-          <div className="post-item">
-            <Markdown remarkPlugins={[remarkGfm]}>
-              {post.text}
-            </Markdown>
-            {admin && <button className="BORRAR" onClick={() => HandleClick(post)}>Borrar</button>}
-            <Link to={`/comentar/${post.id}`}>Comentar</Link> {/* Asegúrate de pasar el ID del post aquí */}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export default Home;*/
 
