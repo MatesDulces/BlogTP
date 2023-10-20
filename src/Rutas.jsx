@@ -18,6 +18,9 @@ function Rutas() {
   }, []);*/
   
   const [admin,setAdmin] = useState(false);
+  const updateAdminState = (isAdmin) => {
+    setAdmin(isAdmin);
+  };
 
   return (
     <>
