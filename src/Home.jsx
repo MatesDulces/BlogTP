@@ -49,7 +49,7 @@ function Home() {
             {admin && <button className="BORRAR" onClick={() => HandleClick(index)}>Borrar</button>}
           </div>
         </div>
-      )}
+      ))}
     </div>
   );
 }
