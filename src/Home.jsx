@@ -63,7 +63,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [lista, setLista] = useState([]);
-  }
+  
 
   function HandleClick(post) {
     let elim = lista.filter((i) => i.id !== post.id);
@@ -120,6 +120,6 @@ function Home() {
         </div>
       ))}
     </div>
-  ),
-
+  );
+}
 export default Home;
