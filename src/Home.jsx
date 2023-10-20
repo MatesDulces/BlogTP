@@ -61,26 +61,19 @@ import Admin from "./Admin";
 
 function Home() {
   const [posts, setPosts] = useState([]);
-  const [admin, setAdmin] = useState(false); 
-  
-  function HandleClick(post) {
-    console.log(post.id);
-    let elim = lista.filter((i) => i.id !== post.id);
-    setLista(elim);
-    localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
-  }
-
-  useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
-    setPosts(postsGuardados.reverse());
-  }, []);
+  const [admin, setAdmin] = useState(false);
 
   // Función para eliminar un post
-  const deletePost = (postId) => {
-    const updatedPosts = posts.filter(post => post.id !== postId);
-    setPosts(updatedPosts);
-  };
+  function deletePost(postId) {
+    if (admin) {
+      const updatedPosts = posts.filter((post) => post.id !== postId);
+      setPosts(updatedPosts);
+      localStorage.setItem("lista", JSON.stringify(updatedPosts));
+      localStorage.removeItem(`comentarios${postId}`);
+    }
+  }
+
+  // ...
 
   return (
     <div className="home">
@@ -101,10 +94,17 @@ function Home() {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-              <div>
-                {admin && ( <button className="BORRAR" onClick={() => deletePost(post.id)}>Borrar</button> )}
-                <Link to={`/comentar/${post.id}`}>Comentar</Link>
-              </div>
+            <div>
+              {admin && (
+                <div>
+                  <button className="BORRAR" onClick={() => deletePost(post.id)}>
+                    Eliminar post
+                  </button>
+                  <Link to={`/comentar/${post.id}`}>Comentar</Link>
+                </div>
+              )}
+              {!admin && <Link to={`/comentar/${post.id}`}>Comentar</Link>}
+            </div>
           </div>
         </div>
       ))}
@@ -113,4 +113,3 @@ function Home() {
 }
 
 export default Home;
-
