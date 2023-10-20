@@ -28,16 +28,10 @@ function Home(props) {
     setLista2(tituloGuardado.reverse());
   }, []);
 
-  /*const deletePost = (postId) => {
-    const updatedPosts = posts.filter(post => post.id !== postId);
-    setPosts(updatedPosts);
-    localStorage.setItem("lista", JSON.stringify(updatedPosts));
-  };*/
-
   return (
     <div className="home">
-      <h1 className="Twitter">Twitter 2</h1>
       <header>
+        <h1 className="Twitter">Twitter 2</h1>
         <nav className="nav-menu">
           <ul>
             <li>
@@ -65,7 +59,7 @@ function Home(props) {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-            <div>
+            <div className= "boton-comentar">
               <Link to={`/comentar/${post.id}`}>Comentar</Link>
             </div>
           </div>
