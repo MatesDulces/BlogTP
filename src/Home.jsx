@@ -7,7 +7,7 @@ import Admin from "./Admin";
 
 function Home() {
   const [posts, setPosts] = useState([]);
-  const [admin, setAdmin] = useState(false);
+  const {admin} = props;
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState ([]);
   const [titulo, setTitulo] = useState ([]);;
