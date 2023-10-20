@@ -1,49 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link } from 'react-router-dom';
-function Comentarios (index) {
-const handleComment = (index) => (event) => {
-    event.preventDefault();
-    const newComment = event.target.comment.value;
-    if (newComment.trim() !== "") {
-      const updatedPosts = posts.map((post) => {
-        if (post.id === index.id) {
-          return {
-            ...post,
-            comments: [...(post.comments || []), newComment],
-          };
-        }
-        return post;
-      });
-      setPosts(updatedPosts);
-      localStorage.setItem("lista", JSON.stringify(updatedPosts));
-      event.target.comment.value = "";
+import { useParams } from 'react-router-dom';
+
+function Comentarios() {
+  const { postId } = useParams();
+  const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
+
+  const handleAddComment = () => {
+    if (comment.trim() !== '') {
+      setComments([...comments, comment]);
+      setComment('');
     }
   };
-return (
+
+  return (
     <div>
-      {index.comments && (
-        <ul>
-          {index.comments.map((comment, commentIndex) => (
-            <li key={commentIndex} className="comment">
-              {comment}
-            </li>
-          ))}
-        </ul>
-      )}
-      <form onSubmit={handleComment(index)}>
-        <input
-          type="text"
-          name="comment"
-          placeholder="Añadir un comentario..."
-        />
-        <button type="submit">Comentar</button>
-      </form>
+      <h1>Comentarios del Post</h1>
+      <Markdown remarkPlugins={[remarkGfm]}>
+        {comments.map((comment, index) => (
+          <div key={index}>{comment}</div>
+        ))}
+      </Markdown>
+      <textarea
+        placeholder="Añadir un comentario..."
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+      />
+      <button onClick={handleAddComment}>Agregar Comentario</button>
     </div>
   );
 }
+
 export default Comentarios;
+
+
+
 
 
 
