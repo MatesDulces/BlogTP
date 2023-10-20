@@ -39,7 +39,7 @@ function Home() {
         </nav>
       </header>
       {posts.map((index) => (
-        <div className="container" key={index}>
+        <div className="container">
           <div className="post-item">
             <Markdown remarkPlugins={[remarkGfm]}>
               {index.text.substring(0, 30) + "..."}
