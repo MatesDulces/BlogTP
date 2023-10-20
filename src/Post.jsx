@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import './Post.css';
 
 function Post() {
+  const [titulo, setTitulo] = useState("");  
   const [nombre, setNombre] = useState("");
   const [lista, setLista] = useState([]);
+  const [lista2, setLista2] = useState([]);  
   const [markdownPreview, setMarkdownPreview] = useState("");
 
   useEffect(() => {
@@ -14,14 +16,20 @@ function Post() {
     setLista(storedLista);
   }, []);
 
-  const agregarTexto = (texto) => {
-    if (texto.trim() !== "") {
-      const nuevoItem = { text: texto, type: "item" };
+  const agregarTexto = (titulo, texto) => { 
+    if (titulo.trim() !== "" && texto.trim() !== "") {
+      const nuevoItem = { title: titulo, text: texto, type: "item" };
       const updatedLista = [...lista, nuevoItem];
       setLista(updatedLista);
       localStorage.setItem("lista", JSON.stringify(updatedLista));
-      setNombre(""); 
+
+
+      const updatedLista2 = [...lista2, titulo];
+      setLista2(updatedLista2);
+      setTitulo("");  
+      setNombre("");
       setMarkdownPreview("");
+    }
   };
 
   return (
@@ -30,9 +38,15 @@ function Post() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            agregarTexto(nombre);
+            agregarTexto(titulo, nombre);  
           }}
         >
+          <input
+            type="text"
+            placeholder="TÍTULO"
+            value={titulo}
+            onChange={(e) => setTitulo(e.target.value)}
+          />
           <textarea
             placeholder="ESCRIBE EN MARKDOWN 😊"
             rows="5"
