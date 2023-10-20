@@ -8,24 +8,24 @@ import Admin from "./Admin";
 function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false); 
-  
+
   function HandleClick(index) {
-    console.log(index.id);
-    let elim = lista.filter((i) => i.id !== index.id);
-    setLista(elim);
-    localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${index.id}`, JSON.stringify([]));
+    if (admin) {
+      const updatedPosts = posts.filter((post, i) => i !== index);
+      setPosts(updatedPosts);
+      localStorage.setItem("post", JSON.stringify(updatedPosts));
+    }
   }
 
   useEffect(() => {
-    let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
+    let postsGuardados = JSON.parse(localStorage.getItem("post")) || [];
     setPosts(postsGuardados.reverse());
   }, []);
 
   return (
     <div className="home">
-      {admin && <h1 classname = 'administrador'>Modo Administrador</h1>}
-      <h1 className = "Twitter">Twitter 2</h1>
+      {admin && <h1 className="administrador">Modo Administrador</h1>}
+      <h1 className="Twitter">Twitter 2</h1>
       <header>
         <nav className="nav-menu">
           <ul>
@@ -39,12 +39,12 @@ function Home() {
         </nav>
       </header>
       {posts.map((post, index) => (
-        <div className="container" key={index}>
+        <div className="container" key={post.id}>
           <div className="post-item">
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-             {admin && <button className="BORRAR" onClick={() => HandleClick(index)}>Borrar</button>}
+            {admin && <button className="BORRAR" onClick={() => HandleClick(index)}>Borrar</button>}
           </div>
         </div>
       ))}
