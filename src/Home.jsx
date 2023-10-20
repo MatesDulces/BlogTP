@@ -9,10 +9,12 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [admin, setAdmin] = useState(false); 
   
- function  HandleClick(index) {
-    const updatedList = [...this.state.listaElementos];
-    updatedList.splice(index, 1);
-    this.setState({ listaElementos: updatedList });
+  function HandleClick(index) {
+    console.log(index.id);
+    let elim = lista.filter((i) => i.id !== index.id);
+    setLista(elim);
+    localStorage.setItem("post", JSON.stringify(elim));
+    localStorage.setItem(`comentarios${index.id}`, JSON.stringify([]));
   }
 
 
