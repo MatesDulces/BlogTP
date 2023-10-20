@@ -52,7 +52,7 @@
   color: #ffffff; /* Texto en blanco */
   border: 1px solid #666; /* Borde gris */
   padding: 15px;
-  margin: 10px;
+  margin: 20px; /* Aumentado el margen superior e inferior para centrar los elementos */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
   text-align: center; /* Centra el contenido del post */
 }
@@ -66,3 +66,4 @@
 .container a:hover {
   text-decoration: underline;
 }
+
