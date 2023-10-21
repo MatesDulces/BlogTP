@@ -20,20 +20,14 @@ function Home(props) {
     let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
     setLista2(tituloGuardado.reverse());
   }, []);
-
-  function HandleClick(post) {
-    let elim = posts.filter((i) => i.id !== post.id);
-    setPosts(elim);
-    localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
-  }
-  /*const eliminarPost = (postId) => {
+  
+  const eliminarPost = (postId) => {
     if (admin) {
       const updatedPosts = posts.filter((post) => post.id !== postId);
       setPosts(updatedPosts);
       localStorage.setItem("lista", JSON.stringify(updatedPosts));
     }
-  };*/
+  };
     return (
     <div className="home">
       <header>
@@ -55,7 +49,10 @@ function Home(props) {
               {item.text}
             </Markdown>
           </div>
-        {admin && <button className="delete-button" onClick={() => HandleClick(post)}> Borrar </button>}
+          {admin && ( <button
+                  className="delete-button"
+                  onClick={() => eliminarPost(post.id)}>Borrar</button>
+              )}
         </div>
       ))}
       {posts.map((post, index) => (
