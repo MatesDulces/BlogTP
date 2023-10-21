@@ -45,7 +45,7 @@ function Home(props) {
       {lista.map((item, index1) => (
         <div className="container" key={index1}>
           <div className="lista2-item">
-            <h2>{item.title}</h2>
+            <h2>Autor: {item.title}</h2>
             <Markdown remarkPlugins={[remarkGfm]}>
               {item.text}
             </Markdown>
