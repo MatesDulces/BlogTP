@@ -41,7 +41,7 @@ function Home(props) {
           </ul>
         </nav>
       </header>
-      {lista.map((item, index1) => (
+      /* {lista.map((item, index1) => (
         <div className="container" key={index1}>
           <div className="lista2-item">
             <h2>{item.title}</h2>
@@ -54,7 +54,25 @@ function Home(props) {
                   onClick={() => eliminarPost(post.id)}>Borrar</button>
               )}
         </div>
-      ))}
+      ))} */
+      {lista.map((item, index1) => (
+  <div className="container" key={index1}>
+    <div className="lista2-item">
+      <h2>{item.title}</h2>
+      <Markdown remarkPlugins={[remarkGfm]}>
+        {item.text}
+      </Markdown>
+    </div>
+    {admin && (
+      <button
+        className="delete-button"
+        onClick={() => eliminarPost(item.id)} // Pasar item.id como argumento
+      >
+        Borrar
+      </button>
+    )}
+  </div>
+))}
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
