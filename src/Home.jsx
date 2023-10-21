@@ -21,14 +21,17 @@ function Home(props) {
     setLista2(tituloGuardado.reverse());
   }, []);
 
-  const eliminarPost = (postId) => {
+const eliminarPost = (postId) => {
     if (admin) {
+      // Solo permite la eliminación si es un administrador
       const updatedPosts = posts.filter((post) => post.id !== postId);
       setPosts(updatedPosts);
+
+      // Actualiza el almacenamiento local
       localStorage.setItem("lista", JSON.stringify(updatedPosts));
     }
   };
-
+  
   return (
     <div className="home">
       <header>
@@ -69,6 +72,14 @@ function Home(props) {
             </Markdown>
             <div className="boton-comentar">
               <Link to={`/comentar/${post.id}`}>Comentar</Link>
+               {admin && (
+                <button
+                  className="delete-button"
+                  onClick={() => eliminarPost(post.id)}
+                >
+                  Borrar
+                </button>
+              )}
             </div>
           </div>
         </div>
