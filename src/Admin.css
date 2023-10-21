@@ -19,23 +19,23 @@
   width: 300px;
 }
 
-h1 {
+.admin-container__title {
   font-size: 1.8em;
   margin: 0 0 20px;
 }
 
-.error-message {
+.admin-container__error-message {
   color: red;
   margin: 0 0 20px;
 }
 
-label {
+.admin-container__label {
   display: block;
   font-weight: bold;
   font-size: 1.2em;
 }
 
-input {
+.admin-container__password-input {
   width: 100%;
   padding: 10px;
   border: 1px solid #0f0;
@@ -46,7 +46,7 @@ input {
   font-family: 'Courier New', monospace;
 }
 
-button {
+.admin-container__button {
   background-color: #007bff;
   color: #0f0;
   border: none;
@@ -60,6 +60,6 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+.admin-container__button:hover {
   background-color: #0056b3;
 }
