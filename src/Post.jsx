@@ -60,7 +60,7 @@ function Post() {
         >
           <input
             type="text"
-            placeholder="TITULO"
+            placeholder="Autor"
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
           />
