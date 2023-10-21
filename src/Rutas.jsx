@@ -33,7 +33,7 @@ function Rutas() {
        <Route
         exact
         path="/Comentarios"
-        element={<Comentarios />}
+        element={<Comentarios admin={admin} />}
       />
         <Route path="/comentar/:postId" element={<Comentarios />} />
       
