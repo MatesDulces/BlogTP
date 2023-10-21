@@ -8,10 +8,9 @@ function Comentarios(props) {
   const { postId } = useParams();
   const [comentario, setComentario] = useState('');
   const { admin } = props;
-  const [autor, setAutor] = useState(''); // Nuevo estado para el nombre del autor
+  const [autor, setAutor] = useState('');
   const [comentarios, setComentarios] = useState([]);
 
-  // Cargar los comentarios previos desde el almacenamiento local al montar el componente.
   useEffect(() => {
     const comentariosGuardados = JSON.parse(localStorage.getItem(`comentarios${postId}`)) || [];
     setComentarios(comentariosGuardados);
@@ -19,16 +18,12 @@ function Comentarios(props) {
 
   const handleAgregarComentario = () => {
     if (comentario.trim() !== '') {
-      // Crear un comentario con el nombre del autor
       const nuevoComentario = {
         autor: autor,
         texto: comentario,
       };
       setComentarios([...comentarios, nuevoComentario]);
-
-      // Guardar los comentarios actualizados en el almacenamiento local
       localStorage.setItem(`comentarios${postId}`, JSON.stringify([...comentarios, nuevoComentario]));
-
       setComentario('');
     }
   };
