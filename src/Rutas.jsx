@@ -8,12 +8,6 @@ import Admin from "./Admin";
 import Comentarios from "./Comentarios";
 
 function Rutas() {
- /* const [almacen, setAlmacen] = useState([]);
-
-  useEffect(() => {
-    let localstorage = JSON.parse(localStorage.getItem("array"));
-    if (localstorage) setAlmacen(lolcalstorage);
-  }, []);*/
   
   const [admin,setAdmin] = useState();
  
