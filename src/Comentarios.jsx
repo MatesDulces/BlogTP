@@ -32,6 +32,7 @@ function Comentarios(props) {
       setComentario('');
     }
   };
+
   const handleBorrarComentario = (index) => {
     const comentariosActualizados = [...comentarios];
     comentariosActualizados.splice(index, 1);
