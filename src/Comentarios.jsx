@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import './Comentarios.css';
 
 function Comentarios(props) {
-  /*const { postId } = useParams();*/
+  const { postId } = useParams();
   const [comentario, setComentario] = useState('');
-  const { admin,postId } = props;
+  const { admin } = props;
   const [autor, setAutor] = useState('');
   const [comentarios, setComentarios] = useState([]);
 
