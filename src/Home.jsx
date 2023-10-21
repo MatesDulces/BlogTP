@@ -22,8 +22,8 @@ function Home(props) {
   }, []);
 
   function HandleClick(post) {
-    let elim = arr.filter((i) => i.id !== post.id);
-    setPost(elim);
+    let elim = posts.filter((i) => i.id !== post.id);
+    setPosts(elim);
     localStorage.setItem("post", JSON.stringify(elim));
     localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
   }
