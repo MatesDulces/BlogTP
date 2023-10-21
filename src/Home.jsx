@@ -21,12 +21,11 @@ function Home(props) {
     setLista2(tituloGuardado.reverse());
   }, []);
 
-  function HandleClick(cosa) {
-    console.log(cosa.id);
-    let elim = arr.filter((i) => i.id !== cosa.id);
-    setArr(elim);
+  function HandleClick(post) {
+    let elim = arr.filter((i) => i.id !== post.id);
+    setPost(elim);
     localStorage.setItem("post", JSON.stringify(elim));
-    localStorage.setItem(`comentarios${cosa.id}`, JSON.stringify([]));
+    localStorage.setItem(`comentarios${post.id}`, JSON.stringify([]));
   }
   /*const eliminarPost = (postId) => {
     if (admin) {
@@ -56,7 +55,7 @@ function Home(props) {
               {item.text}
             </Markdown>
           </div>
-        {admin && <button className="delete-button" onClick={() => eliminarPost(post.id)}> Borrar </button>}
+        {admin && <button className="delete-button" onClick={() => HandleClick(post.id)}> Borrar </button>}
         </div>
       ))}
       {posts.map((post, index) => (
