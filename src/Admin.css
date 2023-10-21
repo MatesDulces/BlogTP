@@ -1,0 +1,62 @@
+.admin-page {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* Gris claro */
+}
+
+/* Estilos para el contenedor interior */
+.admin-container {
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+/* Estilos para el título "Admin Login" */
+h1 {
+  font-size: 24px;
+  color: #1DA1F2; /* Azul de Twitter */
+}
+
+/* Estilos para el mensaje de error */
+.error-message {
+  color: #FF6347; /* Rojo oscuro */
+}
+
+/* Estilos para el campo de contraseña */
+.admin-container label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.admin-container input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+/* Estilos para los botones */
+.admin-container button {
+  background-color: #1DA1F2; /* Azul de Twitter */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* Estilos para el botón "Mostrar Contraseña" */
+.admin-container button:last-child {
+  background-color: #333; /* Gris oscuro */
+}
+
+/* Estilos para el botón "Mostrar Contraseña" (cuando se muestra la contraseña) */
+.admin-container button:last-child.show-password {
+  background-color: #1DA1F2; /* Azul de Twitter */
+}
