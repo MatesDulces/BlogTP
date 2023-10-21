@@ -33,14 +33,9 @@ function Comentarios(props) {
     }
   };
   const handleBorrarComentario = (index) => {
-    // Crear una copia de los comentarios actuales y eliminar el comentario en el índice especificado
     const comentariosActualizados = [...comentarios];
     comentariosActualizados.splice(index, 1);
-
-    // Actualizar el estado de comentarios
     setComentarios(comentariosActualizados);
-
-    // Guardar los comentarios actualizados en el almacenamiento local
     localStorage.setItem(`comentarios${postId}`, JSON.stringify(comentariosActualizados));
   };
 
