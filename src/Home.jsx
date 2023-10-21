@@ -48,7 +48,7 @@ function Home(props) {
               {item.text}
             </Markdown>
           </div>
-        {admin && (<button className="delete-button" onClick={() => eliminarPost(post.id)}> Borrar </button>)}
+        {admin && <button className="delete-button" onClick={() => eliminarPost(post.id)}> Borrar </button>}
         </div>
       ))}
       {posts.map((post, index) => (
