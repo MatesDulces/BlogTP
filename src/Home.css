@@ -1,95 +1,76 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+.home {
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-body {
-  background-color: rgb(109, 109, 109);
-  overflow-x: hidden;
+/* Estilos para el encabezado */
+h1.Twitter {
+  font-size: 24px;
+  color: #1DA1F2;
 }
 
-header{
-  background-color: #815c97;
-  color: #fff;
-  height: 13vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 100;
+/* Estilos para el menú de navegación */
+.nav-menu {
+  background-color: #1DA1F2;
+  padding: 10px;
 }
-
-/*header h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10vw;
-}*/
 
 .nav-menu ul {
   list-style: none;
-  display: flex;
-  align-items: center;
-  margin-right: 4vw;
+  padding: 0;
+  margin: 0;
 }
 
-.nav-menu ul li {
-  transition: all 0.3s;
-  
+.nav-menu li {
+  display: inline;
+  margin-right: 10px;
 }
 
-.nav-menu ul li:hover {
-  transform: scale(1.1);
-}
-
-.container {
-  margin-top: 15px;
-  border: 1px solid #f5f5f5;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  padding: 20px;
-  background-color: rgb(147, 21, 206);
-  width: 50vw;
-  transition: transform 0.5s; 
-  height: 15vh;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-.container:hover {
-  transform: scale(1.1);
-}
-
-
-.delete-button {
-  background-color: #640000;
+.nav-menu a {
   color: #fff;
-  cursor: pointer;
-  padding: 10px 20px;
-  border: none;
-  font-size: 10px;
-  font-weight: bold;
-  position: relative;
-  border-radius: 5px;
-  width: 5vw;
-}
-.delete-button:hover {
-  background-color: #4d0b0b;
-}
-
-.boton-comentar {
   text-decoration: none;
-  color: black;
 }
 
-.administrador {
-  color: rgb(0, 168, 0);
-  width: 100vw;
-  text-align: center;
-  font-size: 40px;
+/* Estilos para el modo Administrador si admin es verdadero */
+h1.administrador {
+  color: #FF6347; /* Rojo oscuro */
+}
+
+/* Estilos para los contenedores de elementos */
+.container {
+  background-color: #f5f5f5; /* Gris claro */
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* Estilos para los títulos de elementos */
+.container h2 {
+  font-size: 18px;
+  color: #333; /* Texto negro */
+  margin: 0;
+}
+
+/* Estilos para los botones de borrado */
+.delete-button {
+  background-color: #FF6347; /* Rojo oscuro */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Estilos para los botones de comentario */
+.boton-comentar {
+  margin-top: 10px;
+}
+
+/* Estilos para los enlaces */
+a {
+  color: #1DA1F2; /* Azul de Twitter */
+  text-decoration: none;
+}
+
+/* Estilos para los enlaces al pasar el ratón por encima */
+a:hover {
+  text-decoration: underline;
 }
