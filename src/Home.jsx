@@ -66,7 +66,7 @@ const eliminarPost = (postId) => {
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
-            <h2>{post.title}</h2>
+            <h2>Autor: {post.title}</h2>
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
