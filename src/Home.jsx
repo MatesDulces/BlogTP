@@ -50,6 +50,17 @@ function Home(props) {
           </div>
         </div>
       ))}
+      {lista.map((item, index1) => (
+        <div className="container" key={index1}>
+          <div className="lista2-item">
+            <h2>{item.title}</h2>
+            <Markdown remarkPlugins={[remarkGfm]}>
+              {item.text}
+            </Markdown>
+          </div>
+          {admin && <button className="delete-button" onClick={() => HandleClick(item)}>Borrar</button>}
+        </div>
+      ))}
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
@@ -57,13 +68,8 @@ function Home(props) {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
-            <div className= "boton-comentar">
+            <div className="boton-comentar">
               <Link to={`/comentar/${post.id}`}>Comentar</Link>
-              {admin && (
-                <button
-                  className="delete-button"
-                  onClick={() => eliminarPost(post.id)}>Borrar</button>
-              )}
             </div>
           </div>
         </div>
