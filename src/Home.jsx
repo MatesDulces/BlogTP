@@ -27,12 +27,12 @@ function Home(props) {
       localStorage.setItem("lista", JSON.stringify(updatedPosts));
     }
   };
-  return (
+    return (
     <div className="home">
       <header>
-        <h1 className="Twitter">Twitter 2</h1>
+      <h1 className="Twitter">Twitter 2</h1>
         <nav className="nav-menu">
-          {admin && <h1 className='administrador'>Modo Administrador</h1>}
+        {admin && <h1 className='administrador'>Modo Administrador</h1>}
           <ul>
             <li>
               <Link to="/post">Publicar tu post</Link>
