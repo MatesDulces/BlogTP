@@ -8,8 +8,8 @@ function Home(props) {
   const [posts, setPosts] = useState([]);
   const { admin } = props;
   const [lista, setLista] = useState([]);
-  const [lista2, setLista2] = useState ([]);
-  const [titulo, setTitulo] = useState ([]);
+  const [lista2, setLista2] = useState([]);
+  const [titulo, setTitulo] = useState([]);
 
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
@@ -20,7 +20,7 @@ function Home(props) {
     let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
     setLista2(tituloGuardado.reverse());
   }, []);
-  
+
   const eliminarPost = (postId) => {
     if (admin) {
       const updatedPosts = posts.filter((post) => post.id !== postId);
@@ -28,12 +28,13 @@ function Home(props) {
       localStorage.setItem("lista", JSON.stringify(updatedPosts));
     }
   };
-    return (
+
+  return (
     <div className="home">
       <header>
-      <h1 className="Twitter">Twitter 2</h1>
+        <h1 className="Twitter">Twitter 2</h1>
         <nav className="nav-menu">
-        {admin && <h1 className='administrador'>Modo Administrador</h1>}
+          {admin && <h1 className='administrador'>Modo Administrador</h1>}
           <ul>
             <li>
               <Link to="/post">Publicar tu post</Link>
@@ -42,23 +43,23 @@ function Home(props) {
         </nav>
       </header>
       {lista.map((item, index1) => (
-  <div className="container" key={index1}>
-    <div className="lista2-item">
-      <h2>{item.title}</h2>
-      <Markdown remarkPlugins={[remarkGfm]}>
-        {item.text}
-      </Markdown>
-    </div>
-    {admin && (
-      <button
-        className="delete-button"
-        onClick={() => eliminarPost(item.id)} // Pasar item.id como argumento
-      >
-        Borrar
-      </button>
-    )}
-  </div>
-))}
+        <div className="container" key={index1}>
+          <div className="lista2-item">
+            <h2>{item.title}</h2>
+            <Markdown remarkPlugins={[remarkGfm]}>
+              {item.text}
+            </Markdown>
+          </div>
+          {admin && (
+            <button
+              className="delete-button"
+              onClick={() => eliminarPost(item.id)} // Corregir para usar item.id
+            >
+              Borrar
+            </button>
+          )}
+        </div>
+      ))}
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
