@@ -20,12 +20,12 @@ header{
   z-index: 100;
 }
 
-header h1 {
+/*header h1 {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 10vw;
-}
+}*/
 
 .nav-menu ul {
   list-style: none;
@@ -72,10 +72,10 @@ header h1 {
   cursor: pointer;
   padding: 10px 20px;
   border: none;
-  font-size: 20px;
+  font-size: 10px;
   font-weight: bold;
   position: relative;
-  border-radius: 7px;
+  border-radius: 5px;
   width: 5vw;
 }
 .delete-button:hover {
