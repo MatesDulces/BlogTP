@@ -1,72 +1,65 @@
-.comment-container {
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
+.comentario {
+  font-family: Arial, sans-serif;
+  margin: 20px;
   padding: 20px;
-  border-radius: 5px;
+  background-color: #f5f5f5; /* Gris claro */
 }
 
-/* Estilo para los comentarios individuales */
-.comment {
+/* Estilos para el título de Comentarios del Post */
+h1 {
+  font-size: 24px;
+  color: #1DA1F2; /* Azul de Twitter */
+}
+
+/* Estilos para el campo de entrada de nombre del autor */
+.comentario input[type="text"] {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Estilos para el campo de entrada de comentario */
+.comentario textarea {
+  width: 100%;
   margin: 10px 0;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
 }
 
-/* Estilo para el nombre del autor */
-.author {
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-/* Estilo para el texto del comentario */
-.comment-text {
-  color: #333;
-}
-
-/* Estilo para el campo de entrada de texto del autor */
-.author-input {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Estilo para el campo de entrada de texto del comentario */
-.comment-input {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  resize: none;
-}
-
-/* Estilo para el botón de agregar comentario */
-.add-comment-button {
-  background-color: #007bff;
+/* Estilos para el botón de agregar comentario */
+.comentario button {
+  background-color: #1DA1F2; /* Azul de Twitter */
   color: #fff;
-  padding: 10px 15px;
   border: none;
-  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
-/* Estilo para el botón de agregar comentario al pasar el mouse por encima */
-.add-comment-button:hover {
-  background-color: #0056b3;
-}
-
-/* Estilo para el encabezado de comentarios anteriores */
-.comments-header {
+/* Estilos para el encabezado de Comentarios anteriores */
+.encabezado-comentarios h2 {
+  font-size: 18px;
   margin-top: 20px;
+  color: #333; /* Texto negro */
 }
 
-/* Estilo para el título de los comentarios anteriores */
-.comments-title {
-  font-weight: bold;
-  margin-bottom: 10px;
+/* Estilos para los comentarios anteriores */
+.comentario {
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Estilos para el nombre del autor en los comentarios anteriores */
+.comentario h3 {
+  color: #1DA1F2; /* Azul de Twitter */
+  margin: 0;
+}
+
+/* Estilos para el botón de borrar comentario (solo visible para administradores) */
+.comentario button {
+  background-color: #FF6347; /* Rojo oscuro */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }
