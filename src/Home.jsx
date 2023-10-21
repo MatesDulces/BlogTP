@@ -20,13 +20,21 @@ function Home(props) {
     let tituloGuardado = JSON.parse(localStorage.getItem("lista2")) || [];
     setLista2(tituloGuardado.reverse());
   }, []);
-  const eliminarPost = (postId) => {
+
+  function HandleClick(cosa) {
+    console.log(cosa.id);
+    let elim = arr.filter((i) => i.id !== cosa.id);
+    setArr(elim);
+    localStorage.setItem("post", JSON.stringify(elim));
+    localStorage.setItem(`comentarios${cosa.id}`, JSON.stringify([]));
+  }
+  /*const eliminarPost = (postId) => {
     if (admin) {
       const updatedPosts = posts.filter((post) => post.id !== postId);
       setPosts(updatedPosts);
       localStorage.setItem("lista", JSON.stringify(updatedPosts));
     }
-  };
+  };*/
     return (
     <div className="home">
       <header>
