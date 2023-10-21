@@ -53,7 +53,7 @@ function Home(props) {
           {admin && (
             <button
               className="delete-button"
-              onClick={() => eliminarPost(item.id)} // Corregir para usar item.id
+              onClick={() => eliminarPost(item.id)}
             >
               Borrar
             </button>
