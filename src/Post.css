@@ -9,6 +9,11 @@ h1 {
   font-size: 24px;
   color: #333;
 }
+.post-imagen {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
 
 form {
   display: flex;
