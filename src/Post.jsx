@@ -7,6 +7,7 @@ import './Post.css';
 function Post() {
   const [titulo, setTitulo] = useState("");  
   const [nombre, setNombre] = useState("");
+  const [imagen, setImagen] = useState(""); // Nuevo estado para la URL de la imagen
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState([]);  
   const [markdownPreview, setMarkdownPreview] = useState("");
@@ -25,12 +26,13 @@ function Post() {
     setLista2(storedLista2);
   }, []);
 
-  const agregarTexto = (titulo, texto) => { 
+  const agregarTexto = (titulo, texto, imagen) => { 
     if (titulo.trim() !== "" && texto.trim() !== "") {
       const nuevoItem = { 
         id: lastId + 1, 
         title: titulo, 
         text: texto, 
+        image: imagen || null, // Agregar URL de la imagen si está disponible
         type: "item" 
       };
 
@@ -45,6 +47,7 @@ function Post() {
 
       setTitulo("");  
       setNombre("");
+      setImagen(""); // Restablecer URL de la imagen
       setMarkdownPreview("");
     }
   };
@@ -55,7 +58,7 @@ function Post() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            agregarTexto(titulo, nombre);  
+            agregarTexto(titulo, nombre, imagen); // Pasar la URL de la imagen
           }}
         >
           <input
@@ -73,7 +76,14 @@ function Post() {
               setMarkdownPreview(e.target.value);
             }}
           />
+          <input
+            type="text"
+            placeholder="URL de la imagen (opcional)"
+            value={imagen}
+            onChange={(e) => setImagen(e.target.value)}
+          />
           <Markdown remarkPlugins={[remarkGfm]}>{markdownPreview}</Markdown>
+          {imagen && <img src={imagen} alt="Vista previa" className="post-imagen" />}
           <button type="submit">AGREGAR</button>
         </form>
       </div>
