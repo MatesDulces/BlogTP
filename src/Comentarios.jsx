@@ -7,6 +7,7 @@ import './Comentarios.css';
 function Comentarios(props) {
   const { postId } = useParams();
   const [comentario, setComentario] = useState('');
+  const [imagen, setImagen] = useState('');
   const { admin } = props;
   const [autor, setAutor] = useState('');
   const [comentarios, setComentarios] = useState([]);
@@ -21,10 +22,12 @@ function Comentarios(props) {
       const nuevoComentario = {
         autor: autor,
         texto: comentario,
+        imagen: imagen || null, // Agregar URL de la imagen si está disponible
       };
       setComentarios([...comentarios, nuevoComentario]);
       localStorage.setItem(`comentarios${postId}`, JSON.stringify([...comentarios, nuevoComentario]));
       setComentario('');
+      setImagen('');
     }
   };
 
@@ -50,6 +53,12 @@ function Comentarios(props) {
           value={comentario}
           onChange={(e) => setComentario(e.target.value)}
         />
+        <input
+          type="text"
+          placeholder="URL de la imagen (opcional)"
+          value={imagen}
+          onChange={(e) => setImagen(e.target.value)}
+        />
         <button onClick={handleAgregarComentario}>Agregar Comentario</button>
       </div>
       {comentarios.length > 0 && (
@@ -61,6 +70,7 @@ function Comentarios(props) {
         <div key={index} className="comentario">
           <h3>Usuario: {comentario.autor}</h3>
           <Markdown remarkPlugins={[remarkGfm]}>{comentario.texto}</Markdown>
+          {comentario.imagen && <img src={comentario.imagen} alt="Comentario" className="comentario-imagen" />}
           {admin && (
             <button onClick={() => handleBorrarComentario(index)}>Borrar Comentario</button>
           )}
