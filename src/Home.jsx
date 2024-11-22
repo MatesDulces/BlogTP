@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home(props) {
@@ -9,7 +9,6 @@ function Home(props) {
   const { admin } = props;
   const [lista, setLista] = useState([]);
   const [lista2, setLista2] = useState([]);
-  const [titulo, setTitulo] = useState([]);
 
   useEffect(() => {
     let postsGuardados = JSON.parse(localStorage.getItem("lista")) || [];
@@ -21,7 +20,7 @@ function Home(props) {
     setLista2(tituloGuardado.reverse());
   }, []);
 
-const eliminarPost = (postId) => {
+  const eliminarPost = (postId) => {
     if (admin) {
       // Solo permite la eliminación si es un administrador
       const updatedPosts = posts.filter((post) => post.id !== postId);
@@ -31,7 +30,7 @@ const eliminarPost = (postId) => {
       localStorage.setItem("lista", JSON.stringify(updatedPosts));
     }
   };
-  
+
   return (
     <div className="home">
       <header>
@@ -45,24 +44,6 @@ const eliminarPost = (postId) => {
           </ul>
         </nav>
       </header>
-      {lista.map((item, index1) => (
-        <div className="container" key={index1}>
-          <div className="lista2-item">
-            <h2>Autor: {item.title}</h2>
-            <Markdown remarkPlugins={[remarkGfm]}>
-              {item.text}
-            </Markdown>
-          </div>
-          {admin && (
-            <button
-              className="delete-button"
-              onClick={() => eliminarPost(item.id)}
-            >
-              Borrar
-            </button>
-          )}
-        </div>
-      ))}
       {posts.map((post, index) => (
         <div className="container" key={index}>
           <div className="post-item">
@@ -70,9 +51,17 @@ const eliminarPost = (postId) => {
             <Markdown remarkPlugins={[remarkGfm]}>
               {post.text}
             </Markdown>
+            {/* Mostrar la imagen si existe */}
+            {post.image && (
+              <img
+                src={post.image}
+                alt="Post"
+                className="post-image"
+              />
+            )}
             <div className="boton-comentar">
               <Link to={`/comentar/${post.id}`}>Comentar</Link>
-               {admin && (
+              {admin && (
                 <button
                   className="delete-button"
                   onClick={() => eliminarPost(post.id)}
